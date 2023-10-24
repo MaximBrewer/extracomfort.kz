@@ -26,6 +26,9 @@ class Product extends Model
         parent::boot();
         static::addGlobalScope('offers', function (Builder $builder) {
             $builder->with('offers');
+            $builder->with('category');
+            $builder->with('similars');
+            $builder->with('reviews');
         });
     }
 
