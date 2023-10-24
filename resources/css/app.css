@@ -1,0 +1,101 @@
+@import "./style.css";
+@import "./output.css";
+@import "./mmenu.css";
+
+@import "./slick.css";
+@import "./slick-theme.css";
+
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar {
+    /*Толщина скролла*/
+    width: 6px;
+    height: 6px;
+    position: relative;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    /*Цвет скролла*/
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    /*Закругление ползунка*/
+    background-color: #ccc;
+    /*Цвет ползунка*/
+}
+
+* {
+    scrollbar-color: #ccc transparent;
+    scrollbar-width: thin;
+}
+
+.facility-text p {
+    @apply mb-4
+}
+
+.facility-text h2 {}
+
+.facility-text h3 {
+    @apply text-[36px] font-normal mb-4
+}
+
+.facility-text h4 {
+    @apply text-[20px] font-bold mb-4
+}
+
+.facility-text h5 {}
+
+.facility-text h6 {}
+
+.facility-text1 ul,
+.facility-text2 ul,
+.facility-text3 ul {
+    @apply flex items-center flex-wrap gap-2.5 p-0 ml-0 mr-0 mt-2 mb-6
+}
+
+
+.facility-text1 ul li,
+.facility-text2 ul li,
+.facility-text3 ul li {
+    @apply list-none flex items-center before:bg-check before:bg-center before:bg-no-repeat before:bg-contain before:block before:w-5 before:h-5 before:mr-2 p-2 bg-[#CDC2D4] rounded-xl text-purple-900
+}
+
+
+
+.facility-text1 em,
+.facility-text2 em,
+.facility-text3 em {
+    @apply list-none flex items-center before:bg-info before:bg-center before:bg-no-repeat before:bg-contain before:block before:w-7 before:h-7 before:mr-4 py-2 px-4 bg-white rounded-xl not-italic leading-tight font-normal
+}
+
+.facility-text5 ol li {
+    @apply mb-3;
+}
+
+.facility-text5 ol li strong {
+    @apply text-[#27ABE1];
+}
+
+.facility-text6 ul li {
+    @apply mb-3 list-none flex items-center before:bg-markr before:bg-center before:bg-no-repeat before:bg-contain before:block before:w-8 before:h-8 before:mr-2
+}
+
+.pagination {
+    @apply flex flex-wrap items-center gap-2.5
+}
+
+.pagination .page-item .page-link {
+    @apply min-w-[2rem] h-8 flex items-center justify-center text-purple-900 text-sm rounded-full border border-purple-900
+}
+
+.pagination .page-item.active .page-link {
+    @apply bg-purple-900 shadow text-white
+}
+
+.pagination .page-item .page-link svg {
+    @apply w-4 h-4
+}
