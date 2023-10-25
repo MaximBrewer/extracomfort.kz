@@ -55,6 +55,25 @@ var setts = {
     }]
 };
 
+var settst = {
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
+    // centerMode: true,
+    // dots: true,
+    // vertical: true,
+    // centerMode: true,
+    // infinite: true,
+    centerPadding: 32,
+    responsive: [{
+        breakpoint: 992,
+        settings: {
+            slidesToShow: 2
+        }
+    }]
+};
+
 
 export default (props) => {
 
@@ -279,15 +298,17 @@ export default (props) => {
             </div>
             <div className="container-outer">
                 <div className="text-[32px] font-semibold mb-4 text-center">Отзывы</div>
-                <div className="pb-24 grid grid-cols-2 lg:grid-cols-4 gap-6">
-                    {testimonials.data.map((item, index) => <div key={index} className="bg-slate-50 p-4 rounded-lg">
-                        <div className="mb-5 flex flex-col justify-center items-center">
-                            <div className="w-12 lg:w-16 h-12 lg:h-16 bg-center bg-cover bg-no-repeat rounded-full" style={{ backgroundImage: `url('${item.photo}')` }} />
+                <Slider {...settst} className="testimonial-slider">
+                    {testimonials.data.map((item, index) => <div key={index} className="px-4">
+                        <div className="bg-slate-50 p-4 rounded-lg">
+                            <div className="mb-5 flex flex-col justify-center items-center">
+                                <div className="w-12 lg:w-16 h-12 lg:h-16 bg-center bg-cover bg-no-repeat rounded-full" style={{ backgroundImage: `url('${item.photo}')` }} />
+                            </div>
+                            <div className="text-center mb-4 text-lg font-bold">{item.name}</div>
+                            <div className="text-zinc-900">{item.text}</div>
                         </div>
-                        <div className="text-center mb-4 text-lg font-bold">{item.name}</div>
-                        <div className="text-zinc-900">{item.text}</div>
                     </div>)}
-                </div>
+                </Slider>
             </div>
             <div className="container-outer">
                 <div className="text-[26px] font-semibold text-center">О компании</div>

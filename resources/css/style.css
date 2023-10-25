@@ -1166,7 +1166,6 @@ footer {
 .footer__navbar {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
 }
 
 .footer-navbar-item__title {
