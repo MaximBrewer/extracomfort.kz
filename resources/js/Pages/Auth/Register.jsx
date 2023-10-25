@@ -1,12 +1,9 @@
 import { useEffect } from 'react';
 import Layout from '@/Layouts/Layout';
 import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
-import TopCategories from '@/Components/TopCategories';
 import Breadcrumbs from '@/Components/Breadcrumbs';
+import Checked from "@/../images/checked.png"
 
 export default function Register(props) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -51,6 +48,7 @@ export default function Register(props) {
                             <div style={{ width: `50%` }}>
                                 <input
                                     id="name"
+                                    type="text"
                                     name="name"
                                     value={data.name} className="reg__input"
                                     autoComplete="name"
@@ -63,7 +61,7 @@ export default function Register(props) {
                             <div style={{ width: `50%` }}>
                                 <input
                                     id="email"
-                                    type="text"
+                                    type="email"
                                     name="email"
                                     value={data.email} className="reg__input"
                                     autoComplete="username"
@@ -105,6 +103,26 @@ export default function Register(props) {
 
                             <InputError message={errors.password_confirmation} />
                         </div>
+
+                        <div className="reg-form__col">
+                            <label className="flex items-center gap-3">
+                                <div className="relative flex items-center justify-center w-5 h-5 rounded-[3px] border border-purple-900">
+                                    <input
+                                        id="accept"
+                                        type="checkbox"
+                                        name="accept"
+                                        className="peer hidden absolute"
+                                        value={data.accept}
+                                        onChange={(e) => setData('accept', e.target.checked)}
+                                    />
+                                    <img src={Checked} className="opacity-0 peer-checked:opacity-100 absolute max-w-none" />
+                                </div>
+                                <span>я согласен на обработку и сбор персональных данных</span>
+                            </label>
+
+                            <InputError message={errors.accept} />
+                        </div>
+
 
                         <div className="reg-form__btn-wrapper fw-700-16-20">
                             {/* <Link

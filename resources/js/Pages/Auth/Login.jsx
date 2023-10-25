@@ -1,13 +1,9 @@
 import { useEffect } from 'react';
-import Checkbox from '@/Components/Checkbox';
 import Layout from '@/Layouts/Layout';
 import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
-import TopCategories from '@/Components/TopCategories';
 import Breadcrumbs from '@/Components/Breadcrumbs';
+import Checked from "@/../images/checked.png"
 
 export default function Login(props) {
 
@@ -83,14 +79,22 @@ export default function Login(props) {
                         </div>
 
                         <div className="reg-form__col flex items-center justify-between">
-                            <label className="flex items-center">
-                                <Checkbox
-                                    name="remember"
-                                    checked={data.remember}
-                                    onChange={(e) => setData('remember', e.target.checked)}
-                                />
-                                <span className="ml-2 text-sm text-gray-600">Запомнить</span>
+
+                            <label className="flex items-center gap-3">
+                                <div className="relative flex items-center justify-center w-5 h-5 rounded-[3px] border border-purple-900">
+                                    <input
+                                        id="remember"
+                                        type="checkbox"
+                                        name="remember"
+                                        className="peer hidden absolute"
+                                        value={data.remember}
+                                        onChange={(e) => setData('remember', e.target.checked)}
+                                    />
+                                    <img src={Checked} className="opacity-0 peer-checked:opacity-100 absolute max-w-none" />
+                                </div>
+                                <span>Запомнить</span>
                             </label>
+
                             <Link
                                 href={route('password.request')}
                                 className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

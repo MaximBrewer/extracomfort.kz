@@ -53,12 +53,11 @@ export default function ForgotPassword(props) {
                             <InputError message={errors.email} className="mt-2" />
                         </div>
 
-                        <div className="flex items-center justify-end mt-4">
-                            <PrimaryButton className="ml-4" disabled={processing}>
-                                Отправить ссылку
-                            </PrimaryButton>
 
+                        <div class="reg-form__btn-wrapper fw-700-16-20">
+                            <button className="btn-primary" disabled={processing}>Отправить ссылку</button>
                         </div>
+                        
                         {status && <div className="mt-4 font-medium text-sm text-green-600">{status}</div>}
                     </form>
                     <br />
