@@ -163,6 +163,12 @@ export default (props) => {
                                             <div className="top-0 left-0 bottom-0 right-0 absolute backdrop-blur" />
                                         </div>
                                     </div>)}
+                                    {aboutImages.data.length < 4 ? aboutImages.data.map((item, index) => <div key={index} className="orthopedic-slide-item">
+                                        <div className="relative">
+                                            <img src={item.image} alt="" className="w-full block" />
+                                            <div className="top-0 left-0 bottom-0 right-0 absolute backdrop-blur" />
+                                        </div>
+                                    </div>) : <></>}
                                 </Slider>
                             </div>
                         </div>

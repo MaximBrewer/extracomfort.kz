@@ -1432,6 +1432,11 @@ footer {
   min-width: 100%;
 }
 
+.slick-vertical .slick-track {
+  display: block;
+}
+
+
 .catalogue-breadcrumb-item {
   font-family: var(--mont-ff);
   color: rgba(0, 0, 0, 0.5);
