@@ -50,16 +50,13 @@ export default function Login(props) {
                     <div className="registration-section__title catalogue-section__title center fw-700-45-55">
                         <p>Вход</p>
                     </div>
-
-                    <div className="registration-section__subtitle reg-subtitle fw-400-16-19">
-                        <p>Идейные соображения высшего порядка, а также реализация намеченных плановых заданий играет важную роль в формировании систем массового участия.</p>
-                    </div>
                     <form className="registration-section__form reg-form fw-400-16-19" onSubmit={submit}>
                         <div className="reg-form__col">
 
                             <input
                                 id="email"
                                 name="email"
+                                type="email"
                                 value={data.email}
                                 className="reg__input"
                                 autoComplete="username"
@@ -85,18 +82,15 @@ export default function Login(props) {
                             <InputError message={errors.password} className="mt-2" />
                         </div>
 
-                        <div className="reg-form__col">
+                        <div className="reg-form__col flex items-center justify-between">
                             <label className="flex items-center">
                                 <Checkbox
                                     name="remember"
                                     checked={data.remember}
                                     onChange={(e) => setData('remember', e.target.checked)}
                                 />
-                                <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                                <span className="ml-2 text-sm text-gray-600">Запомнить</span>
                             </label>
-                        </div>
-
-                        <div className="flex items-center justify-end mt-4">
                             <Link
                                 href={route('password.request')}
                                 className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -104,7 +98,10 @@ export default function Login(props) {
                                 Забыли пароль?
                             </Link>
 
-                            <PrimaryButton className="ml-4" disabled={processing}>Войти</PrimaryButton>
+                        </div>
+
+                        <div class="reg-form__btn-wrapper fw-700-16-20">
+                            <button className="btn-primary" disabled={processing}>Войти</button>
                         </div>
 
                         {status && <div className="mt-4 font-medium text-sm text-green-600">{status}</div>}

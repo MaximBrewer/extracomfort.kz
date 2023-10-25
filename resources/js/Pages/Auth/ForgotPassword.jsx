@@ -37,10 +37,6 @@ export default function ForgotPassword(props) {
                     <div className="registration-section__title catalogue-section__title center fw-700-45-55">
                         <p>Восстановление пароля</p>
                     </div>
-
-                    <div className="registration-section__subtitle reg-subtitle fw-400-16-19">
-                        <p>Идейные соображения высшего порядка, а также реализация намеченных плановых заданий играет важную роль в формировании систем массового участия.</p>
-                    </div>
                     <form className="registration-section__form reg-form fw-400-16-19" onSubmit={submit}>
                         <div className="reg-form__col">
                             <input
