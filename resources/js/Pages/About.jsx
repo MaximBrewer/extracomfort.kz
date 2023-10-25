@@ -69,7 +69,19 @@ var settings = {
 
 export default (props) => {
 
-    const { pagetitle, youtube, rewards, aboutImages, aboutBannerTop, aboutBannerTopText, aboutBannerTopButtonText } = props
+    const {
+        pagetitle,
+        youtube,
+        rewards,
+        aboutImages
+    } = props
+
+
+    const {
+        aboutBannerTop,
+        aboutBannerTopText,
+        aboutBannerTopButtonText
+    } = window.appdata;
 
     const { setModal } = useLayout()
 
