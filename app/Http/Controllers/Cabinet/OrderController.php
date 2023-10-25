@@ -164,9 +164,7 @@ class OrderController extends Controller
             'user_id' => null,
             'session_id' => null
         ]);
-        return redirect()->route('cabinet.orders.index', [
-            'order' => $order->id
-        ]);
+        return redirect()->route('cabinet.orders.thanks');
     }
 
     /**

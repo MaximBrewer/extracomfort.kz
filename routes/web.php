@@ -86,7 +86,6 @@ Route::middleware('shop')->group(function () {
 
     Route::middleware('auth')->group(function () {
         Route::resource('/reviews', ReviewController::class)->only(['store', 'index']);
-
         Route::group(['prefix' => 'cabinet', 'as' => 'cabinet.'], function () {
             Route::get('/', Cabinet\Controller::class)->name('index');
             Route::put('/password', [Cabinet\PasswordController::class, 'update'])->name('password.update');

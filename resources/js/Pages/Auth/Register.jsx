@@ -52,7 +52,6 @@ export default function Register(props) {
                                     name="name"
                                     value={data.name} className="reg__input"
                                     autoComplete="name"
-                                    isFocused={true}
                                     onChange={(e) => setData('name', e.target.value)}
                                     placeholder={`Имя`}
                                 />

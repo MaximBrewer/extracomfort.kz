@@ -28,8 +28,8 @@ export default (props) => {
                                         <p>Продолжить покупки</p>
                                     </div>
                                 </Link>
-                                <Link href={route('home')} className="btn-secondary thank-you__btn-secondary fw-700-16-20 center">
-                                    <p>Вернуться на главную</p>
+                                <Link href={route('cabinet.orders.index')} className="btn-secondary thank-you__btn-secondary fw-700-16-20 center">
+                                    <p>Мои заказы</p>
                                 </Link>
                             </div>
                         </div>

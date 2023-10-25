@@ -71,7 +71,6 @@ export default function ResetPassword(props) {
                                 value={data.password}
                                 className="reg__input"
                                 autoComplete="new-password"
-                                isFocused={true}
                                 onChange={(e) => setData('password', e.target.value)}
                             />
                             <InputError message={errors.password} className="mt-2" />

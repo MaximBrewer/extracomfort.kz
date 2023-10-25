@@ -45,7 +45,6 @@ export default function ForgotPassword(props) {
                                 name="email"
                                 value={data.email}
                                 className="reg__input"
-                                isFocused={true}
                                 placeholder={`E-mail`}
                                 onChange={(e) => setData('email', e.target.value)}
                             />
@@ -54,7 +53,7 @@ export default function ForgotPassword(props) {
                         </div>
 
 
-                        <div class="reg-form__btn-wrapper fw-700-16-20">
+                        <div className="reg-form__btn-wrapper fw-700-16-20">
                             <button className="btn-primary" disabled={processing}>Отправить ссылку</button>
                         </div>
                         

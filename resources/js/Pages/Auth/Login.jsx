@@ -56,7 +56,6 @@ export default function Login(props) {
                                 value={data.email}
                                 className="reg__input"
                                 autoComplete="username"
-                                isFocused={true}
                                 onChange={(e) => setData('email', e.target.value)}
                                 placeholder={`E-mail`}
                             />
@@ -104,7 +103,7 @@ export default function Login(props) {
 
                         </div>
 
-                        <div class="reg-form__btn-wrapper fw-700-16-20">
+                        <div className="reg-form__btn-wrapper fw-700-16-20">
                             <button className="btn-primary" disabled={processing}>Войти</button>
                         </div>
 

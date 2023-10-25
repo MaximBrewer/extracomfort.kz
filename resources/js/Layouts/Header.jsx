@@ -39,7 +39,7 @@ export default (props) => {
 
     const { post } = useForm({});
 
-    const { cart, shoppage = false, servicepage = false, sitenote = `` } = usePage().props
+    const { cart, favorites, shoppage = false, servicepage = false, sitenote = `` } = usePage().props
 
     useEffect(() => {
 
@@ -87,6 +87,7 @@ export default (props) => {
                                     <Link href={route('cabinet.favorites.index')} className="inline-flex items-center">
                                         <Heart className="w-5 h-5 shrink-0 mr-2.5" />
                                     </Link>
+                                    {favorites.length ? <div className="basket-count">{favorites.length}</div> : ``}
                                 </li>
                                 {cart ? <li className="navbar-list__item center">
                                     <Link href={route('cart.index')} className="inline-flex items-center">

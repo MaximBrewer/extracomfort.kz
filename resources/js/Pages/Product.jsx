@@ -128,11 +128,7 @@ export default (props) => {
                 preserveScroll: true
             })
         else
-            router.patch(route(`favorite.toggle`), {
-                item: product.data.id
-            }, {
-                preserveScroll: true
-            })
+            router.visit(route(`login`))
     }
 
 
