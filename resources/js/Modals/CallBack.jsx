@@ -59,7 +59,7 @@ export default (props) => {
                     onChange={(e) => setData('message', e.target.value)}
                     placeholder={`Сообщение`}
                 />
-                <InputError message={errors.phone} />
+                <InputError message={errors.message} />
             </div>
             <div className="ordering-btn-wrapper fw-700-16-20">
                 <button className="btn-primary px-5 py-3">Отправить</button>
