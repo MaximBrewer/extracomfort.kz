@@ -5,9 +5,7 @@ import Breadcrumbs from '@/Components/Breadcrumbs';
 
 export default (props) => {
 
-    const { pagetitle = ``, posts } = props
-
-    console.log(posts)
+    const { pagetitle = ``, posts, categories, category = null } = props
 
     return (
         <Layout {...props}>
@@ -20,7 +18,16 @@ export default (props) => {
                         </div>
                     </div>
                 </div>
-                <div className="catalogue-section__title refund__title center fw-700-45-55 mb-11">Статьи</div>
+                <div className="catalogue-section__title refund__title center fw-700-45-55 mb-8">Статьи</div>
+                <ul className="flex items-center justify-center gap-8 flex-wrap mb-6">
+                    {categories.data.map((cat, cdx) => <li key={cdx} >
+                        <Link
+                            className={`py-2 px-4 border border-purple-900 rounded-full ${category && category.data.id === cat.id ? `bg-purple-900 text-white` : `text-purple-900`}`}
+                            href={route('articles', {
+                                cid: cat.id
+                            })}
+                        >{cat.title}</Link></li>)}
+                </ul>
                 <div className="articles-outer pb-12">
                     <div className="articles-inner grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-8 mb-12">
                         {posts.data.map((post, pdx) => <Link href={route(`post`, {

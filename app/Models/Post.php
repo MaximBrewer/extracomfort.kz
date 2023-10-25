@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use TCG\Voyager\Facades\Voyager;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use TCG\Voyager\Traits\Resizable;
 use TCG\Voyager\Traits\Translatable;
 
@@ -30,5 +29,10 @@ class Post extends Model
     public function scopePublished(Builder $query)
     {
         return $query->where('status', '=', static::PUBLISHED);
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(PostCategory::class, 'category_id');
     }
 }
