@@ -43,6 +43,9 @@ export default {
                 },
                 sky: {
                     300: "#77DAE9"
+                },
+                purple: {
+                    900: "#56326E"
                 }
             },
             backgroundImage: {

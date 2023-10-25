@@ -4,7 +4,7 @@ import { Head } from '@inertiajs/react';
 import PromotionBlockImg from "../../images/promotion-block-img.png"
 import Slider from 'react-slick';
 
-export default ({ auth, pagetitle = `` }) => {
+export default (props, { pagetitle = `` }) => {
 
 
     var settings = {
@@ -25,9 +25,7 @@ export default ({ auth, pagetitle = `` }) => {
 
 
     return (
-        <Layout
-            user={auth.user}
-        >
+        <Layout {...props}>
             <Head title={pagetitle} />
             <div className="hero">
             </div>
