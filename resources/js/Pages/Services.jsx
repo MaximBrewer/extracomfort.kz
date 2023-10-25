@@ -1,22 +1,19 @@
 import Layout from "@/Layouts/Layout";
 import { Head, Link } from "@inertiajs/react";
 
-import ImgMain1 from "@/../images/img-main-1.jpg"
 import FormAppDoctor from "@/Components/FormAppDoctor";
 import Slider from 'react-slick';
 import Breadcrumbs from "@/Components/Breadcrumbs";
 import CallBack from "@/Modals/CallBack";
 import { useLayout } from "@/Contexts/LayoutContext";
 import FacilityTizer from "@/Components/FacilityTizer";
-import ImgOrthopedic1 from "@/../images/img-orthopedic-1.png"
-import ImgAbout1 from "@/../images/img-about-1.png"
 import parse from "html-react-parser"
 
 import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/24/solid';
 
 
 function PrevArrow(props) {
-    const { className, style, onClick } = props;
+    const { className, onClick } = props;
     return (
         <div
             className={`${className} z-10 left-0 lg:left-24 top-1/2 -translate-y-1/2 bg-purple-900 rounded-full w-10 lg:w-[62px] h-10 lg:h-[62px] flex items-center justify-center text-[#C7C7C7]`}
@@ -28,7 +25,7 @@ function PrevArrow(props) {
 }
 
 function NextArrow(props) {
-    const { className, style, onClick } = props;
+    const { className, onClick } = props;
     return (
         <div
             className={`${className} z-10 right-0 lg:right-24 top-1/2 -translate-y-1/2 bg-purple-900 rounded-full w-10 lg:w-[62px] h-10 lg:h-[62px] flex  items-center justify-center text-[#C7C7C7]`}
@@ -110,7 +107,7 @@ export default (props) => {
                     </div>
                     <div className="container-outer flex flex-col justify-between h-full py-8">
                         <div className="main-content flex flex-col justify-center items-center text-center w-full">
-                            <div className="text-3xl font-bold max-w-4xl mx-auto text-center text-white">{parse(item.title ?? ``)}</div>
+                            <div className="text-3xl max-w-4xl mx-auto text-center text-white">{parse(item.title ?? ``)}</div>
                             <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
                                 e.preventDefault()
                                 setModal(<CallBack />)
