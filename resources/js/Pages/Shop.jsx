@@ -1,12 +1,8 @@
 import Layout from '@/Layouts/Layout';
 import { Head, Link } from '@inertiajs/react';
 
-import Main1Img from "@/../images/img-main-1.jpg"
 import Slider from 'react-slick';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
-import NoPhoto from '@/Icons/NoPhoto';
-import Cart2 from '@/Icons/Cart2';
-import Star from '@/Icons/Star';
 import ProductTizer from '@/Components/ProductTizer';
 import CategoryTizer from '@/Components/CategoryTizer';
 

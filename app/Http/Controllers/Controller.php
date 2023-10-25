@@ -42,7 +42,7 @@ class Controller extends BaseController
         $copyright = setting('site.copyright');
 
         $aboutBannerTop = Voyager::image(setting('about.banner_top_image'));
-        $aboutBannerTopText = setting('about.banner_top_text');
+        $aboutBannerTopText = nl2br(setting('about.banner_top_text'));
         $aboutBannerTopButtonText = setting('about.banner_top_btn_text');
 
         $shopBannerTop = Voyager::image(setting('shop.banner_top_image'));

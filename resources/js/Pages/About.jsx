@@ -1,15 +1,13 @@
 import Layout from '@/Layouts/Layout';
 import { Head, Link } from '@inertiajs/react';
 
-import ImgOrthopedic1 from "@/../images/img-orthopedic-1.png"
-import ImgAbout1 from "@/../images/img-about-1.png"
-
 import Slider from 'react-slick';
 
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
 import FormAppDoctor from '@/Components/FormAppDoctor';
 import CallBack from '@/Modals/CallBack';
 import { useLayout } from '@/Contexts/LayoutContext';
+import parse from "html-react-parser"
 
 
 function PrevArrow(props) {
@@ -48,22 +46,6 @@ var settings = {
     centerMode: true,
     infinite: true,
     centerPadding: `0px`
-    // responsive: [{
-    //     breakpoint: 992,
-    //     settings: {
-    //         slidesToShow: 3
-    //     }
-    // }, {
-    //     breakpoint: 768,
-    //     settings: {
-    //         slidesToShow: 2
-    //     }
-    // }, {
-    //     breakpoint: 460,
-    //     settings: {
-    //         slidesToShow: 1
-    //     }
-    // }]
 };
 
 
@@ -92,7 +74,7 @@ export default (props) => {
                 <div className="main-bg brightness-50" style={{ backgroundImage: `url(${aboutBannerTop})` }} />
                 <div className="container-outer">
                     <div className="main-content flex flex-col justify-center text-center">
-                        <div className="main-subtitle">{aboutBannerTopText}</div>
+                        <div className="main-subtitle">{parse(aboutBannerTopText ?? ``)}</div>
                         <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
                             e.preventDefault()
                             setModal(<CallBack />)
