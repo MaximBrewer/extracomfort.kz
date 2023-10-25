@@ -61,9 +61,25 @@ var setts = {
 
 export default (props) => {
 
-    const { pagetitle, banners, statistics, testimonials, stattitle, statsubtitle, aboutImages, abouttext1, abouttext2 } = props;
+    const {
+        pagetitle,
+        banners,
+        statistics,
+        testimonials,
+        stattitle,
+        statsubtitle,
+        aboutImages,
+        abouttext1,
+        abouttext2
+    } = props;
 
-    const { facilities } = window.appdata
+    const {
+        facilities,
+        servicesBannerBottom,
+        servicesBannerBottomTitle,
+        servicesBannerBottomText,
+        servicesBannerBottomButtonText
+    } = window.appdata;
 
     const { setModal } = useLayout()
 
@@ -316,18 +332,14 @@ export default (props) => {
             </div>
         </div>
 
-        <div className="bottom-banner">
+        <div className="bottom-banner" style={{ backgroundImage: `url(${servicesBannerBottom})` }}>
             <div className="container-outer">
                 <div className="bottom-banner__outer">
                     <div className="bottom-banner__inner">
-                        <div className="bottom-banner__title fw-700-36-50">
-                            <p>Магазин ортопедических товаров</p>
-                        </div>
-                        <div className="bottom-banner__subtitle fw-700-26-35">
-                            <p>Основна сфера деяльности – краткое описание желательно в две строки</p>
-                        </div>
+                        <div className="bottom-banner__title fw-700-36-50">{servicesBannerBottomTitle}</div>
+                        <div className="bottom-banner__subtitle fw-700-26-35">{servicesBannerBottomText}</div>
                         <div className="my-6 text-center">
-                            <Link href={route('shop')} className="main-page-link-btn -green">Перейти</Link>
+                            <Link href={route('shop')} className="main-page-link-btn -green">{servicesBannerBottomButtonText}</Link>
                         </div>
                     </div>
                 </div>

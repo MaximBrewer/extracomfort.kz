@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Inertia\Inertia;
+use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Models\Menu;
 
 class Controller extends BaseController
@@ -40,7 +41,19 @@ class Controller extends BaseController
         $copyright = setting('site.copyright');
         $copyright = setting('site.copyright');
 
+        $shopBannerTop = Voyager::image(setting('shop.banner_top_image'));
+        $shopBannerTopText = setting('shop.banner_top_text');
+        $shopBannerTopButtonText = setting('shop.banner_top_btn_text');
 
+        $shopBannerBottom = Voyager::image(setting('shop.banner_bottom_image'));
+        $shopBannerBottomText = setting('shop.banner_bottom_text');
+        $shopBannerBottomTitle = setting('shop.banner_bottom_title');
+        $shopBannerBottomButtonText = setting('shop.banner_bottom_btn_text');
+
+        $servicesBannerBottom = Voyager::image(setting('services.banner_bottom_image'));
+        $servicesBannerBottomTitle = setting('services.banner_bottom_title');
+        $servicesBannerBottomText = setting('services.banner_bottom_text');
+        $servicesBannerBottomButtonText = setting('services.banner_bottom_btn_text');
 
         View::share('appdata', compact(
             'menus',
@@ -50,6 +63,17 @@ class Controller extends BaseController
             'footeremail',
             'footerphone',
             'headerphone',
+            'shopBannerBottom',
+            'shopBannerBottomTitle',
+            'shopBannerBottomText',
+            'shopBannerBottomButtonText',
+            'shopBannerTop',
+            'shopBannerTopText',
+            'shopBannerTopButtonText',
+            'servicesBannerBottom',
+            'servicesBannerBottomTitle',
+            'servicesBannerBottomText',
+            'servicesBannerBottomButtonText',
             'copyright'
         ));
     }
