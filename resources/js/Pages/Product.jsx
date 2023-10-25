@@ -466,7 +466,6 @@ export default (props) => {
                             <div className="similar-products-title-label similar-products__similar-products-title-label fw-700-45-55 color_white">
                                 <p>Похожие товары</p>
                             </div>
-
                             <Slider {...settings} className="similar-products-slick">
                                 {product.data.similars.map((item, index) => <div key={index} className="">
                                     <div className="catalogue-item">
@@ -474,9 +473,25 @@ export default (props) => {
                                     </div>
                                 </div>)}
                             </Slider>
-                            <div className="similar-products__btn-wrapper">
-                                <button className="btn-primary similar-products__btn-primary fw-400-18-30">Посмотреть все</button>
+                        </div>
+                    </div>
+                </div>
+            </div> : ``}
+            {product.data.relateds.length ? <div className="similar-products bg_aqua">
+                <div className="container-outer">
+                    <div className="similar-products__outer">
+                        <div className="similar-products__inner">
+                            <div className="similar-products-title-label similar-products__similar-products-title-label fw-700-45-55 color_white">
+                                <p>С этим товаром покупают</p>
                             </div>
+
+                            <Slider {...settings} className="similar-products-slick">
+                                {product.data.relateds.map((item, index) => <div key={index} className="">
+                                    <div className="catalogue-item">
+                                        <ProductTizer item={item} />
+                                    </div>
+                                </div>)}
+                            </Slider>
                         </div>
                     </div>
                 </div>

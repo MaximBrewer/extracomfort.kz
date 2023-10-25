@@ -46,6 +46,7 @@ class Product extends JsonResource
         $arr['reviewsCount'] = 12 . ' ' . Lang::choice('отзыв|отзыва|отзывов', 12, [], 'ru');
         $arr['reviews'] = Review::collection($this->reviews);
         $arr['similars'] = ProductTizer::collection($this->similars);
+        $arr['relateds'] = ProductTizer::collection($this->relateds);
         
         $arr['sizes'] = $sizes;
         return $arr;
