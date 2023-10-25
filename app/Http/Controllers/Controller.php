@@ -28,7 +28,7 @@ class Controller extends BaseController
     public function __construct()
     {
 
-        $topCategory = Category::whereNull('parent_id')->firstOrFail();
+        $topCategory = Category::whereNull('parent_id')->orderBy('id')->firstOrFail();
         $categories = ResourcesCategory::collection(Category::where('parent_id', $topCategory->id)->with('children')->get());
         $facilities = ResourcesFacility::collection(Facility::whereNull('parent_id')->with('children')->get());
 
