@@ -2451,8 +2451,8 @@ footer {
 
 
 .similar-products__outer {
-  padding-block-start: 112px;
-  padding-block-end: 117px;
+  padding-block-start: 4rem;
+  padding-block-end: 4rem;
 }
 
 .similar-products__similar-products-title-label {
@@ -2462,7 +2462,7 @@ footer {
 }
 
 .similar-products-slick.slick-slider {
-  margin-bottom: 110px;
+  margin-bottom: 2rem;
 }
 
 .similar-products-slick-main.slick-slider {
