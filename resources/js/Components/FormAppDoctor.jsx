@@ -69,8 +69,8 @@ export default (props) => {
     return <div className="form-app-doctor">
         <div className="form-app-doctor-content">
             <div className="form-app-doctor-title">
-                <h4>Запишитесь к Врачу </h4>
-                <p>Оставьте контактные данные, выберите услугу и салон</p>
+                <h4>Запишитесь к Врачу</h4>
+                <p>Оставьте контактные данные и выберите услугу</p>
             </div>
             <form action="" className="form-app-doctor-form" onSubmit={submit}>
                 <div className="grid sm:grid-cols-3 gap-x-3 gap-y-3 lg:w-[576px] 2xl:w-[768px]">

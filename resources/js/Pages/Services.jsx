@@ -256,11 +256,8 @@ export default (props) => {
                         </div>
                     </div>
                 </div> */}
-                <div className="pb-16">
-                    <FormAppDoctor />
-                </div>
             </div>
-            <div className="container-outer">
+            <div className="container-outer pt-16">
                 <div className="text-[32px] font-semibold mb-4 text-center">{stattitle}</div>
                 <div className="text-zinc-400 text-[28px] mb-10 text-center">{statsubtitle}</div>
                 <div className="pb-24 grid grid-cols-2 lg:grid-cols-4 gap-12">
@@ -273,6 +270,11 @@ export default (props) => {
                         </div>
                         <div className="text-zinc-900">{item.title}</div>
                     </div>)}
+                </div>
+            </div>
+            <div className="container-outer">
+                <div className="pb-16">
+                    <FormAppDoctor />
                 </div>
             </div>
             <div className="container-outer">
@@ -297,6 +299,12 @@ export default (props) => {
                                 <div className="top-0 left-0 bottom-0 right-0 absolute backdrop-blur" />
                             </div>
                         </div>)}
+                        {aboutImages.data.length < 4 ? aboutImages.data.map((item, index) => <div key={index} className="about-slide-item">
+                            <div className="relative">
+                                <img src={item.image} alt="" className="w-full block" />
+                                <div className="top-0 left-0 bottom-0 right-0 absolute backdrop-blur" />
+                            </div>
+                        </div>) : <></>}
                     </Slider>
                 </div>
                 <div className="pb-24 grid grid-cols-1 lg:grid-cols-2 gap-6 abouttext">
