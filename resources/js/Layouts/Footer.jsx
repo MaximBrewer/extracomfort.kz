@@ -44,7 +44,7 @@ export default () => {
                             <div className="footer-navbar-item__title fw-600-18-22">Контакты</div>
                             <div className="footer-contacts-wrapper">
                                 <div className="mb-5">
-                                    <div className="font-semibold">Филиал на Комиссарова 22:</div>
+                                    <div className="font-semibold">Главный офис на Комиссарова 22:</div>
                                     <div className="lg:whitespace-nowrap">+7 (778) 276 23 43 (телефон и  <a href="https://wa.me/+77782762343" target="_blank" className="inline underline">WhatsApp</a>)</div>
                                 </div>
                                 <div className="mb-5">
