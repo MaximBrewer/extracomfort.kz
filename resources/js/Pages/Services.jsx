@@ -110,7 +110,7 @@ export default (props) => {
                     </div>
                     <div className="container-outer flex flex-col justify-between h-full py-8">
                         <div className="main-content flex flex-col justify-center items-center text-center w-full">
-                            <div className="text-3xl font-bold max-w-4xl mx-auto text-center text-white">{item.title}</div>
+                            <div className="text-3xl font-bold max-w-4xl mx-auto text-center text-white">{parse(item.title ?? ``)}</div>
                             <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
                                 e.preventDefault()
                                 setModal(<CallBack />)
