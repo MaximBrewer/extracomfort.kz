@@ -41,6 +41,10 @@ class Controller extends BaseController
         $copyright = setting('site.copyright');
         $copyright = setting('site.copyright');
 
+        $aboutBannerTop = Voyager::image(setting('about.banner_top_image'));
+        $aboutBannerTopText = setting('about.banner_top_text');
+        $aboutBannerTopButtonText = setting('about.banner_top_btn_text');
+
         $shopBannerTop = Voyager::image(setting('shop.banner_top_image'));
         $shopBannerTopText = setting('shop.banner_top_text');
         $shopBannerTopButtonText = setting('shop.banner_top_btn_text');
@@ -63,6 +67,9 @@ class Controller extends BaseController
             'footeremail',
             'footerphone',
             'headerphone',
+            'aboutBannerTop',
+            'aboutBannerTopText',
+            'aboutBannerTopButtonText',
             'shopBannerBottom',
             'shopBannerBottomTitle',
             'shopBannerBottomText',

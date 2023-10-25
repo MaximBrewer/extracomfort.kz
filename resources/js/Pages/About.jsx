@@ -69,7 +69,7 @@ var settings = {
 
 export default (props) => {
 
-    const { pagetitle, youtube, rewards, aboutImages } = props
+    const { pagetitle, youtube, rewards, aboutImages, aboutBannerTop, aboutBannerTopText, aboutBannerTopButtonText } = props
 
     const { setModal } = useLayout()
 
@@ -77,21 +77,14 @@ export default (props) => {
         <Layout {...props}>
             <Head title={pagetitle} />
             <div className="main-block">
-                <div className="main-bg brightness-50">
-                    <img src={ImgAbout1} alt="Хруст в коленях – норма или повод обратиться к врачу?" />
-                </div>
+                <div className="main-bg brightness-50" style={{ backgroundImage: `url(${aboutBannerTop})` }} />
                 <div className="container-outer">
                     <div className="main-content flex flex-col justify-center text-center">
-                        <h1 className="main-title">
-                            о компании
-                        </h1>
-                        <p className="main-subtitle">
-                            Ортопедический центр Extra Comfort работает с 2006 года. <br /> Мы - первооткрыватели ортопедического центра в Казахстане.
-                        </p>
+                        <div className="main-subtitle">{aboutBannerTopText}</div>
                         <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
                             e.preventDefault()
                             setModal(<CallBack />)
-                        }}>Заказать звонок</a>
+                        }}>{aboutBannerTopButtonText}</a>
                     </div>
                 </div>
             </div>
