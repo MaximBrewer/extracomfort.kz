@@ -258,7 +258,7 @@ export default (props) => {
                                                 <div className="product-description__card-size-wrapper">
                                                     <div className="product-description__card-size-label fw-700-14-17 flex gap-2">
                                                         <span>{sp.title}</span>
-                                                        {sp.id === 1 && product.data.sizes && product.data.sizes.length ? <a href="#" onClick={e => {
+                                                        {sp.id === 1 && product.data.sizes && (product.data.sizes.image || product.data.sizes.html) ? <a href="#" onClick={e => {
                                                             e.preventDefault()
                                                             setModal(<Sizes sizes={product.data.sizes} />)
                                                         }} className="product-description__card-size-link fw-400-14-17">Подобрать размер</a> : ``}

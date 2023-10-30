@@ -60,7 +60,7 @@ const LayoutProvider = (props) => {
         {children}
         {
 
-            modal ? <div className={`flex flex-col items-center overflow-y-auto fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-200`} onClick={() => setModal(null)} >
+            modal ? <div className={`flex flex-col items-center overflow-y-auto fixed top-0 left-0 w-screen lg:w-full h-full bg-black bg-opacity-50 z-200`} onClick={() => setModal(null)} >
                 <div className={`relative mx-auto my-4 lg:my-24 px-4 lg:px-6`} onClick={(e) => {
                     document.dispatchEvent(new Event('clickinmodal'))
                     e.stopPropagation()
