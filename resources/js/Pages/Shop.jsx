@@ -81,7 +81,7 @@ export default (props) => {
                 <div className="main-bg bg-cover bg-no-repeat bg-center" style={{ backgroundImage: `url(${shopBannerTop})` }} />
                 <div className="container-outer">
                     <div className="main-content">
-                        <h1 className="text-3xl max-w-4xl mx-auto text-white xl:w-2/3">{shopBannerTopText}</h1>
+                        <h1 className="text-3xl max-w-4xl text-white xl:w-2/3">{shopBannerTopText}</h1>
                         <Link href={route('catalog')}><button className="btn-primary fw-700-16-20 py-4 px-6 mt-7">{shopBannerTopButtonText}</button></Link>
                     </div>
                 </div>
