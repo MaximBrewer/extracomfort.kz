@@ -69,4 +69,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Product::class, 'product_related');
     }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'entity');
+    }
 }
