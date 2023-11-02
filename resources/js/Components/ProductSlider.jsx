@@ -7,6 +7,8 @@ export default (props) => {
     const { pagetitle, product } = props
     const { images } = product.data
 
+    console.log(images)
+
     const [nav1, setNav1] = useState(null);
     const [nav2, setNav2] = useState(null);
     const slider1 = useRef(null);
@@ -41,13 +43,13 @@ export default (props) => {
         <div className="product-slider">
             <Slider {...settings} className="product-slider" ref={slider1}>
                 {images.map((image, idx) => <div key={idx} className="slick-slide p-4">
-                    <div className="w-full h-full bg-no-repeat bg-center bg-contain pt-[100%]" style={{ backgroundImage: `url('${image}')` }} />
+                    <div className="w-full h-full bg-no-repeat bg-center bg-contain pt-[100%]" style={{ backgroundImage: `url('${image.url}')` }} />
                 </div>)}
             </Slider>
             {images.length > 1 ? <Slider {...thumbsettings} className="product-slider__nav block" ref={slider2}>
                 {images.map((image, idx) => <div key={idx} className="slick-slide">
                     <div className="product-slider__nav-item mx-auto">
-                        <div className="w-full h-full bg-no-repeat bg-center bg-contain pt-[100%]" style={{ backgroundImage: `url('${image}')` }} />
+                        <div className="w-full h-full bg-no-repeat bg-center bg-contain pt-[100%]" style={{ backgroundImage: `url('${image.url}')` }} />
                     </div>
                 </div>)}
             </Slider> : ``}

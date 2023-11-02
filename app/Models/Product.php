@@ -27,6 +27,7 @@ class Product extends Model
         static::addGlobalScope('offers', function (Builder $builder) {
             $builder->with('offers');
             $builder->with('category');
+            $builder->with('images');
         });
     }
 
@@ -72,6 +73,6 @@ class Product extends Model
 
     public function images()
     {
-        return $this->morphMany(Image::class, 'entity');
+        return $this->morphMany(ProductImage::class, 'entity');
     }
 }

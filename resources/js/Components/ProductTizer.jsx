@@ -8,12 +8,14 @@ export default ({ item }) => {
 
     const { numWord } = useLayout();
 
+    console.log(item.images)
+
     return <>
         <Link href={route('product', {
             product: item.id
         })} className="catalogue__item-photo-wrapper">
             <div className="catalogue__item-photo">
-                {item.images.length ? <div className='pt-[100%] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url('${item.images[0]}')` }} /> : <div className="pt-[100%] relative">
+                {item.images.length ? <div className='pt-[100%] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url('${item.images[0].url}')` }} /> : <div className="pt-[100%] relative">
                     <NoPhoto className="absolute w-full h-auto text-gray-300 top-1/2 -translate-y-1/2" />
                 </div>}
             </div>

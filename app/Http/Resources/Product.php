@@ -40,13 +40,17 @@ class Product extends JsonResource
         //         ];
         //     }
         // }
+
+
         $arr = parent::toArray($request);
+        
         $arr['stock'] = 'Наличие';
         $arr['offers'] = Offer::collection($this->offers);
         $arr['reviewsCount'] = 12 . ' ' . Lang::choice('отзыв|отзыва|отзывов', 12, [], 'ru');
-        $arr['reviews'] = Review::collection($this->reviews);
-        $arr['similars'] = ProductTizer::collection($this->similars);
-        $arr['relateds'] = ProductTizer::collection($this->relateds);
+        $arr['reviews'] = $this->reviews ? Review::collection($this->reviews) : [];
+        $arr['similars'] = $this->similars ? ProductTizer::collection($this->similars) : [];
+        $arr['relateds'] = $this->relateds ? ProductTizer::collection($this->relateds) : [];
+        $arr['images'] = $arr['images'] ? ProductImage::collection($arr['images']) : [];
 
         $arr['sizes'] = [
             'html' => $arr['sizes_html'],

@@ -4,8 +4,9 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use TCG\Voyager\Facades\Voyager;
 
-class ProductTizer extends JsonResource
+class ProductImage extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,7 +16,8 @@ class ProductTizer extends JsonResource
     public function toArray(Request $request): array
     {
         $arr = parent::toArray($request);
-        $arr['images'] = $arr['images'] ? ProductImage::collection($arr['images']) : [];
-        return $arr;
+        return [
+            'url' => Voyager::image($arr['link'])
+        ];
     }
 }

@@ -1,17 +1,10 @@
 import Breadcrumbs from '@/Components/Breadcrumbs';
-import Paginate from '@/Components/Paginate';
 import ProductSlider from '@/Components/ProductSlider';
 import Layout from '@/Layouts/Layout';
 import { Head, Link, router, useForm } from '@inertiajs/react';
 import Slider from 'react-slick';
 import InStock from "../../images/in-stock-tick.svg"
 import Phone from "../../images/phone.svg"
-import MastercardLogo from "../../images/mastercard-logo.svg"
-import VisaLogo from "../../images/visa-logo.svg"
-import ScaleIcon from "../../images/scale-icon.svg"
-import Money from "../../images/money.svg"
-import Avatar from "../../images/avatar.svg"
-import CatalogueItemPhoto from "../../images/catalogue-item-photo.svg"
 import Cart from '@/Icons/Cart';
 import Heart from '@/Icons/Heart';
 import { useEffect, useRef, useState } from 'react';

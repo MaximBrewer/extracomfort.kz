@@ -14,6 +14,8 @@ class CartItemTizerOffer extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        $arr = parent::toArray($request);
+        $arr['product'] = new ProductTizer($this->product);
+        return $arr;
     }
 }

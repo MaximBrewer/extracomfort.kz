@@ -47,7 +47,7 @@ export default (props) => {
                                         <div className="flex flex-col items-start gap-x-6 gap-y-3">
                                             {order.cart.items.map((item) => <div key={item.id} className="flex flex-col md:flex-row items-start gap-x-6 gap-y-3">
                                                 <div className="current-order-img shrink-0">
-                                                    {item.offer.product.images.length ? <div className='pt-[100%] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url('${item.offer.product.images[0]}')` }} /> : <div className="pt-[100%] relative">
+                                                    {item.offer.product.images.length ? <div className='pt-[100%] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url('${item.offer.product.images[0].url}')` }} /> : <div className="pt-[100%] relative">
                                                         <NoPhoto className="absolute w-full h-auto text-gray-300 top-1/2 -translate-y-1/2" />
                                                     </div>}
                                                 </div>

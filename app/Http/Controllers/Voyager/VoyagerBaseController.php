@@ -218,7 +218,7 @@ class VoyagerBaseController extends BaseVoyagerBaseController
             foreach ($morphMany as $row) {
                 $sort = 100;
                 $ids = [];
-                $field = str_replace(['product_morphmany_', '_relationship'], '', $row->field) . 's';
+                $field = $row->details->field ? $row->details->field : $row->field;
                 if ($request->get('old' . $field)) {
                     foreach ($request->get('old' . $field) as $id) {
                         $image = $data->{$field}()->find($id);
@@ -231,7 +231,6 @@ class VoyagerBaseController extends BaseVoyagerBaseController
                     foreach ($request->file($field) as $file) {
                         $path = Storage::disk(config('voyager.storage.disk'))->put('/images/' . $slug . '/' . $data->id, $file);
                         $image = $data->{$field}()->create([
-                            'md5' => md5($path),
                             'link' => $path,
                             'sort' => $sort
                         ]);

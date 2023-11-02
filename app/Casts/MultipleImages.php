@@ -15,10 +15,10 @@ class MultipleImages implements CastsAttributes
      */
     public function get(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        if (!strstr(request()->route()->uri, 'admin/')) {
-            $value = (array)json_decode($value, true);
-            foreach ($value as &$v) $v = Voyager::image($v);
-        }
+        // if (!strstr(request()->route()->uri, 'admin/')) {
+        //     $value = (array)json_decode($value, true);
+        //     foreach ($value as &$v) $v = Voyager::image($v);
+        // }
         return $value;
     }
 
