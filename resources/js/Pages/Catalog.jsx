@@ -9,8 +9,6 @@ export default (props) => {
 
     const { pagetitle } = props
 
-    const { categories } = window.appdata
-
     return (
         <Layout {...props} >
             <Head title={pagetitle} />
@@ -22,7 +20,7 @@ export default (props) => {
                         <Total />
                         <Sort />
                     </div>
-                    <Main categories={categories} />
+                    <Main />
                 </div>
             </div>
         </Layout>

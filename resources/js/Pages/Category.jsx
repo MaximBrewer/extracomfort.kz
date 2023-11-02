@@ -20,7 +20,7 @@ export default (props) => {
                         <Total />
                         <Sort />
                     </div>
-                    <Main categories={categories.data} />
+                    <Main />
                 </div>
             </div>
         </Layout>

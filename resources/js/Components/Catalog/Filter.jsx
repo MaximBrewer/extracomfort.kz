@@ -76,7 +76,12 @@ export default (props) => {
         clearTimeout(timeOutRef.current)
     }
 
+    const [show, setShow] = useState(false)
+
     useEffect(() => {
+        specifications.data.map(item => {
+            if (item.values.length) setShow(true)
+        })
         document.addEventListener('inertia:start', clearTimeoutRef)
         return () => {
             clearTimeout(timeOutRef.current)
@@ -84,12 +89,12 @@ export default (props) => {
         }
     }, [])
 
-    return <ul className="filter-sidebar catalogue__filter-sidebar fw-400-16-19">
+    return show ? <ul className="filter-sidebar catalogue__filter-sidebar fw-400-16-19">
         <li className="filter-sidebar__title center">Фильтр</li>
         <ul className="filter-sidebar__inner">
             {specifications.data.map((item) => <Fragment key={item.id}>
                 {item.values.length ? <Item item={item} filter={filter} setFilter={setFilter} /> : ``}
             </Fragment>)}
         </ul>
-    </ul>
+    </ul> : <></>
 }

@@ -28,9 +28,12 @@ class CatalogController extends Controller
         }
 
         $specifications = Specification::all();
+        
+        $topCategory = Category::whereNull('parent_id')->orderBy('id')->firstOrFail();
 
         return Inertia::render('Catalog', [
             'pagetitle' => __('Каталог'),
+            'categories' => ResourcesCategory::collection(Category::where('parent_id', $topCategory->id)->with('children')->get()),
             'products' => ResourcesProduct::collection($products->paginate(12)->appends(request()->only(['sort', 'order']))),
             'specifications' => ResourcesSpecification::collection($specifications),
             'sort' => $request->sort,
