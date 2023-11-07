@@ -280,14 +280,14 @@ export default (props) => {
                 <div className="text-[32px] font-semibold mb-4 text-center">{stattitle}</div>
                 <div className="text-zinc-400 text-[28px] mb-10 text-center">{statsubtitle}</div>
                 <div className="pb-24 grid grid-cols-2 lg:grid-cols-4 gap-12">
-                    {statistics.data.map((item, index) => <div key={index} className="">
+                    {statistics.data.map((item, index) => <div key={index} className="flex flex-col">
                         <div className="flex justify-between items-center mb-5">
                             <div className="w-24 lg:w-36 h-24 lg:h-36 bg-slate-50 rounded-full flex items-center justify-center shrink-0">
                                 <div className="w-12 lg:w-16 h-12 lg:h-16 bg-center bg-contain bg-no-repeat" style={{ backgroundImage: `url('${item.icon}')` }} />
                             </div>
                             {index < statistics.data.length - 1 ? <ChevronRightIcon className="w-8 h-8 shrink-0" /> : <></>}
                         </div>
-                        <div className="text-zinc-900 font-bold text-lg bg-slate-50 p-3 rounded">{item.title}</div>
+                        <div className="text-zinc-900 font-bold text-lg bg-slate-50 p-3 rounded grow">{item.title}</div>
                     </div>)}
                 </div>
             </div>
