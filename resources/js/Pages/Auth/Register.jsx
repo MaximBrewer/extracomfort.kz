@@ -27,7 +27,7 @@ export default function Register(props) {
 
     return (
         <Layout {...props}>
-            <Head title="Register" />
+            <Head title="Регистрация" />
             <div className="catalogue-categories">
                 <div className="container-outer">
                     <div className="catalogue-categories__outer">

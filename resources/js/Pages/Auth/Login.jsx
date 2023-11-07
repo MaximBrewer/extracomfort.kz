@@ -29,7 +29,7 @@ export default function Login(props) {
 
     return (
         <Layout {...props}>
-            <Head title="Log in" />
+            <Head title="Вход" />
             <div className="catalogue-categories">
                 <div className="container-outer">
                     <div className="catalogue-categories__outer">

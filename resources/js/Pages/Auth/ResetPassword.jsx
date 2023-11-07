@@ -31,7 +31,7 @@ export default function ResetPassword(props) {
 
     return (
         <Layout {...props}>
-            <Head title="Сброс Password" />
+            <Head title="Сброс пароля" />
             <div className="catalogue-categories">
                 <div className="container-outer">
                     <div className="catalogue-categories__outer">
@@ -68,6 +68,7 @@ export default function ResetPassword(props) {
                                 id="password"
                                 type="password"
                                 name="password"
+                                placeholder="Новый пароль"
                                 value={data.password}
                                 className="reg__input"
                                 autoComplete="new-password"
@@ -80,6 +81,7 @@ export default function ResetPassword(props) {
                             <input
                                 type="password"
                                 name="password_confirmation"
+                                placeholder="Подтвердите пароль"
                                 value={data.password_confirmation}
                                 className="reg__input"
                                 autoComplete="new-password"

@@ -25,15 +25,15 @@ export default function ConfirmPassword(props) {
 
     return (
         <Layout {...props}>
-            <Head title="Confirm Password" />
+            <Head title="Подтверждение пароля" />
 
             <div className="mb-4 text-sm text-gray-600">
-                This is a secure area of the application. Please confirm your password before continuing.
+                Это безопасная область приложения. Пожалуйста, подтвердите свой пароль, прежде чем продолжить.
             </div>
 
             <form onSubmit={submit}>
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <InputLabel htmlFor="password" value="Пароль" />
 
                     <TextInput
                         id="password"
@@ -48,12 +48,13 @@ export default function ConfirmPassword(props) {
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
-                    <PrimaryButton className="ml-4" disabled={processing}>
-                        Confirm
-                    </PrimaryButton>
+                <div className="reg-form__btn-wrapper fw-700-16-20">
+                    <button className="btn-primary" disabled={processing}>Подтвердить</button>
                 </div>
+
             </form>
+            <br />
+            <br />
         </Layout>
     );
 }
