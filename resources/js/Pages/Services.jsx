@@ -287,7 +287,7 @@ export default (props) => {
                             </div>
                             {index < statistics.data.length - 1 ? <ChevronRightIcon className="w-8 h-8 shrink-0" /> : <></>}
                         </div>
-                        <div className="text-zinc-900">{item.title}</div>
+                        <div className="text-zinc-900 font-bold text-lg bg-slate-50 p-3 rounded">{item.title}</div>
                     </div>)}
                 </div>
             </div>
