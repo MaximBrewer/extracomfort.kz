@@ -90,9 +90,7 @@ export default function ResetPassword(props) {
                         </div>
 
                         <div className="flex items-center justify-end mt-4">
-                            <PrimaryButton className="ml-4" disabled={processing}>
-                                Сбросить пароль
-                            </PrimaryButton>
+                            <button className="btn-primary" disabled={processing}>Сбросить пароль</button>
                         </div>
                     </form>
                 </div>
