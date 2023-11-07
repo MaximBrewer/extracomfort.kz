@@ -803,7 +803,7 @@ header .header__bottom .header-bottom-inner .header-media-icons-wrapper .header-
 }
 
 .main-block {
-  min-height: 44rem;
+  min-height: 30rem;
   position: relative;
   display: flex;
   align-items: center;
@@ -5960,7 +5960,7 @@ footer {
   }
 
   .main-block {
-    min-height: 30rem;
+    min-height: 27rem;
   }
 
   .main-title {

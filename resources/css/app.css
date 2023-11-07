@@ -99,3 +99,7 @@
 .pagination .page-item .page-link svg {
     @apply w-4 h-4
 }
+
+.prose.text-white * {
+    color: white;
+}

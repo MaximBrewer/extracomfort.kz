@@ -26,9 +26,9 @@ export default (props) => {
                 <img src={current.data.image} alt={current.data.title} />
             </div>
             <div className="container-outer">
-                <div className="main-content flex flex-col justify-center text-center">
-                    <h1 className="main-title">{current.data.title}</h1>
-                    <p className="main-subtitle">{current.data.subtitle}</p>
+                <div className="main-content flex flex-col justify-center text-center ">
+                    <div className="prose-xl text-white mx-auto">{parse(current.data.title ?? ``)}</div>
+                    {/* <div className="prose text-white mx-auto">{parse(current.data.subtitle ?? ``)}</div> */}
                     <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
                         e.preventDefault()
                         setModal(<CallBack />)
