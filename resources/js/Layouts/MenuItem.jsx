@@ -22,7 +22,7 @@ export default ({ item, mobile = false }) => {
     return <li className={`navbar-list__item ${mobile ? `` : `center`}`} ref={parentRef}>
         {item.children.length ? <>
             <button className="text-white text-center inline-flex items-center" type="button" onClick={e => setOpen(prev => !prev)}>
-                <span>О нас</span>
+                <span>{item.title}</span>
                 <ChevronDown className="w-2.5 h-2.5 ml-2.5" />
             </button>
             {open ? <div className="about-dropdown block">
