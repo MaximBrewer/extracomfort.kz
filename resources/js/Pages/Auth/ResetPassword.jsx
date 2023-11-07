@@ -89,7 +89,7 @@ export default function ResetPassword(props) {
                             <InputError message={errors.password_confirmation} className="mt-2" />
                         </div>
 
-                        <div className="flex items-center justify-end mt-4">
+                        <div className="reg-form__btn-wrapper fw-700-16-20">
                             <button className="btn-primary" disabled={processing}>Сбросить пароль</button>
                         </div>
                     </form>
