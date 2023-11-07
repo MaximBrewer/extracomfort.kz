@@ -93,6 +93,8 @@ export default function ResetPassword(props) {
                             <button className="btn-primary" disabled={processing}>Сбросить пароль</button>
                         </div>
                     </form>
+                    <br />
+                    <br />
                 </div>
             </div>
         </Layout>
