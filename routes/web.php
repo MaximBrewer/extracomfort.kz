@@ -18,6 +18,7 @@ use App\Http\Controllers\CallBackController;
 use App\Http\Controllers\ConsultController;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\FacilitiesController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\GiftsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PartnerController;
@@ -47,6 +48,7 @@ Route::get('/about', AboutController::class)->name('about');
 Route::get('/team', TeamController::class)->name('team');
 Route::get('/partners', PartnerController::class)->name('partners');
 Route::get('/gifts', GiftsController::class)->name('gifts');
+Route::get('/faq', FaqController::class)->name('faq');
 Route::get('/consult', ConsultController::class)->name('consult');
 Route::get('/rent', RentController::class)->name('rent');
 
