@@ -15,7 +15,7 @@ const Item = ({ item, filter, setFilter }) => {
                             type="checkbox"
                             name={`specification-${item.id}`}
                             id={`specification-${item.id}-${vdx}`}
-                            defaultChecked={filter[item.accounting_id].indexOf(value) > -1}
+                            // defaultChecked={filter[item.accounting_id].indexOf(value) > -1}
                             onChange={e => {
                                 setFilter(prev => {
                                     const filter = { ...prev }
