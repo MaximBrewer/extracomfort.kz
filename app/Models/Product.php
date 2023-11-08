@@ -14,7 +14,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $perPage = 250;
+    protected $perPage = 50;
 
     /**
      * Default sort by created_at desc.
