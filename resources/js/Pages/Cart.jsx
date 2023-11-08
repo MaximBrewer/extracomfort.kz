@@ -273,7 +273,6 @@ export default (props) => {
                                                     <div className="ordering-product-desc ordering-cart__ordering-product-desc">
                                                         <div className="ordering-product-photo ordering-product-desc__ordering-product-photo center" style={{ flex: 0 }}>
                                                             <div className="w-20">
-                                                                {console.log(item)}
                                                                 {item.offer.product.images.length ? <div className='pt-[100%] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url('${item.offer.product.images[0].url}')` }} /> : <div className="pt-[100%] relative">
                                                                     <NoPhoto className="absolute w-full h-auto text-gray-300 top-1/2 -translate-y-1/2" />
                                                                 </div>}

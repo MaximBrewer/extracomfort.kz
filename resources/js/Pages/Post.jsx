@@ -5,7 +5,6 @@ import parse from "html-react-parser"
 
 export default (props) => {
 
-    console.log(props)
     const { pagetitle = ``, post, next, prev } = props
     const { moment } = useLayout()
 

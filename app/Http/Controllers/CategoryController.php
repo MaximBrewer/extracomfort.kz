@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Category as ResourcesCategory;
+use App\Http\Resources\Option as ResourcesOption;
 use App\Http\Resources\Product as ResourcesProduct;
 use App\Http\Resources\Specification as ResourcesSpecification;
 use App\Models\Category;
 use App\Models\Facet;
+use App\Models\Option;
 use App\Models\Product;
 use App\Models\Specification;
 use Illuminate\Database\Eloquent\Builder;
@@ -50,12 +52,20 @@ class CategoryController extends Controller
         $facets = Facet::groupBy('specification_accounting_id')->pluck('specification_accounting_id');
 
         foreach ($facets as $fk) {
+            if ($fk === 'func') continue;
             if ($fv = $request->get($fk)) {
                 $products->whereHas('facets',  function (Builder $query) use ($fk, $fv) {
                     $query->where('specification_accounting_id', $fk);
                     $query->whereIn('specification_value', explode(":::", $fv));
                 });
             }
+        }
+
+        if ($fv = $request->get('func')) {
+            $products->whereHas('optionValues',  function (Builder $query) use ($fv) {
+                $query->where('option_id', 1);
+                $query->whereIn('title', explode(":::", $fv));
+            });
         }
 
         $breadcrumbs = [
@@ -103,6 +113,7 @@ class CategoryController extends Controller
         // $category = $subcategory ?: $category;
 
         $specifications = Specification::all();
+        $options = Option::all();
 
         return Inertia::render('Category', [
             'pagetitle' => $category->name,
@@ -116,6 +127,7 @@ class CategoryController extends Controller
             'products' => ResourcesProduct::collection($products->paginate(12)),
             'breadcrumbs' => $breadcrumbs,
             'specifications' => ResourcesSpecification::collection($specifications),
+            'options' => ResourcesOption::collection($options),
             // 'posts' => Post::paginate(6)
         ]);
     }

@@ -7,8 +7,6 @@ export default (props) => {
     const { pagetitle, product } = props
     const { images } = product.data
 
-    console.log(images)
-
     const [nav1, setNav1] = useState(null);
     const [nav2, setNav2] = useState(null);
     const slider1 = useRef(null);

@@ -75,4 +75,9 @@ class Product extends Model
     {
         return $this->morphMany(ProductImage::class, 'entity');
     }
+
+    public function optionValues()
+    {
+        return $this->belongsToMany(OptionValue::class, 'product_option_value');
+    }
 }

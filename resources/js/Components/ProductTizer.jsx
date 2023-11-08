@@ -8,8 +8,6 @@ export default ({ item }) => {
 
     const { numWord } = useLayout();
 
-    console.log(item.images)
-
     return <>
         <Link href={route('product', {
             product: item.id

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Category as ResourcesCategory;
+use App\Http\Resources\Option as ResourcesOption;
 use App\Http\Resources\Product as ResourcesProduct;
 use App\Http\Resources\Specification as ResourcesSpecification;
 use App\Models\Category;
 use App\Models\Facet;
+use App\Models\Option;
 use App\Models\Product;
 use App\Models\Specification;
 use Illuminate\Http\Request;
@@ -28,6 +30,7 @@ class CatalogController extends Controller
         }
 
         $specifications = Specification::all();
+        $options = Option::all();
         
         $topCategory = Category::whereNull('parent_id')->orderBy('id')->firstOrFail();
 
@@ -36,6 +39,7 @@ class CatalogController extends Controller
             'categories' => ResourcesCategory::collection(Category::where('parent_id', $topCategory->id)->with('children')->get()),
             'products' => ResourcesProduct::collection($products->paginate(12)->appends(request()->only(['sort', 'order']))),
             'specifications' => ResourcesSpecification::collection($specifications),
+            'options' => ResourcesOption::collection($options),
             'sort' => $request->sort,
             'order' => $request->order,
             'breadcrumbs' => [

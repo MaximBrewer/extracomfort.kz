@@ -11,20 +11,26 @@ const Item = ({ item, filter, setFilter }) => {
             {item.values.map((value, vdx) => <li key={`${item.id}-${vdx}`}>
                 <label htmlFor={`specification-${item.id}-${vdx}`} className="checkbox-grid__item">
                     <div className="checkbox-wrapper center">
-                        <input type="checkbox" name={`specification-${item.id}`} id={`specification-${item.id}-${vdx}`} onChange={e => {
-                            setFilter(prev => {
-                                const filter = { ...prev }
-                                filter[item.accounting_id] = filter[item.accounting_id] ? filter[item.accounting_id] : [];
-                                const valueIndex = filter[item.accounting_id].indexOf(value);
-                                if (valueIndex > -1) {
-                                    filter[item.accounting_id].splice(valueIndex, 1)
-                                } else {
-                                    filter[item.accounting_id].push(value)
-                                }
-                                if (!filter[item.accounting_id].length) delete (filter[item.accounting_id])
-                                return filter;
-                            })
-                        }} />
+                        <input
+                            type="checkbox"
+                            name={`specification-${item.id}`}
+                            id={`specification-${item.id}-${vdx}`}
+                            defaultChecked={filter[item.accounting_id].indexOf(value) > -1}
+                            onChange={e => {
+                                setFilter(prev => {
+                                    const filter = { ...prev }
+                                    filter[item.accounting_id] = filter[item.accounting_id] ? filter[item.accounting_id] : [];
+                                    const valueIndex = filter[item.accounting_id].indexOf(value);
+                                    if (valueIndex > -1) {
+                                        filter[item.accounting_id].splice(valueIndex, 1)
+                                    } else {
+                                        filter[item.accounting_id].push(value)
+                                    }
+                                    if (!filter[item.accounting_id].length) delete (filter[item.accounting_id])
+                                    return filter;
+                                })
+                            }}
+                        />
                     </div>
                     <div className="checkbox-label-wrapper center">
                         <div className="checkbox-label">{value}</div>
@@ -37,7 +43,7 @@ const Item = ({ item, filter, setFilter }) => {
 
 export default (props) => {
 
-    const { specifications, ziggy, category = null, subcategory = null, subsubcategory = null } = usePage().props
+    const { specifications, options, ziggy, category = null, subcategory = null, subsubcategory = null } = usePage().props
 
     const [filter, setFilter] = useState({})
 
@@ -93,6 +99,9 @@ export default (props) => {
         <li className="filter-sidebar__title center">Фильтр</li>
         <ul className="filter-sidebar__inner">
             {specifications.data.map((item) => <Fragment key={item.id}>
+                {item.values.length ? <Item item={item} filter={filter} setFilter={setFilter} /> : ``}
+            </Fragment>)}
+            {options.data.map((item) => <Fragment key={item.id}>
                 {item.values.length ? <Item item={item} filter={filter} setFilter={setFilter} /> : ``}
             </Fragment>)}
         </ul>

@@ -7,8 +7,6 @@ export default (props) => {
 
     const { sizes = {} } = props
 
-    console.log(sizes)
-
     // const [size, setSize] = useState(sizes.length ? sizes[0] : null)
 
     const { setModal } = useLayout();

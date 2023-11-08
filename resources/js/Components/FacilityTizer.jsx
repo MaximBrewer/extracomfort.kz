@@ -11,7 +11,6 @@ export default ({ item }) => {
     } : {
         facility: item.slug
     }
-console.log(item)
 
     return <Link href={route('facility', params)} className="our-services-item group">
         <div className="our-services-bg bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('${item.bg}')` }} />

@@ -10,7 +10,6 @@ export default (props) => {
 
     const { orders } = props
 
-    console.log(orders)
     const { numWord, priceFormat, moment } = useLayout();
 
     // const [index, setIndex] = useState(0)
