@@ -28,6 +28,10 @@ use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TerminController;
 use App\Http\Controllers\WriteUsController;
+use TCG\Voyager\Events\Routing;
+use TCG\Voyager\Events\RoutingAdmin;
+use TCG\Voyager\Events\RoutingAdminAfter;
+use TCG\Voyager\Events\RoutingAfter;
 
 /*
 |--------------------------------------------------------------------------
@@ -110,6 +114,26 @@ require __DIR__ . '/auth.php';
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    Route::group(['as' => 'voyager.'], function () {
+        event(new Routing());
+
+        $namespacePrefix = '\\' . config('voyager.controllers.namespace') . '\\';
+
+        Route::group(['middleware' => 'admin.user'], function () use ($namespacePrefix) {
+            event(new RoutingAdmin());
+
+            Route::get('fromproducts/categories', $namespacePrefix . 'VoyagerFromProductsController' . '@categories')->name('fromproducts.categories');
+            Route::get('fromproducts/products', $namespacePrefix . 'VoyagerFromProductsController' . '@products')->name('fromproducts.products');
+
+            event(new RoutingAdminAfter());
+        });
+
+        //Asset Routes
+        Route::get('voyager-assets', ['uses' => $namespacePrefix . 'VoyagerController@assets', 'as' => 'voyager_assets']);
+
+        event(new RoutingAfter());
+    });
 });
 
 Route::get('/clear', function () {

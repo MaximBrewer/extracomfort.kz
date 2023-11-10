@@ -1,0 +1,27 @@
+.w-6 {
+    width: 1.5rem;
+}
+
+.h-6 {
+    height: 1.5rem;
+}
+
+.w-4 {
+    width: 1rem;
+}
+
+.h-4 {
+    height: 1rem;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.gap-3 {
+    gap: .75rem
+}
