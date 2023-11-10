@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Kalnoy\Nestedset\NodeTrait;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory, NodeTrait;
 
     protected $perPage = 250;
 
@@ -41,11 +43,16 @@ class Category extends Model
 
     public function children(): HasMany
     {
-        return $this->hasMany(Category::class, 'parent_id');
+        return $this->hasMany(Category::class, 'parent_id')->withDepth();
     }
 
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function accountingIds(): MorphMany
+    {
+        return $this->morphMany(AccountingId::class, 'entity');
     }
 }

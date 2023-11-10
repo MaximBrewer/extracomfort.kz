@@ -4,10 +4,12 @@ import InputError from '@/Components/InputError';
 import { Head, Link, useForm } from '@inertiajs/react';
 import Breadcrumbs from '@/Components/Breadcrumbs';
 import Checked from "@/../images/checked.png"
+import InputMask from 'react-input-mask';
 
 export default function Register(props) {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
+        phone: '',
         email: '',
         password: '',
         password_confirmation: '',
@@ -45,17 +47,37 @@ export default function Register(props) {
                     </div>
                     <form className="registration-section__form reg-form fw-400-16-19" onSubmit={submit}>
                         <div className="reg-form__row">
+                            <input
+                                id="name"
+                                type="text"
+                                name="name"
+                                value={data.name}
+                                className="reg__input"
+                                autoComplete="name"
+                                onChange={(e) => setData('name', e.target.value)}
+                                placeholder={`Имя`}
+                            />
+                            <InputError message={errors.name} />
+                        </div>
+
+                        <div className="reg-form__row">
                             <div style={{ width: `50%` }}>
-                                <input
-                                    id="name"
-                                    type="text"
-                                    name="name"
-                                    value={data.name} className="reg__input"
-                                    autoComplete="name"
-                                    onChange={(e) => setData('name', e.target.value)}
-                                    placeholder={`Имя`}
-                                />
-                                <InputError message={errors.name} />
+                                <InputMask
+                                    alwaysShowMask={true}
+                                    mask="+7 (999) 999-99-99"
+                                    value={data.phone ?? ``}
+                                    onChange={(e) => {
+                                        setData('phone', e.target.value)
+                                        setError("phone", null)
+                                    }}
+                                    placeholder={``}
+                                >
+                                    {(inputProps) => <input
+                                        type="text"
+                                        className="reg__input"
+                                        {...inputProps}
+                                    />}
+                                </InputMask>
                             </div>
                             <div style={{ width: `50%` }}>
                                 <input
@@ -71,7 +93,7 @@ export default function Register(props) {
                             </div>
                         </div>
 
-                        <div className="reg-form__col">
+                        <div className="reg-form__row">
 
                             <input
                                 id="password"
@@ -87,7 +109,7 @@ export default function Register(props) {
                             <InputError message={errors.password} />
                         </div>
 
-                        <div className="reg-form__col">
+                        <div className="reg-form__row">
 
                             <input
                                 id="password_confirmation"
@@ -103,7 +125,7 @@ export default function Register(props) {
                             <InputError message={errors.password_confirmation} />
                         </div>
 
-                        <div className="reg-form__col">
+                        <div className="reg-form__row">
                             <label className="flex items-center gap-3">
                                 <div className="relative flex items-center justify-center w-5 h-5 rounded-[3px] border border-purple-900">
                                     <input
