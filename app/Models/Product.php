@@ -63,12 +63,12 @@ class Product extends Model
 
     public function similars(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'product_similar');
+        return $this->belongsToMany(Product::class, 'product_similar', 'product_id', 'similar_id');
     }
 
     public function relateds(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'product_related');
+        return $this->belongsToMany(Product::class, 'product_related', 'product_id', 'related_id');
     }
 
     public function images()

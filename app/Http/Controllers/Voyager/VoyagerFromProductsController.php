@@ -32,6 +32,12 @@ class VoyagerFromProductsController extends BaseVoyagerBaseController
     public function products(Request $request)
     {
         $categoryId = $request->get('category_id');
+        $category = Category::find($categoryId);
+        if (!$category || $category->children()->count()) {
+            return [
+                'products' => null
+            ];
+        }
         $products = Product::whereHas('category', function (Builder $query) use ($categoryId) {
             $query->where('id', $categoryId);
             $query->orWhereHas('ancestors', function (Builder $query) use ($categoryId) {
@@ -39,7 +45,7 @@ class VoyagerFromProductsController extends BaseVoyagerBaseController
             });
         });
         return [
-            'products' => $products->paginate(24)
+            'products' => $products->paginate(100)
         ];
     }
 }
