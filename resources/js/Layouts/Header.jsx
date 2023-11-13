@@ -22,7 +22,12 @@ import DangerButton from "@/Components/DangerButton"
 
 export default (props) => {
 
-    const { menus, headerphone } = window.appdata
+    const { cart, favorites, shoppage = false, servicepage = false, sitenote = `` } = usePage().props
+
+    const { menus } = window.appdata
+
+    const headerphone = !shoppage ? window.appdata.headerphone : window.appdata.shopphone;
+
     const { auth } = props
 
     const [mmenu, setMmenu] = useState(false)
@@ -38,8 +43,6 @@ export default (props) => {
     const facilitiesButtonRef = useRef(null)
 
     const { post } = useForm({});
-
-    const { cart, favorites, shoppage = false, servicepage = false, sitenote = `` } = usePage().props
 
     useEffect(() => {
 

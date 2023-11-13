@@ -38,6 +38,7 @@ class Controller extends BaseController
         $footeremail = setting('site.footeremail');
         $footerphone = setting('site.footerphone');
         $headerphone = setting('site.headerphone');
+        $shopphone = setting('shop.phone');
         $copyright = setting('site.copyright');
         $copyright = setting('site.copyright');
 
@@ -59,6 +60,7 @@ class Controller extends BaseController
         $servicesBannerBottomText = setting('services.banner_bottom_text');
         $servicesBannerBottomButtonText = setting('services.banner_bottom_btn_text');
 
+
         View::share('appdata', compact(
             'menus',
             'email',
@@ -67,6 +69,7 @@ class Controller extends BaseController
             'footeremail',
             'footerphone',
             'headerphone',
+            'shopphone',
             'aboutBannerTop',
             'aboutBannerTopText',
             'aboutBannerTopButtonText',
