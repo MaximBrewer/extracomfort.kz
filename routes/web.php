@@ -53,7 +53,6 @@ Route::get('/team', TeamController::class)->name('team');
 Route::get('/partners', PartnerController::class)->name('partners');
 Route::get('/gifts', GiftsController::class)->name('gifts');
 Route::get('/faq', FaqController::class)->name('faq');
-Route::get('/consult', ConsultController::class)->name('consult');
 
 Route::get('/articles', [PostsController::class, 'index'])->name('articles');
 Route::get('/articles/{post}', [PostsController::class, 'show'])->name('post');
@@ -67,6 +66,7 @@ Route::post('/callback', CallBackController::class)->name('callback');
 Route::post('/writeus', WriteUsController::class)->name('writeus');
 
 Route::middleware('service')->group(function () {
+    Route::get('/consult', ConsultController::class)->name('consult');
     Route::get('/services', ServicesController::class)->name('services');
     Route::get('/services/{facility}/{subfacility?}', FacilitiesController::class)->name('facility');
 });
