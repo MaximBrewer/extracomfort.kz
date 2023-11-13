@@ -10,11 +10,11 @@ export default (props) => {
     const [facility, setFacility] = useState(null)
 
     return <div className="container-outer" ref={facilitiesMenuRef}>
-        <div className="catalogue-dropdown">
+        <div className="catalogue-dropdown max-w-lg">
             <div className="flex flex-col lg:flex-row items-start justify-start gap-9">
-                <div className="lg:w-1/3">
+                <div className="">
                     <div className=" my-4">
-                        <ul className="hidden lg:flex flex-col gap-4 border-r-2">
+                        <ul className="hidden lg:flex flex-col gap-4">
                             {facilities.map((item, index) => <li key={index}>
                                 <Link
                                     className={`catalogue-category-name text-left`}
@@ -70,7 +70,7 @@ export default (props) => {
                         </div>
                     </div>
                 </div>
-                <div className="lg:w-2/3 hidden lg:block">
+                {/* <div className="lg:w-2/3 hidden lg:block">
                     {facility ? <div className="my-4">
                         <ul className="flex flex-col gap-4">
                             {facility.children.map((child, cdx) => <li key={cdx} className="">
@@ -81,7 +81,7 @@ export default (props) => {
                             </li>)}
                         </ul>
                     </div> : ``}
-                </div>
+                </div> */}
             </div>
         </div>
     </div>

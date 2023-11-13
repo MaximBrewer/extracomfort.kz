@@ -54,7 +54,6 @@ Route::get('/partners', PartnerController::class)->name('partners');
 Route::get('/gifts', GiftsController::class)->name('gifts');
 Route::get('/faq', FaqController::class)->name('faq');
 Route::get('/consult', ConsultController::class)->name('consult');
-Route::get('/rent', RentController::class)->name('rent');
 
 Route::get('/articles', [PostsController::class, 'index'])->name('articles');
 Route::get('/articles/{post}', [PostsController::class, 'show'])->name('post');
@@ -74,6 +73,7 @@ Route::middleware('service')->group(function () {
 
 Route::middleware('shop')->group(function () {
 
+    Route::get('/rent', RentController::class)->name('rent');
     Route::get('/payment', PaymentController::class)->name('payment');
     Route::get('/delivery', DeliveryController::class)->name('delivery');
     Route::get('/refund', RefundController::class)->name('refund');
