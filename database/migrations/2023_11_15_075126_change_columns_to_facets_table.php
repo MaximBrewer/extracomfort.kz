@@ -15,7 +15,7 @@ return new class extends Migration
             $table->dropColumn('category_id');
             $table->dropColumn('subcategory_id');
             $table->dropColumn('subsubcategory_id');
-            $table->string('path', 1023)->index();
+            $table->string('path', 511)->index();
         });
     }
 
