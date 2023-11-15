@@ -38,10 +38,7 @@ export default (props) => {
                                     <div className="p-3">
                                         <ul className="flex flex-col gap-4">
                                             {item.children.map((child, cdx) => <li key={cdx} className="">
-                                                <Link href={route('category', {
-                                                    category: item.slug,
-                                                    subcategory: child.slug
-                                                })} className="catalogue-category-name hover:text-primary-500" >{child.name}</Link>
+                                                <Link href={child.url} className="catalogue-category-name hover:text-primary-500" >{child.name}</Link>
                                             </li>)}
                                         </ul>
                                     </div>
@@ -55,15 +52,12 @@ export default (props) => {
                     {category ? <div className="my-4">
                         <ul className="flex flex-col gap-4">
                             {category.children.map((child, cdx) => <li key={cdx} className="">
-                                <Link href={route('category', {
-                                    category: category.slug,
-                                    subcategory: child.slug
-                                })} className="catalogue-category-name hover:text-primary-500" >{child.name}</Link>
+                                <Link href={child.url} className="catalogue-category-name hover:text-primary-500" >{child.name}</Link>
                             </li>)}
                         </ul>
                     </div> : ``}
                 </div>
             </div>
         </div>
-    </div>
+    </div >
 }

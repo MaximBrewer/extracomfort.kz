@@ -43,7 +43,7 @@ class Product extends JsonResource
 
 
         $arr = parent::toArray($request);
-        
+
         $arr['stock'] = 'Наличие';
         $arr['offers'] = Offer::collection($this->offers);
         $arr['reviewsCount'] = 12 . ' ' . Lang::choice('отзыв|отзыва|отзывов', 12, [], 'ru');
@@ -56,6 +56,7 @@ class Product extends JsonResource
             'html' => $arr['sizes_html'],
             'image' => $arr['sizes_image'] ? Storage::url($arr['sizes_image']) : null,
         ];
+        $arr['url'] = $this->path;
         return $arr;
     }
 }

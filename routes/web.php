@@ -3,12 +3,10 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PostsController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RefundController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -52,7 +50,6 @@ Route::get('/about', AboutController::class)->name('about');
 Route::get('/team', TeamController::class)->name('team');
 Route::get('/partners', PartnerController::class)->name('partners');
 Route::get('/gifts', GiftsController::class)->name('gifts');
-Route::get('/faq', FaqController::class)->name('faq');
 
 Route::get('/articles', [PostsController::class, 'index'])->name('articles');
 Route::get('/articles/{post}', [PostsController::class, 'show'])->name('post');
@@ -66,6 +63,7 @@ Route::post('/callback', CallBackController::class)->name('callback');
 Route::post('/writeus', WriteUsController::class)->name('writeus');
 
 Route::middleware('service')->group(function () {
+    Route::get('/faq', FaqController::class)->name('faq');
     Route::get('/consult', ConsultController::class)->name('consult');
     Route::get('/services', ServicesController::class)->name('services');
     Route::get('/services/{facility}/{subfacility?}', FacilitiesController::class)->name('facility');
@@ -78,9 +76,8 @@ Route::middleware('shop')->group(function () {
     Route::get('/delivery', DeliveryController::class)->name('delivery');
     Route::get('/refund', RefundController::class)->name('refund');
 
-    Route::get('/catalog', CatalogController::class)->name('catalog');
-    Route::get('/catalog/{category}/{subcategory?}/{subsubcategory?}', CategoryController::class)->name('category');
-    Route::get('/product/{product}', ProductController::class)->name('product');
+    Route::get('/catalog/{path?}', CatalogController::class)
+        ->where('path', '[a-zA-Z0-9/_-]+')->name('catalog');
 
     Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
 

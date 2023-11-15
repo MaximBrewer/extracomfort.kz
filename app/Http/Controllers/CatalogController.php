@@ -11,7 +11,9 @@ use App\Models\Facet;
 use App\Models\Option;
 use App\Models\Product;
 use App\Models\Specification;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 use Inertia\Inertia;
 
 class CatalogController extends Controller
@@ -19,7 +21,19 @@ class CatalogController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, $path = false)
+    {
+        if (!$path) return $this->catalog($request);
+        $path = explode('/', $path);
+        $lasturl = array_pop($path);
+        $category = Category::find(1);
+        foreach ($path as $c) $category = $category->children()->where('slug', $c)->firstOrFail();
+        if ($s = $category->children()->where('slug', $lasturl)->first()) return $this->category($request, $s);
+        $product = $category->products()->where('slug', $lasturl)->firstOrFail();
+        return $this->product($request, $product);
+    }
+
+    public function catalog(Request $request)
     {
         $products = new Product();
 
@@ -31,7 +45,7 @@ class CatalogController extends Controller
 
         $specifications = Specification::all();
         $options = Option::all();
-        
+
         $topCategory = Category::whereNull('parent_id')->orderBy('id')->firstOrFail();
 
         return Inertia::render('Catalog', [
@@ -51,6 +65,123 @@ class CatalogController extends Controller
                     'text' => 'Каталог'
                 ]
             ]
+        ]);
+    }
+
+    public function category(Request $request, Category $category)
+    {
+        global $categoryPath;
+        $categoryPath = $category->path;
+
+        $breadcrumbs = [
+            [
+                'route' => 'home',
+                'text' => 'Главная'
+            ]
+        ];
+
+        $category->ancestors->map(function ($c) use (&$breadcrumbs, &$path) {
+            if ($c->parent) {
+                $breadcrumbs[] =   [
+                    'href' => $c->path,
+                    'text' => $c->name
+                ];
+            } else {
+                $breadcrumbs[] =   [
+                    'route' => 'catalog',
+                    'text' => 'Каталог'
+                ];
+            }
+        });
+
+        $breadcrumbs[] =   [
+            'href' => $category->path,
+            'text' => $category->name
+        ];
+
+        $specifications = Specification::all();
+        $options = Option::all();
+
+        $products = Product::whereHas('facets',  function (Builder $query) use ($category) {
+            $query->where('path', 'like', $category->path . '%');
+        });
+
+        $facets = Facet::groupBy('specification_accounting_id')->pluck('specification_accounting_id');
+
+        $filter = [];
+        foreach ($facets as $fk) {
+            if ($fk === 'func') continue;
+            if ($fv = $request->get($fk)) {
+                $filter[$fk] = explode(":::", $fv);
+                $products = $products->whereHas('facets',  function (Builder $query) use ($fk, $fv) {
+                    $query->where('specification_accounting_id', $fk);
+                    $query->whereIn('specification_value', explode(":::", $fv));
+                });
+            }
+        }
+
+        if ($fv = $request->get('func')) {
+            $filter['func'] = explode(":::", $fv);
+            $products = $products->whereHas('optionValues',  function (Builder $query) use ($fv) {
+                $query->where('option_id', 1);
+                $query->whereIn('title', explode(":::", $fv));
+            });
+        }
+
+        return Inertia::render('Category', [
+            'filter' => $filter,
+            'pagetitle' => $category->name,
+            'category' => new ResourcesCategory($category),
+            'categories' => ResourcesCategory::collection($category->children),
+            'parents' => ResourcesCategory::collection($category->children),
+            'categories' => ResourcesCategory::collection($category->children),
+            'siblings' => ResourcesCategory::collection($category->siblingsAndSelf()->get()),
+            'parentsiblings' => ResourcesCategory::collection($category->parent && $category->parent->parent ? $category->parent->siblingsAndSelf()->get() : []),
+            'total' => 'Показано ' . $products->count() . ' ' . Lang::choice('товар|товара|товаров', $products->count(), [], 'ru'),
+            'products' => ResourcesProduct::collection($products->paginate(12)),
+            'breadcrumbs' => $breadcrumbs,
+            'specifications' => ResourcesSpecification::collection($specifications),
+            'options' => ResourcesOption::collection($options),
+            // 'posts' => Post::paginate(6)
+        ]);
+    }
+
+    /**
+     * Handle the incoming request.
+     */
+    public function product(Request $request, Product $product)
+    {
+        $breadcrumbs = [
+            [
+                'route' => 'home',
+                'text' => 'Главная'
+            ]
+        ];
+        if ($product->category) {
+            $product->category->ancestors->map(function ($c) use (&$breadcrumbs, &$path) {
+                if ($c->parent) {
+                    $breadcrumbs[] =   [
+                        'href' => $c->path,
+                        'text' => $c->name
+                    ];
+                } else {
+                    $breadcrumbs[] =   [
+                        'route' => 'catalog',
+                        'text' => 'Каталог'
+                    ];
+                }
+            });
+
+            $breadcrumbs[] =   [
+                'href' => $product->category->path,
+                'text' => $product->category->name
+            ];
+        }
+
+        return Inertia::render('Product', [
+            'pagetitle' => $product->title,
+            'breadcrumbs' => $breadcrumbs,
+            'product' => new ResourcesProduct($product)
         ]);
     }
 }

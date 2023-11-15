@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Casts\MultipleImages;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -79,5 +80,12 @@ class Product extends Model
     public function optionValues()
     {
         return $this->belongsToMany(OptionValue::class, 'product_option_value');
+    }
+
+    protected function path(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->category ? str_replace('/tovary', '', "/catalog/" . implode("/", $this->category->ancestors->map(fn ($c) => $c->slug)->toArray())) . '/' . $this->category->slug . '/' . $this->slug : '/'
+        );
     }
 }

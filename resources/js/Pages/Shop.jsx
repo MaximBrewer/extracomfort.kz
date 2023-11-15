@@ -92,21 +92,7 @@ export default (props) => {
                         <div className="similar-products__inner">
                             {/* <div className="similar-products-title-label similar-products__similar-products-title-label fw-700-45-55">Категории товаров</div> */}
                             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                                {categories.map((item, index) => <CategoryTizer key={index} item={item} />
-                                    // <Link href={route('category', {
-                                    //                                 category: item.slug
-                                    //                             })} key={index} className="p-6 bg-white shadow text-center flex flex-col gap-3 justify-between items-center">
-                                    //                                 <div>
-                                    //                                     <div className="w-12 h-12 bg-center bg-no-repeat bg-contain mx-auto mb-2"
-                                    //                                         style={{ backgroundImage: `url('${item.image}')` }}
-                                    //                                     />
-                                    //                                     <div className="font-semibold">{item.name}</div>
-                                    //                                 </div>
-                                    //                                 <Link href={route('category', {
-                                    //                                     category: item.slug
-                                    //                                 })} className="border border-purple-900 px-6 py-1.5 rounded-full text-purple-900 text-center" >Подробнее</Link>
-                                    //                             </Link>
-                                )}
+                                {/* {categories.map((item, index) => <CategoryTizer key={index} item={item} />)} */}
                             </div>
                         </div>
                     </div>
@@ -117,11 +103,11 @@ export default (props) => {
                     <div className="similar-products__outer">
                         <div className="similar-products__inner">
                             <div className="similar-products-title-label similar-products__similar-products-title-label fw-700-45-55">Акционные товары</div>
-                            <Slider {...settings} className="similar-products-slick-main">
+                            {/* <Slider {...settings} className="similar-products-slick-main">
                                 {products.data.map((item, index) => <div key={index} className="catalogue-item slick-slide">
                                     <ProductTizer item={item} />
                                 </div>)}
-                            </Slider>
+                            </Slider> */}
                             <div className="similar-products__btn-wrapper">
                                 <button className="btn-primary similar-products__btn-primary fw-400-18-30">Посмотреть все</button>
                             </div>

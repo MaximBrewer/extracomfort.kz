@@ -3,7 +3,7 @@ import { Fragment, useEffect, useRef, useState } from "react"
 
 const Item = ({ item, filter, setFilter }) => {
 
-    const [opened, setOpened] = useState(false)
+    const [opened, setOpened] = useState(filter[item.accounting_id] && filter[item.accounting_id].length)
 
     return <li className="filter-sidebar__item">
         <div className="filter-sidebar__item-title fw-600-16-19 cursor-pointer py-[9px] -mt-[9px] mb-0 px-[21px] -mx-[21px]" onClick={e => setOpened(prev => !prev)}>{item.title}</div>
@@ -15,7 +15,7 @@ const Item = ({ item, filter, setFilter }) => {
                             type="checkbox"
                             name={`specification-${item.id}`}
                             id={`specification-${item.id}-${vdx}`}
-                            // defaultChecked={filter[item.accounting_id].indexOf(value) > -1}
+                            defaultChecked={filter[item.accounting_id] && filter[item.accounting_id].indexOf(value) > -1}
                             onChange={e => {
                                 setFilter(prev => {
                                     const filter = { ...prev }
@@ -43,9 +43,10 @@ const Item = ({ item, filter, setFilter }) => {
 
 export default (props) => {
 
-    const { specifications, options, ziggy, category = null, subcategory = null, subsubcategory = null } = usePage().props
+    const { specifications, options, ziggy, category = null } = usePage().props
 
-    const [filter, setFilter] = useState({})
+
+    const [filter, setFilter] = useState(usePage().props.filter)
 
     const filterInizializedRef = useRef(false)
 
@@ -54,25 +55,13 @@ export default (props) => {
     useEffect(() => {
         if (filterInizializedRef.current) {
             clearTimeout(timeOutRef.current)
-            let params = {};
-            for (let f in filter) params[f] = filter[f].join(':::')
+            let queryString = '?';
+            for (let f in filter) queryString += '&' + f + '=' + filter[f].join(':::')
             timeOutRef.current = setTimeout(() => {
-                category ? router.visit(route('category', subsubcategory ? {
-                    ...params,
-                    category: category.data.slug,
-                    subcategory: subcategory.data.slug,
-                    subsubcategory: subsubcategory.data.slug,
-                } : (subcategory ? {
-                    ...params,
-                    category: category.data.slug,
-                    subcategory: subcategory.data.slug
-                } : {
-                    ...params,
-                    category: category.data.slug
-                })), {
-                    preserveState: true,
+                router.visit(category.data.url + queryString, {
                     preserveScroll: true,
-                }) : router.visit(route('catalog', params))
+                    preserveState: true
+                });
             }, 2000);
         }
         filterInizializedRef.current = true

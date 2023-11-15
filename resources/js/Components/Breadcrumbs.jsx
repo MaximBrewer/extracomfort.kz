@@ -16,7 +16,7 @@ export default (props) => {
     return <div className={`${sitenote ? `mt-4` : ``} ${cabinet ? `catalogue-breadcrumb-wrapper justify-start fw-400-18-22` : `catalogue-breadcrumb-wrapper fw-400-18-22 flex-wrap`}`}>
         {breadcrumbs.map((item, index) => <Fragment key={index}>
             <div className={`catalogue-breadcrumb-item ${breadcrumbs.length - 1 == index && !lastActive ? `active` : ``} ${inbanner ? `text-white` : ``}`}>
-                {breadcrumbs.length - 1 > index || lastActive ? <Link href={route(item.route, item.params)}>{item.text}</Link> : <span>{item.text}</span>}
+                {breadcrumbs.length - 1 > index || lastActive ? <Link href={item.route ? route(item.route, item.params) : item.href}>{item.text}</Link> : <span>{item.text}</span>}
             </div>
             {breadcrumbs.length - 1 > index ? <div className="catalogue-breadcrumb-dot-wrapper center">
                 <div className={`catalogue-breadcrumb-dot  ${inbanner ? `bg-white` : ``}`}></div>

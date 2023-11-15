@@ -18,18 +18,16 @@ class Specification extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        global $categoryId;
+        global $categoryPath;
 
         $id =  $this->id;
 
-        if ($categoryId) {
+        if ($categoryPath) {
             $values = DB::table('facets')
                 ->select(['specification_value', 'specification_value_num'])
                 ->distinct()
-                ->where(function (QueryBuilder $query) use ($categoryId, $id) {
-                    $query->where('category_id', $categoryId);
-                    $query->orWhere('subcategory_id', $categoryId);
-                    $query->orWhere('subsubcategory_id', $categoryId);
+                ->where(function (QueryBuilder $query) use ($categoryPath, $id) {
+                    $query->where('path', 'like', $categoryPath . '%');
                 })
                 ->where('specification_id', $id)
                 ->orderBy('specification_value_num')

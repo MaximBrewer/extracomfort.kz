@@ -1,0 +1,1 @@
+import{q as r,a as e}from"./app-2173235e.js";import{B as s}from"./Breadcrumbs-c47c4251.js";const i=()=>{const a=r().props;return e("div",{className:"catalogue-categories",children:e("div",{className:"container-outer",children:e("div",{className:"catalogue-categories__outer",children:e("div",{className:"catalogue-categories__inner",children:e(s,{...a})})})})})};export{i as T};

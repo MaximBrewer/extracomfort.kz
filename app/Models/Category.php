@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -36,16 +37,6 @@ class Category extends Model
         });
     }
 
-    public function parent(): BelongsTo
-    {
-        return $this->belongsTo(Category::class, 'parent_id');
-    }
-
-    public function children(): HasMany
-    {
-        return $this->hasMany(Category::class, 'parent_id')->withDepth();
-    }
-
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
@@ -54,5 +45,12 @@ class Category extends Model
     public function accountingIds(): MorphMany
     {
         return $this->morphMany(AccountingId::class, 'entity');
+    }
+
+    protected function path(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => str_replace('/tovary', '', "/catalog/" . implode("/", $this->ancestors->map(fn ($c) => $c->slug)->toArray())) . '/' . $this->slug
+        );
     }
 }

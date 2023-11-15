@@ -3,17 +3,9 @@ import parse from "html-react-parser"
 
 export default ({ item }) => {
 
-    const { category = null } = usePage().props
-
-    const params = category ? {
-        category: category.data.slug,
-        subcategory: item.slug
-    } : {
-        category: item.slug
-    }
-
-
-    return <Link href={route('category', params)} className="our-services-item group">
+    const { category = null } = usePage().props;
+    
+    return <Link href={category.url} className="our-services-item group">
         <div className="our-services-bg bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('${item.bg}')` }}/>
         <div className="flex flex-col justify-start items-center gap-4">
             <div className="relative our-services-icon">
