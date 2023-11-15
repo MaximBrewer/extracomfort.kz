@@ -44,8 +44,3 @@ class SetFacets extends Command
         }
     }
 }
-
-
-// $table->unsignedBigInteger('specification_id');
-// $table->string('specification_value');
-// $table->unsignedBigInteger('specification_value_num');

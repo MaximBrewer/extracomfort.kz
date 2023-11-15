@@ -103,11 +103,11 @@ export default (props) => {
                     <div className="similar-products__outer">
                         <div className="similar-products__inner">
                             <div className="similar-products-title-label similar-products__similar-products-title-label fw-700-45-55">Акционные товары</div>
-                            {/* <Slider {...settings} className="similar-products-slick-main">
+                            <Slider {...settings} className="similar-products-slick-main">
                                 {products.data.map((item, index) => <div key={index} className="catalogue-item slick-slide">
                                     <ProductTizer item={item} />
                                 </div>)}
-                            </Slider> */}
+                            </Slider>
                             <div className="similar-products__btn-wrapper">
                                 <button className="btn-primary similar-products__btn-primary fw-400-18-30">Посмотреть все</button>
                             </div>

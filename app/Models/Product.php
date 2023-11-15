@@ -29,6 +29,8 @@ class Product extends Model
             $builder->with('offers');
             $builder->with('category');
             $builder->with('images');
+            $builder->with('relateds');
+            $builder->with('similars');
         });
     }
 
