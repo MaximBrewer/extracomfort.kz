@@ -6,6 +6,8 @@ export default (props) => {
     const { catalogMenuRef } = props
 
     const { categories } = window.appdata;
+    console.log(categories)
+
 
     const [category, setCategory] = useState(null)
 

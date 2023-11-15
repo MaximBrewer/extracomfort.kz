@@ -155,7 +155,7 @@ class CatalogController extends Controller
             'pagetitle' => $category->name,
             'category' => new ResourcesCategory($category),
             'categories' => ResourcesCategory::collection($category->children),
-            'parents' => ResourcesCategory::collection($category->children),
+            'parent' => new ResourcesCategory($category->parent),
             'categories' => ResourcesCategory::collection($category->children),
             'siblings' => ResourcesCategory::collection($category->siblingsAndSelf()->get()),
             'parentsiblings' => ResourcesCategory::collection($category->parent && $category->parent->parent ? $category->parent->siblingsAndSelf()->get() : []),

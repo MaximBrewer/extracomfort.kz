@@ -17,6 +17,7 @@ class Category extends JsonResource
     {
         $arr = parent::toArray($request);
         $arr['url'] = $this->path;
+        $arr['children'] = self::collection($this->children);
         $arr['icon'] = $arr['icon'] ? Voyager::image($arr['icon']) : "";
         $arr['icondark'] = $arr['icondark'] ? Voyager::image($arr['icondark']) : "";
         $arr['bg'] = $arr['bg'] ? Voyager::image($arr['bg']) : "";
