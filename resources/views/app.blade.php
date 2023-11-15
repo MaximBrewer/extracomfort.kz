@@ -32,6 +32,7 @@
 </head>
 
 <body class="font-sans">
+    <meta name="google-site-verification" content="HAj9Kgwr3EH8Y385ZiMM8QmXe2cwKHljXTkuSSoxRyY" />
     @inertia
 </body>
 
