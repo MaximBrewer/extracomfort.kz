@@ -21,7 +21,9 @@ export default (props) => {
                                     className={`catalogue-category-name`}
                                     aria-selected={category && item.id == category.id}
                                     type="button"
-                                    onClick={e => setCategory(item)}>{item.name}</button>
+                                    onClick={e => setCategory(item)}
+                                    onMouseEnter={e => setCategory(item)}
+                                >{item.name}</button>
                             </li>)}
                         </ul>
                         <div className="lg:hidden">
