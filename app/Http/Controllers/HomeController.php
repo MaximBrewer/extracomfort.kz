@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\Category as ResourcesCategory;
 use App\Http\Resources\Facility as ResourcesFacility;
 use App\Http\Resources\Product as ResourcesProduct;
+use App\Http\Resources\ProductTizer;
 use App\Models\Category;
 use App\Models\Facility;
 use App\Models\Product;
@@ -40,7 +41,7 @@ class HomeController extends Controller
     {
         return Inertia::render('Shop', [
             'pagetitle' => setting('site.title'),
-            'products' => ResourcesProduct::collection(Product::limit(20)->get())
+            'products' => ProductTizer::collection(Product::limit(20)->get())
         ]);
     }
 }
