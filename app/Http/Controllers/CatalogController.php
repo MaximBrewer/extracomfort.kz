@@ -68,6 +68,28 @@ class CatalogController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $products = Product::where('title', 'like', '%' . $request->q . '%');
+
+        return Inertia::render('Search', [
+            'pagetitle' => __('Поиск'),
+            'products' => ResourcesProduct::collection($products->paginate(12)->appends(request()->only(['sort', 'order']))),
+            'sort' => $request->sort,
+            'order' => $request->order,
+            'query' => $request->q,
+            'breadcrumbs' => [
+                [
+                    'route' => 'home',
+                    'text' => 'Главная'
+                ],
+                [
+                    'text' => 'Поиск'
+                ]
+            ]
+        ]);
+    }
+
     public function category(Request $request, Category $category)
     {
         global $categoryPath;

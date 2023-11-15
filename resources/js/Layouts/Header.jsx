@@ -1,6 +1,6 @@
 
 import Logo from "@/../images/logo.svg"
-import { Link, useForm, usePage } from "@inertiajs/react"
+import { Link, router, useForm, usePage } from "@inertiajs/react"
 import { useEffect, useRef, useState } from "react"
 import Cart from "@/Icons/Cart"
 import ChevronDown from "@/Icons/ChevronDown"
@@ -31,6 +31,15 @@ export default (props) => {
     const { auth } = props
 
     const [mmenu, setMmenu] = useState(false)
+
+    const [query, setQuery] = useState(usePage().props.query)
+
+
+    const submit = (e) => {
+        e.preventDefault();
+        router.visit('/search?q=' + query)
+    }
+
 
     const [catalogMenu, setCatalogMenu] = useState(false)
     const [facilitiesMenu, setFacilitiesMenu] = useState(false)
@@ -168,12 +177,12 @@ export default (props) => {
                                 <i className="ic-catalogue-btn"></i>
                                 <span>Каталог</span>
                             </button>
-                            <div className="search-wrapper header-bottom__search-wrapper fw-400-16-19">
-                                <input className="search-input" type="text" name="search" placeholder="Поиск" />
-                                <div className="search-icon-wrapper center">
+                            <form onSubmit={submit} className="search-wrapper header-bottom__search-wrapper fw-400-16-19">
+                                <input className="search-input" type="text" name="search" placeholder="Поиск" value={query} onChange={e => setQuery(e.target.value)} />
+                                <button className="search-icon-wrapper center">
                                     <Lens className="w-3.5 h-3.5 shrink-0" />
-                                </div>
-                            </div>
+                                </button>
+                            </form>
                         </> : servicepage ? <>
                             <button className="catalogue-btn" type="button" ref={facilitiesButtonRef} onClick={e => setFacilitiesMenu(prev => !prev)}>
                                 <i className="ic-catalogue-btn"></i>
@@ -219,12 +228,12 @@ export default (props) => {
                 <ul className="navbar-list">
                     {menus.find(menu => menu.name === (shoppage ? `shop` : `service`)).items.map((item, index) => <MenuItem key={index} item={item} mobile={true} />)}
                 </ul>
-                <div className="search-wrapper header-bottom__search-wrapper fw-400-16-19">
-                    <input className="search-input" type="text" name="search" placeholder="Поиск" />
-                    <div className="search-icon-wrapper center">
+                <form onSubmit={submit} className="search-wrapper header-bottom__search-wrapper fw-400-16-19">
+                    <input className="search-input" type="text" name="search" placeholder="Поиск" value={query} onChange={e => setQuery(e.target.value)} />
+                    <button className="search-icon-wrapper center">
                         <Lens className="w-3.5 h-3.5 shrink-0" />
-                    </div>
-                </div>
+                    </button>
+                </form>
                 <div className="contact-info-wrapper header-bottom__contact-info-wrapper">
                     <div className="contact-info__left">
                         <div className="header-phone-icon-wrapper center">
