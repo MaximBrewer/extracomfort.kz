@@ -74,7 +74,7 @@ class CatalogController extends Controller
 
         return Inertia::render('Search', [
             'pagetitle' => __('Поиск'),
-            'products' => ResourcesProduct::collection($products->paginate(12)->appends(request()->only(['sort', 'order']))),
+            'products' => ResourcesProduct::collection($products->paginate(12)->appends(request()->only(['sort', 'order', 'q']))),
             'sort' => $request->sort,
             'order' => $request->order,
             'query' => $request->q,
