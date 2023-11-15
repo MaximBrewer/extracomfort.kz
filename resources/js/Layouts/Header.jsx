@@ -160,7 +160,7 @@ export default (props) => {
                         </ul>
                     </nav>
                     <div className="flex items-center">
-                        <Link href={`gifts`} className="py-1.5 bg-amber-500 rounded-full px-6 text-stone-900 text-sm font-bold">Подарочные сертификаты</Link>
+                        <Link href={`/gifts`} className="py-1.5 bg-amber-500 rounded-full px-6 text-stone-900 text-sm font-bold">Подарочные сертификаты</Link>
                     </div>
                 </div>
             </div>

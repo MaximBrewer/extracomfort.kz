@@ -133,7 +133,7 @@ class CatalogController extends Controller
 
         $filter = [];
         foreach ($facets as $fk) {
-            if ($fk === 'func') continue;
+            if (!$fk || $fk === 'func') continue;
             if ($fv = $request->get($fk)) {
                 $filter[$fk] = explode(":::", $fv);
                 $products = $products->whereHas('facets',  function (Builder $query) use ($fk, $fv) {
