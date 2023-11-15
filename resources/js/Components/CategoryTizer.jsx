@@ -3,10 +3,8 @@ import parse from "html-react-parser"
 
 export default ({ item }) => {
 
-    const { category = null } = usePage().props;
-    
-    return <Link href={category.url} className="our-services-item group">
-        <div className="our-services-bg bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('${item.bg}')` }}/>
+    return <Link href={item.url} className="our-services-item group">
+        <div className="our-services-bg bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('${item.bg}')` }} />
         <div className="flex flex-col justify-start items-center gap-4">
             <div className="relative our-services-icon">
                 <div className="absolute top-0 left-0 bottom-0 right-0 bg-contain bg-center bg-no-repeat group-hover:opacity-1" style={{ backgroundImage: `url('${item.icon}')` }} />

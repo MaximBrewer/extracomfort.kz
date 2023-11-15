@@ -92,7 +92,7 @@ export default (props) => {
                         <div className="similar-products__inner">
                             {/* <div className="similar-products-title-label similar-products__similar-products-title-label fw-700-45-55">Категории товаров</div> */}
                             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                                {/* {categories.map((item, index) => <CategoryTizer key={index} item={item} />)} */}
+                                {categories.map((item, index) => <CategoryTizer key={index} item={item} />)}
                             </div>
                         </div>
                     </div>
