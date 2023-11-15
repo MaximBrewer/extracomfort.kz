@@ -18,11 +18,12 @@ import FacilitiesMenu from "./FacilitiesMenu"
 import Profile from "@/Icons/Profile"
 import Heart from "@/Icons/Heart"
 import DangerButton from "@/Components/DangerButton"
+import Info from "@/Modals/Info"
 
 
 export default (props) => {
 
-    const { cart, favorites, shoppage = false, servicepage = false, sitenote = `` } = usePage().props
+    const { cart, favorites, shoppage = false, servicepage = false, sitenote = ``, message=`` } = usePage().props
 
     const { menus } = window.appdata
 
@@ -33,7 +34,6 @@ export default (props) => {
     const [mmenu, setMmenu] = useState(false)
 
     const [query, setQuery] = useState(usePage().props.query)
-
 
     const submit = (e) => {
         e.preventDefault();
@@ -51,11 +51,13 @@ export default (props) => {
     const facilitiesMenuRef = useRef(null)
     const facilitiesButtonRef = useRef(null)
 
-    const { post } = useForm({});
 
     useEffect(() => {
+        message && setModal(<Info message={message} />)
+    }, [message]);
 
-    }, []);
+
+    const { post } = useForm({});
 
     const checkClick = (e) => {
         (catalogMenuRef.current && catalogMenuRef.current.contains(e.target))

@@ -13,6 +13,6 @@ class CallBackController extends Controller
     public function __invoke(CallBackStoreRequest $request)
     {
         CallBack::create($request->all());
-        return redirect()->back();
+        return redirect()->back()->with(['message' => 'Спасибо! Ваше сообщение отправлено.']);
     }
 }

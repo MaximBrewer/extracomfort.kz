@@ -62,7 +62,10 @@ export default (props) => {
     const submit = (e) => {
         e.preventDefault();
         post(route('termins.store'), {
-            preserveScroll: true
+            preserveScroll: true,
+            onSuccess: () => {
+                reset()
+            }
         });
     };
 
@@ -130,7 +133,7 @@ export default (props) => {
                         <InputError message={errors.message} className="mt-2" />
                     </div>
                     <div className="col-span-3">
-                        <button className="form-app-doctor-btn" type="submit">Записаться на прием</button>
+                        <button className="form-app-doctor-btn" type="submit" disabled={processing}>Записаться на прием</button>
                     </div>
                 </div>
             </form>
