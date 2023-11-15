@@ -16,6 +16,7 @@ class ProductTizer extends JsonResource
     {
         $arr = parent::toArray($request);
         $arr['images'] = $arr['images'] ? ProductImage::collection($arr['images']) : [];
+        $arr['url'] = $this->path;
         return $arr;
     }
 }
