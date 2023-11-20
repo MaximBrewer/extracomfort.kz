@@ -32,6 +32,18 @@
 </head>
 
 <body class="font-sans">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENM912KGC1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ENM912KGC1');
+    </script>
     <meta name="google-site-verification" content="HAj9Kgwr3EH8Y385ZiMM8QmXe2cwKHljXTkuSSoxRyY" />
     @inertia
 </body>
