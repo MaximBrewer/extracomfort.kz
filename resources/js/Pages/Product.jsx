@@ -185,7 +185,7 @@ export default (props) => {
             // }
             // setSpFilter(f)
             if (offer.prices.length) {
-                var priceIndex = offer.prices.findIndex(el => el.currency == 'тен' || el.currency == 'KZT');
+                var priceIndex = offer.prices.findIndex(el => el.id = 1);
                 if (priceIndex > -1) price = offer.prices[priceIndex].value
             }
         }

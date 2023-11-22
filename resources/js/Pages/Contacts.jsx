@@ -149,16 +149,25 @@ export default (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="my-8">
-                            <div className="mb-2">*На данном филиале предоставляются следующие услуги:</div>
-                            <ul className="pl-8">
-                                <li className="list-disc">проводится кинезотерапия (зал лечебной гимнастики)</li>
-                                <li className="list-disc">кабинет подолога (лечебный педикюр)</li>
-                                <li className="list-disc">товары после мастэктомии</li>
-                                <li className="list-disc">товары для людей с ограниченными возможностями</li>
-                                <li className="list-disc">изделия для стомы</li>
-                                <li className="list-disc">аренда костылей, инвалидных колясок</li>
-                            </ul>
+                        <div className="flex flex-col lg:flex-row my-8 gap-12 lg:justify-between">
+                            <div>
+                                <div className="mb-2">*На данном филиале предоставляются следующие услуги:</div>
+                                <ul className="pl-8">
+                                    <li className="list-disc">проводится кинезотерапия (зал лечебной гимнастики)</li>
+                                    <li className="list-disc">кабинет подолога (лечебный педикюр)</li>
+                                    <li className="list-disc">товары после мастэктомии</li>
+                                    <li className="list-disc">товары для людей с ограниченными возможностями</li>
+                                    <li className="list-disc">изделия для стомы</li>
+                                    <li className="list-disc">аренда костылей, инвалидных колясок</li>
+                                </ul>
+                            </div>
+                            <div className="text-black text-sm font-medium italic">
+                                <p>ИП "Extra comfort" БИН 750522450185</p>
+                                <p>Юр. адрес: РК, г.Караганда, ул.Ермекова д.52, кв. 213</p>
+                                <p>&nbsp;</p>
+                                <p>ИП Батманов Дмитрий Анатольевич БИН 730115350142</p>
+                                <p>Юр. адрес: РК, г.Караганда, ул.Ермекова д.52, кв. 213</p>
+                            </div>
                         </div>
                     </div>
                 </div>
