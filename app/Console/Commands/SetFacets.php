@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Facet;
 use App\Models\Product;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 class SetFacets extends Command
 {
@@ -27,13 +28,13 @@ class SetFacets extends Command
      */
     public function handle()
     {
+        DB::table('facets')->truncate();
         foreach (Product::all() as $model) {
+            Facet::firstOrCreate([
+                'path' => $model->path,
+                'product_id' => $model->id
+            ]);
             foreach ($model->offers as $offer) {
-                Facet::firstOrCreate([
-                    'path' => $model->path,
-                    'product_id' => $model->id,
-                    'offer_id' => $offer->id
-                ]);
                 foreach ($offer->specifications as $specification) {
                     Facet::firstOrCreate([
                         'path' => $model->path,
@@ -42,6 +43,7 @@ class SetFacets extends Command
                         'specification_id' => $specification->id,
                         'specification_accounting_id' => $specification->accounting_id,
                         'specification_value' => $specification->pivot->value,
+                    ], [
                         'specification_value_num' => (float)$specification->pivot->value * 10000,
                     ]);
                 }

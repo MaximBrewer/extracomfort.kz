@@ -108,6 +108,10 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
 a,
 img,
 span,
@@ -115,6 +119,22 @@ input,
 button,
 ion-icon {
   display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  height: auto;
+}
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
 }
 
 input {
