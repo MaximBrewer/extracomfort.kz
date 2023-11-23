@@ -31,7 +31,7 @@ export default ({ item }) => {
                 <div className="catalogue__short-desc-label fw-400-16-19">{item.excerpt}</div>
                 {item.offers.length ? <div className="catalogue__item-price fw-700-18-22">
                     {console.log(item)}
-                    {item.offers[0].prices.length ? <p>{item.offers[0].prices.find(el => el.type_id === 1).value} тг</p> : ``}
+                    {item.offers[0].prices.length && item.offers[0].prices.findIndex(el => el.type_id === 1) > -1 ? <p>{item.offers[0].prices.find(el => el.type_id === 1).value} тг</p> : ``}
                 </div> : ``}
                 <Link href={item.url} className="cart-icon-wrapper catalogue__cart-icon-wrapper">
                     <Cart2 className="w-4 h-4 shrink-0" />
