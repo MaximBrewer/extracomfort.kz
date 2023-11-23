@@ -3,8 +3,12 @@
 namespace App\Providers;
 
 use App\Models\CallBack;
+use App\Models\Offer;
+use App\Models\Product;
 use App\Models\Termin;
 use App\Observers\CallBack as ObserversCallBack;
+use App\Observers\Offer as ObserversOffer;
+use App\Observers\Product as ObserversProduct;
 use App\Observers\Termin as ObserversTermin;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -29,6 +33,8 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Product::observe(ObserversProduct::class);
+        Offer::observe(ObserversOffer::class);
         Termin::observe(ObserversTermin::class);
         CallBack::observe(ObserversCallBack::class);
     }
