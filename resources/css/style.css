@@ -98,6 +98,51 @@
 }
 
 /**
+* RESET
+*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+img,
+span,
+input,
+button,
+ion-icon {
+  display: block;
+}
+
+input {
+  width: 100%;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+ion-icon {
+  pointer-events: none;
+  font-size: 25px;
+}
+
+html {
+  scroll-behavior: smooth;
+
+}
+
+body {
+  background: var(--main-theme);
+  position: relative;
+  font-family: var(--mont-ff);
+}
+
+/**
 * REUSED
 */
 .bg_aqua {
