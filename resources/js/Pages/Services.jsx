@@ -116,29 +116,41 @@ export default (props) => {
         {...props}
     >
         <Head title={pagetitle} />
-        <div className="main-block relative">
+        {banners.data.length ? <div className="main-block">
+            <div className="main-bg brightness-50">
+                <img src={banners.data[0].image} alt="" />
+            </div>
+            <div className="container-outer">
+                <div className="main-content flex flex-col justify-center text-center ">
+                    <div className="prose-xl text-white mx-auto">{parse(banners.data[0].title ?? ``)}</div>
+                    {/* <div className="prose text-white mx-auto">{parse(current.data.subtitle ?? ``)}</div> */}
+                </div>
+            </div>
+        </div> : ``}
+        {/*  <div className="main-block relative">
             <div className="absolute top-0 w-full flex justify-center text-white pt-6">
                 <Breadcrumbs {...props} inbanner={true} />
             </div>
-            <Slider {...settings} className="main-slider w-full">
+
+          <Slider {...settings} className="main-slider w-full">
                 {banners.data.map((item, index) => <div key={index} className="main-slider-item">
                     <div className="main-bg brightness-50">
                         <img src={item.image} alt={item.title} />
                     </div>
-                    <div className="container-outer flex flex-col justify-between h-full py-8">
+                    <div className="container-outer flex flex-col justify-center h-full py-8">
                         <div className="main-content flex flex-col justify-center items-center text-center w-full">
                             <div className="text-3xl max-w-4xl mx-auto text-center text-white">{parse(item.title ?? ``)}</div>
-                            <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
-                                e.preventDefault()
-                                setModal(<CallBack />)
-                            }}>Заказать звонок</a>
                         </div>
-                        <div></div>
                     </div>
                 </div>)}
             </Slider>
+        </div> */}
+        <div className="container-outer flex flex-col justify-center h-full py-8">
+            <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
+                e.preventDefault()
+                setModal(<CallBack />)
+            }}>Заказать звонок</a>
         </div>
-
         <div className="our-services">
             <div className="container-outer">
                 <div className="our-services-title">

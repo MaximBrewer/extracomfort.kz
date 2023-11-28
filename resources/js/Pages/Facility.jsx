@@ -29,14 +29,16 @@ export default (props) => {
                 <div className="main-content flex flex-col justify-center text-center ">
                     <div className="prose-xl text-white mx-auto">{parse(current.data.subtitle ?? ``)}</div>
                     {/* <div className="prose text-white mx-auto">{parse(current.data.subtitle ?? ``)}</div> */}
-                    <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
-                        e.preventDefault()
-                        setModal(<CallBack />)
-                    }}>Заказать звонок</a>
                 </div>
             </div>
         </div>
 
+        <div className="container-outer flex flex-col justify-center h-full py-8">
+            <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
+                e.preventDefault()
+                setModal(<CallBack />)
+            }}>Заказать звонок</a>
+        </div>
         {facilities.data.length ? <div className="our-services">
             <div className="container-outer">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
