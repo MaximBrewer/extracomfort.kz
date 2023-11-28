@@ -18,6 +18,7 @@ import Map from "../../images/map.jpg"
 import Map2 from "../../images/map2.jpg"
 import Baloon from '@/Icons/Baloon';
 import Device from '@/Icons/Device';
+import Email from '@/Icons/Email';
 
 export default (props) => {
 
@@ -75,6 +76,15 @@ export default (props) => {
                                         <div className="mb-3">Магазин ортопедических товаров:</div>
                                         <div className="font-bold">+7 747 095 40 69</div>
                                         <div className="font-bold">+7 708 045 84 25 (WhatsApp)</div>
+                                    </div>
+                                </div>
+                                <div className="gap-5 flex mb-5">
+                                    <div className="w-12 h-12 bg-white rounded-full justify-center items-center flex">
+                                        <Email className="w-4 h-auto" />
+                                    </div>
+                                    <div className="text-zinc-800">
+                                        <div className="mb-3">E-mail:</div>
+                                        <a href="mailto:extracomfort@mail.ru" className="font-bold block">extracomfort@mail.ru</a>
                                     </div>
                                 </div>
                             </div>
@@ -140,6 +150,15 @@ export default (props) => {
                                         <div className="mb-3">Телефон:</div>
                                         <div className="font-bold">+7 747 095 94 29</div>
                                         <div className="font-bold mb-3">+7 778 276 23 44 (WhatsApp)</div>
+                                    </div>
+                                </div>
+                                <div className="gap-5 flex mb-5">
+                                    <div className="w-12 h-12 bg-white rounded-full justify-center items-center flex">
+                                        <Email className="w-4 h-auto" />
+                                    </div>
+                                    <div className="text-zinc-800">
+                                        <div className="mb-3">E-mail:</div>
+                                        <a href="mailto:extracomfort@mail.ru" className="font-bold block">extracomfort@mail.ru</a>
                                     </div>
                                 </div>
                             </div>

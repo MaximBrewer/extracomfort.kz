@@ -8,6 +8,7 @@ import FormAppDoctor from '@/Components/FormAppDoctor';
 import CallBack from '@/Modals/CallBack';
 import { useLayout } from '@/Contexts/LayoutContext';
 import parse from "html-react-parser"
+import AboutTextBlock from '@/Components/AboutTextBlock';
 
 
 function PrevArrow(props) {
@@ -131,6 +132,7 @@ export default (props) => {
             </div>
             <div className="orthopedic-block bg-white pb-20">
                 <div className="container-outer">
+                    <AboutTextBlock />
                     <div className="flex flex-col md:flex-row items-center gap-6">
                         <div className="block md:w-1/2">
                             <h4 className="fw-600-24-34 uppercase mb-5">ОРТОПЕДИЧЕСКИЙ ЦЕНТР</h4>

@@ -22,6 +22,8 @@ class AboutController extends Controller
         return Inertia::render('About', [
             'pagetitle' => __('About'),
             'youtube' =>  $youtube,
+            'abouttext1' => setting('services.abouttext1'),
+            'abouttext2' => setting('services.abouttext2'),
             'rewards' => ResourcesReward::collection(Reward::all()),
             'aboutImages' => ResourcesAboutImage::collection(AboutImage::all()),
             'breadcrumbs' => [
