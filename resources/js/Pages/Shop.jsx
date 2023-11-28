@@ -5,6 +5,8 @@ import Slider from 'react-slick';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 import ProductTizer from '@/Components/ProductTizer';
 import CategoryTizer from '@/Components/CategoryTizer';
+import { useLayout } from '@/Contexts/LayoutContext';
+import CallBack from '@/Modals/CallBack';
 
 
 function PrevArrow(props) {
@@ -62,6 +64,8 @@ export default (props) => {
 
     const { pagetitle, products } = props
 
+    const { setModal } = useLayout()
+
     const {
         categories,
         shopBannerTop,
@@ -82,9 +86,15 @@ export default (props) => {
                 <div className="container-outer">
                     <div className="main-content">
                         <h1 className="text-3xl max-w-4xl text-white xl:w-2/3">{shopBannerTopText}</h1>
-                        <Link href={route('catalog')}><button className="btn-primary fw-700-16-20 py-4 px-6 mt-7">{shopBannerTopButtonText}</button></Link>
+                        {/* <Link href={route('catalog')}><button className="btn-primary fw-700-16-20 py-4 px-6 mt-7">{shopBannerTopButtonText}</button></Link> */}
                     </div>
                 </div>
+            </div>
+            <div className="container-outer flex flex-col justify-center h-full py-8">
+                <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
+                    e.preventDefault()
+                    setModal(<CallBack />)
+                }}>Заказать звонок</a>
             </div>
             <div className="similar-products">
                 <div className="container-outer">
