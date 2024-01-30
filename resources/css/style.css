@@ -2107,9 +2107,8 @@ footer {
 
 .product-slider {
   border-radius: 1.25rem;
-  background: url(<path-to-image>), lightgray 52.25px 27.247px / 79.183% 88.53% no-repeat, #FFF;
+  background: lightgray 52.25px 27.247px / 79.183% 88.53% no-repeat, #FFF;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
-  margin-bottom: 3.5rem;
   overflow: hidden;
 }
 
@@ -6533,6 +6532,6 @@ select:focus {
   border-color: #3A9EAA !important;
 }
 
-.reg-form__col{
+.reg-form__col {
   @apply mb-4;
 }
