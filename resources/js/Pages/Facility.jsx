@@ -1,11 +1,5 @@
 import Layout from "@/Layouts/Layout";
-import { Head, Link } from "@inertiajs/react";
-
-import ImgMain1 from "@/../images/img-main-1.jpg"
-import ImgOutService1 from "@/../images/our-services-1.png"
-import FormAppDoctor from "@/Components/FormAppDoctor";
-import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
-import Slider from 'react-slick';
+import { Head } from "@inertiajs/react";
 import parse from "html-react-parser"
 import CallBack from "@/Modals/CallBack";
 import { useLayout } from "@/Contexts/LayoutContext";

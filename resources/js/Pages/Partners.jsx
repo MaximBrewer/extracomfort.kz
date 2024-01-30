@@ -1,41 +1,7 @@
 import Layout from '@/Layouts/Layout';
-import { Head, Link } from '@inertiajs/react';
-
-import ImgOrthopedic1 from "@/../images/img-orthopedic-1.png"
-import ImgAbout1 from "@/../images/img-about-1.png"
-
-import ImgParner1 from "@/../images/img-partners-logo-1.png"
-import ImgParner2 from "@/../images/img-partners-logo-2.png"
-import ImgParner3 from "@/../images/img-partners-logo-3.png"
-import ImgParner4 from "@/../images/img-partners-logo-4.png"
-import ImgParner5 from "@/../images/img-partners-logo-5.png"
-import ImgParner6 from "@/../images/img-partners-logo-6.png"
-
-
-
-
-import Slider from 'react-slick';
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
-import NoPhoto from '@/Icons/NoPhoto';
-import Cart2 from '@/Icons/Cart2';
-import Star from '@/Icons/Star';
-import ProductTizer from '@/Components/ProductTizer';
-import FormAppDoctor from '@/Components/FormAppDoctor';
+import { Head } from '@inertiajs/react';
 import Breadcrumbs from '@/Components/Breadcrumbs';
 
-
-
-function NextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={`${className} slick-arrow-purple similar-products-slick__arrow-right center`}
-            onClick={onClick}
-        >
-            <ArrowRightIcon className="w-6 h-6 shrink-0" />
-        </div>
-    );
-}
 
 export default (props) => {
 

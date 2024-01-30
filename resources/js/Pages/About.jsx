@@ -1,5 +1,5 @@
 import Layout from '@/Layouts/Layout';
-import { Head, Link } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 
 import Slider from 'react-slick';
 

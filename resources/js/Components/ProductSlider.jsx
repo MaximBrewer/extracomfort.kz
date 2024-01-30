@@ -90,7 +90,7 @@ export default (props) => {
                 className="product-slider__nav block"
             >
                 {images.map((image, idx) => <SwiperSlide key={idx}>
-                    <div className="p-4">
+                    <div className="">
                         <div className="w-full h-full bg-no-repeat bg-center bg-contain pt-[100%]" style={{ backgroundImage: `url('${image.url}')` }} />
                     </div>
                 </SwiperSlide>)}

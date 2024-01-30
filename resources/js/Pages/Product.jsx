@@ -7,7 +7,7 @@ import InStock from "../../images/in-stock-tick.svg"
 import Phone from "../../images/phone.svg"
 import Cart from '@/Icons/Cart';
 import Heart from '@/Icons/Heart';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLayout } from '@/Contexts/LayoutContext';
 import parse from "html-react-parser"
 import ProductTizer from '@/Components/ProductTizer';

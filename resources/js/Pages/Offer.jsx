@@ -1,33 +1,7 @@
 import Layout from '@/Layouts/Layout';
-import { Head, Link } from '@inertiajs/react';
-
-import ImgOrthopedic1 from "@/../images/img-orthopedic-1.png"
-import ImgAbout1 from "@/../images/img-about-1.png"
-
-
-
-import Slider from 'react-slick';
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
-import NoPhoto from '@/Icons/NoPhoto';
-import Cart2 from '@/Icons/Cart2';
-import Star from '@/Icons/Star';
-import ProductTizer from '@/Components/ProductTizer';
-import FormAppDoctor from '@/Components/FormAppDoctor';
+import { Head } from '@inertiajs/react';
 import Breadcrumbs from '@/Components/Breadcrumbs';
 
-
-
-function NextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={`${className} slick-arrow-purple similar-products-slick__arrow-right center`}
-            onClick={onClick}
-        >
-            <ArrowRightIcon className="w-6 h-6 shrink-0" />
-        </div>
-    );
-}
 
 export default (props) => {
 
