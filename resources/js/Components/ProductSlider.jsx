@@ -79,22 +79,21 @@ export default (props) => {
                     </div>
                 </SwiperSlide>)}
             </Swiper>
-
-            <Swiper
-                onSwiper={setThumbsSwiper}
-                spaceBetween={10}
-                slidesPerView={4}
-                freeMode={true}
-                watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="product-slider__nav block"
-            >
-                {images.map((image, idx) => <SwiperSlide key={idx}>
-                    <div className="py-2">
+            <div className='p-2'>
+                <Swiper
+                    onSwiper={setThumbsSwiper}
+                    spaceBetween={10}
+                    slidesPerView={4}
+                    freeMode={true}
+                    watchSlidesProgress={true}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="product-slider__nav block"
+                >
+                    {images.map((image, idx) => <SwiperSlide key={idx}>
                         <div className="w-full h-full rounded-xl bg-no-repeat bg-center bg-cover pt-[100%]" style={{ backgroundImage: `url('${image.url}')` }} />
-                    </div>
-                </SwiperSlide>)}
-            </Swiper>
-        </div >
+                    </SwiperSlide>)}
+                </Swiper>
+            </div>
+        </div>
     </div>
 }
