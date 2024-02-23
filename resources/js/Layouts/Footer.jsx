@@ -17,14 +17,14 @@ export default () => {
     return <footer>
         <div className="container-outer h-full">
             <div className="footer__outer">
-                <div className="footer__inner pb-12">
-                    <div className="footer__logo-wrapper">
+                <div className="flex flex-col xl:flex-row pb-12">
+                    <div className="mb-10 lg:mr-20 shrink-0 hidden xl:block">
                         <Link href={route('home')}>
                             <img src={LogoVertical} alt="" />
                         </Link>
                     </div>
-                    <ul className="footer__navbar">
-                        <li className="footer-navbar__item">
+                    <ul className="flex flex-col lg:flex-row justify-between w-full">
+                        <li className="mb-10 lg:mr-20">
                             <div className="footer-navbar-item__title fw-600-18-22">Услуги</div>
                             <ul className="footer-navbar-item__menu fw-400-18-22">
                                 {menus.find(menu => menu.name === `services`).items.map((item, index) => <li key={index}>
@@ -32,7 +32,7 @@ export default () => {
                                 </li>)}
                             </ul>
                         </li>
-                        <li className="footer-navbar__item">
+                        <li className="mb-10 lg:mr-20">
                             <div className="footer-navbar-item__title fw-600-18-22">Товары</div>
                             <ul className="footer-navbar-item__menu fw-400-18-22">
                                 {menus.find(menu => menu.name === `products`).items.map((item, index) => <li key={index}>
@@ -40,7 +40,7 @@ export default () => {
                                 </li>)}
                             </ul>
                         </li>
-                        <li className="footer-navbar__item">
+                        <li className="mb-10">
                             <div className="footer-navbar-item__title fw-600-18-22">Контакты</div>
                             <div className="footer-contacts-wrapper">
                                 <div className="mb-5">
