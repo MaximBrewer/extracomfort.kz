@@ -12,7 +12,7 @@ export default () => {
 
     const { menus, footeremail, footerphone, copyright } = window.appdata
 
-    const { setModal } = useLayout()
+    const { setModal, goToTop } = useLayout()
 
     return <footer>
         <div className="container-outer h-full">
@@ -93,7 +93,7 @@ export default () => {
                     </ul>
                 </div>
                 <div className="footer-copy-wrapper center fw-400-14-17">{copyright}</div>
-                <div className="go-top-wrapper js-back-to-top">
+                <div className="go-top-wrapper js-back-to-top" onClick={e => goToTop(e)}>
                     <div className="go-top-arrow-wrapper">
                         <img src={ArrowTop} alt="" />
                     </div>

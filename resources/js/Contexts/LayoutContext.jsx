@@ -34,6 +34,11 @@ const LayoutProvider = (props) => {
     const [loading, setLoading] = useState(false)
     const [modal, setModal] = useState(null)
 
+    const goToTop = (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     useEffect(() => {
         // router.on('start', () => setCopen(false))
         return () => {
@@ -48,6 +53,7 @@ const LayoutProvider = (props) => {
     return <LayoutContext.Provider
         value={{
             modal,
+            goToTop,
             setModal,
             moment,
             loading,
