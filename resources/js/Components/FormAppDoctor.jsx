@@ -122,7 +122,7 @@ export default (props) => {
                             })} />
                         <InputError message={errors.facility_id} className="mt-2" />
                     </div>
-                    <div className="col-span-3">
+                    <div className="sm:col-span-3">
                         <textarea type='text'
                             value={data.message}
                             onChange={e => setData(prev => ({
@@ -132,7 +132,7 @@ export default (props) => {
                             className="w-full form-app-doctor-input rounded-lg" placeholder="Опишите причину вашего обращения"></textarea>
                         <InputError message={errors.message} className="mt-2" />
                     </div>
-                    <div className="col-span-3">
+                    <div className="sm:col-span-3">
                         <button className="form-app-doctor-btn" type="submit" disabled={processing}>Записаться на прием</button>
                     </div>
                 </div>
