@@ -28,8 +28,8 @@ const styles = {
 }
 
 const options = [
-    { value: 'title:asc', label: 'По названию А-Я' },
-    { value: 'title:desc', label: 'По названию Я-А' },
+    // { value: 'title:asc', label: 'По названию А-Я' },
+    // { value: 'title:desc', label: 'По названию Я-А' },
     { value: 'min_price:asc', label: 'Дешевле' },
     { value: 'min_price:desc', label: 'Дороже' }
 ]
@@ -44,10 +44,7 @@ export default () => {
         isSearchable={false}
         placeholder={`Сортировка`}
         value={sort && order ? options.find(el => el.value == `${sort}:${order}`) : options[0]}
-        onChange={value => router.visit(route('catalog', {
-            sort: value.value.split(':')[0],
-            order: value.value.split(':')[1],
-        }))}
+        onChange={value => router.visit(route().current())}
         theme={(theme) => ({
             ...theme,
             colors: {

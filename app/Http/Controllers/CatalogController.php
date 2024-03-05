@@ -52,7 +52,7 @@ class CatalogController extends Controller
         return Inertia::render('Catalog', [
             'pagetitle' => __('Каталог'),
             'categories' => ResourcesCategory::collection(Category::where('parent_id', $topCategory->id)->with('children')->get()),
-            'products' => ProductTizer::collection($products->paginate(12)->appends(request()->only(['sort', 'order']))),
+            'products' => ProductTizer::collection($products->paginate(36)->appends(request()->only(['sort', 'order']))),
             'specifications' => ResourcesSpecification::collection($specifications),
             'options' => ResourcesOption::collection($options),
             'sort' => $request->sort,
@@ -75,7 +75,7 @@ class CatalogController extends Controller
 
         return Inertia::render('Search', [
             'pagetitle' => __('Поиск'),
-            'products' => ProductTizer::collection($products->paginate(12)->appends(request()->only(['sort', 'order', 'q']))),
+            'products' => ProductTizer::collection($products->paginate(36)->appends(request()->only(['sort', 'order', 'q']))),
             'sort' => $request->sort,
             'order' => $request->order,
             'query' => $request->q,
@@ -161,7 +161,7 @@ class CatalogController extends Controller
             'siblings' => ResourcesCategory::collection($category->siblingsAndSelf()->get()),
             'parentsiblings' => ResourcesCategory::collection($category->parent && $category->parent->parent ? $category->parent->siblingsAndSelf()->get() : []),
             'total' => 'Показано ' . $products->count() . ' ' . Lang::choice('товар|товара|товаров', $products->count(), [], 'ru'),
-            'products' => ProductTizer::collection($products->paginate(12)),
+            'products' => ProductTizer::collection($products->paginate(36)),
             'breadcrumbs' => $breadcrumbs,
             'specifications' => ResourcesSpecification::collection($specifications),
             'options' => ResourcesOption::collection($options),

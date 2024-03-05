@@ -56,7 +56,7 @@ export default (props) => {
                 </div>
                 <div className="contacts-page registration-section pb-20">
                     <div className="container-outer">
-                        <div className="registration-section__title catalogue-section__title center fw-700-45-55">{pagetitle}</div>
+                        <div className="registration-section__title catalogue-section__title center text-xl lg:text-2xl font-bold text-center">{pagetitle}</div>
                         <div className="registration-section__subtitle reg-subtitle fw-400-16-19">
                         </div>
                         <div className="contacts-page-block white-block -gray">
@@ -144,7 +144,7 @@ export default (props) => {
                 </div>
                 <div className="contacts-page registration-section pb-20">
                     <div className="container-outer">
-                        <div className="registration-section__title catalogue-section__title center fw-700-45-55">
+                        <div className="registration-section__title catalogue-section__title center text-xl lg:text-2xl font-bold text-center">
                             <p>Напишите нам</p>
                         </div>
                         <div className="registration-section__subtitle reg-subtitle fw-400-16-19">
@@ -200,7 +200,7 @@ export default (props) => {
                                     <textarea
                                         id="comment"
                                         name="comment"
-                                        value={data.comment} 
+                                        value={data.comment}
                                         className="ordering-contacts-form__textarea fw-400-16-19"
                                         onChange={(e) => setData('comment', e.target.value)}
                                         placeholder={`Комментарии`}

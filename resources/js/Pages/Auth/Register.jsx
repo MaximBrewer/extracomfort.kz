@@ -42,7 +42,7 @@ export default function Register(props) {
             </div>
             <div className="registration-section">
                 <div className="container-outer">
-                    <div className="registration-section__title catalogue-section__title center fw-700-45-55">
+                    <div className="registration-section__title catalogue-section__title center text-xl lg:text-2xl font-bold text-center">
                         <p>Регистрация</p>
                     </div>
                     <form className="registration-section__form reg-form fw-400-16-19" onSubmit={submit}>

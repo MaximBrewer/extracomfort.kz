@@ -34,7 +34,7 @@ export default function ForgotPassword(props) {
 
             <div className="registration-section">
                 <div className="container-outer">
-                    <div className="registration-section__title catalogue-section__title center fw-700-45-55">
+                    <div className="registration-section__title catalogue-section__title center text-xl lg:text-2xl font-bold text-center">
                         <p>Восстановление пароля</p>
                     </div>
                     <form className="registration-section__form reg-form fw-400-16-19" onSubmit={submit}>
@@ -56,7 +56,7 @@ export default function ForgotPassword(props) {
                         <div className="reg-form__btn-wrapper fw-700-16-20">
                             <button className="btn-primary" disabled={processing}>Отправить ссылку</button>
                         </div>
-                        
+
                         {status && <div className="mt-4 font-medium text-sm text-green-600">{status}</div>}
                     </form>
                     <br />

@@ -15,7 +15,7 @@ export default (props) => {
             <Top />
             <div className="catalogue-section">
                 <div className="container-outer">
-                    <div className="catalogue-section__title center fw-700-45-55">{pagetitle}</div>
+                    <div className="catalogue-section__title center text-xl lg:text-2xl font-bold text-center">{pagetitle}</div>
                     <div className="catalogue-filter-row catalogue-section__catalogue-filter-row mb-3">
                         <Total />
                         <Sort />
