@@ -72,7 +72,7 @@ export default (props) => {
         <Layout {...props}>
             <Head title={pagetitle} />
             <div className="main-block">
-                <div className="main-bg brightness-50" style={{ backgroundImage: `url(${aboutBannerTop})` }} />
+                <div className="main-bg" style={{ backgroundImage: `url(${aboutBannerTop})` }} />
                 <div className="container-outer">
                     <div className="main-content flex flex-col justify-center text-center">
                         <div className="main-subtitle">{parse(aboutBannerTopText ?? ``)}</div>

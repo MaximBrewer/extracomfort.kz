@@ -121,7 +121,7 @@ export default (props) => {
     >
         <Head title={pagetitle} />
         {banners.data.length ? <div className="main-block">
-            <div className="main-bg brightness-50">
+            <div className="main-bg">
                 <img src={banners.data[0].image} alt="" />
             </div>
             <div className="container-outer">
@@ -138,7 +138,7 @@ export default (props) => {
 
           <Slider {...settings} className="main-slider w-full">
                 {banners.data.map((item, index) => <div key={index} className="main-slider-item">
-                    <div className="main-bg brightness-50">
+                    <div className="main-bg">
                         <img src={item.image} alt={item.title} />
                     </div>
                     <div className="container-outer flex flex-col justify-center h-full py-8">

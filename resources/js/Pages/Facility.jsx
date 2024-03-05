@@ -16,7 +16,7 @@ export default (props) => {
     >
         <Head title={pagetitle} />
         <div className="main-block">
-            <div className="main-bg brightness-50">
+            <div className="main-bg">
                 <img src={current.data.image} alt={current.data.title} />
             </div>
             <div className="container-outer">
