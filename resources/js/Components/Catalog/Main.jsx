@@ -10,6 +10,7 @@ export default () => {
 
     return <div className="catalogue catalogue-section__catalogue">
         <div className="catalogue__left">
+            {category ? <Filter /> : ``}
             {categories && categories.data.length ? <ul className="total-found-sidebar catalogue__total-found-sidebar fw-400-16-19">
                 {categories.data.map((item) => <li key={item.id} className="total-found-sidebar__catalogue-sidebar-item">
                     <Link href={item.url} className={`catalogue-sidebar-item ${category && category.data.id === item.id ? `underline purple` : `text-black`}`}>
@@ -34,7 +35,6 @@ export default () => {
                     </Link>
                 </li>)}
             </ul> : <></>}
-            {category ? <Filter /> : ``}
         </div>
         <div className="catalogue__grid">
             <ul className="catalogue__grid-inner">

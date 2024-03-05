@@ -291,14 +291,14 @@ export default (props) => {
                                                     <p>Описание и условие доставки</p>
                                                 </div>
                                             </div> */}
-                                            <div className="btn-secondary product-description__btn-secondary">
+                                            {/* <div className="btn-secondary product-description__btn-secondary">
                                                 <div className="product-description__btn-secondary-phone-icon-wrapper">
                                                     <img src={Phone} alt="" />
                                                 </div>
                                                 <div className="product-description__btn-secondary-txt-wrapper fw-700-16-20">
                                                     <p>Заказать звонок</p>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
