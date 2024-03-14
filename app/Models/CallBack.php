@@ -12,6 +12,7 @@ class CallBack extends Model
     protected $fillable = [
         'name',
         'phone',
+        'subject',
         'message'
     ];
 }

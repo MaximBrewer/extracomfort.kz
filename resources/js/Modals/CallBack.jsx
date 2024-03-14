@@ -5,12 +5,15 @@ import { useForm } from "@inertiajs/react";
 
 export default (props) => {
 
+    const { subject = '' } = props
+
     const { setModal } = useLayout();
 
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone: '',
-        message: ''
+        message: '',
+        subject: subject
     });
 
     const submit = (e) => {

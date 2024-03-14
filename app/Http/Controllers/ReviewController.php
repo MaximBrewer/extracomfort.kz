@@ -23,6 +23,7 @@ class ReviewController extends Controller
         $data = $request->all();
         $data['published'] = false;
         Review::create($data);
-        return redirect()->back();
+        $message = ['title' => 'Спасибо!', 'text' => 'Ваш отзыв принят <br/>и будет добавлен после модерации.'];
+        return redirect()->back()->with(['message' => $message]);;
     }
 }

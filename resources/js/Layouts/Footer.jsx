@@ -59,35 +59,6 @@ export default () => {
                                     <span className="font-semibold">Instagram:</span>
                                     <a href="https://instagram.com/extra_comfort" target="_blank" className="inline underline">@extra_comfort</a>
                                 </div>
-                                {/* <div className="footer-contacts-tel-wrapper">
-                                    <a href={`tel:${footerphone}`} className="icon-wrapper center">
-                                        <img src={Phone} alt="" />
-                                    </a>
-                                    <div className="footer-contacts-details-wrapper">
-                                        <a href={`tel:${footerphone}`} className="footer-contacts-num-wrapper">
-                                            <div className="footer-num-wrapper">
-                                                {footerphone}
-                                            </div>
-                                            <div className="footer-num-chevron-wrapper center">
-                                                <img src={ChevronDown} alt="" />
-                                            </div>
-                                        </a>
-                                        <div className="order-callback purple">
-                                            <a href="#" onClick={e => {
-                                                e.preventDefault()
-                                                setModal(<CallBack />)
-                                            }}>Заказать обратный звонок</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href={`mailto:${footeremail}`} className="footer-contacts-email-wrapper">
-                                    <div className="icon-wrapper center">
-                                        <img src={Email} alt="" />
-                                    </div>
-                                    <div className="email-wrapper center fw-400-16-19">
-                                        {footeremail}
-                                    </div>
-                                </a> */}
                             </div>
                         </li>
                     </ul>

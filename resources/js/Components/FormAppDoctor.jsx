@@ -140,13 +140,8 @@ export default (props) => {
             <div className="form-app-doctor-contact">
                 <span>Также запись по телефону:</span>
                 <a href={`tel:${headerphone}`}
-                    //  onClick={e => {
-                    //     e.preventDefault()
-                    //     setModal(<CallBack />)
-                    // }} 
                     className="flex flex-col md:flex-row gap-x-4 gap-y-1 md:items-center">
                     <span>{headerphone}</span>
-                    {/* <span className="-purple">Запись к врачу в 1 клик</span> */}
                 </a>
             </div>
         </div>

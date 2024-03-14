@@ -78,7 +78,7 @@ export default (props) => {
                         <div className="main-subtitle">{parse(aboutBannerTopText ?? ``)}</div>
                         <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
                             e.preventDefault()
-                            setModal(<CallBack />)
+                            setModal(<CallBack subject={'обратный звонок'} />)
                         }}>{aboutBannerTopButtonText}</a>
                     </div>
                 </div>

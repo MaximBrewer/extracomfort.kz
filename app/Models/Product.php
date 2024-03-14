@@ -34,6 +34,18 @@ class Product extends Model
         });
     }
 
+    /**
+     * Scope a query to only published scopes.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePromo(Builder $query)
+    {
+        return $query->where('promo', 1);
+    }
+
     protected $casts = [
         'images' => MultipleImages::class,
     ];

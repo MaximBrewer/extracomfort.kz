@@ -20,11 +20,11 @@ export default ({ item }) => {
             <div className="catalogue__item-bottom-inner">
                 <Link href={item.url} className="catalogue__item-title fw-600-16-19 h-[2.5rem] line-clamp-2">{item.title}</Link>
                 <div className="catalogue__item-rating">
-                    <div className="catalogue__stars">
+                    {/* <div className="catalogue__stars">
                         {[null, null, null, null, null].map((st, stdx) => <div key={stdx} className="catalogue__star-wrapper center">
                             <Star className="w-4 h-4 shrink-0 text-yellow-400" />
                         </div>)}
-                    </div>
+                    </div> */}
                     <div className="catalogue__feedback-label fw-500-12-18">{numWord(item.reviewsCount, ['отзыв', 'отзыва', 'отзывов'])}</div>
                 </div>
                 <div className="catalogue__in-stock-label fw-400-14-17">Наличие</div>

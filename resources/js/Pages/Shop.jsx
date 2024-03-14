@@ -86,21 +86,19 @@ export default (props) => {
                 <div className="container-outer">
                     <div className="main-content">
                         <h1 className="text-3xl max-w-4xl text-white xl:w-2/3">{shopBannerTopText}</h1>
-                        {/* <Link href={route('catalog')}><button className="btn-primary fw-700-16-20 py-4 px-6 mt-7">{shopBannerTopButtonText}</button></Link> */}
                     </div>
                 </div>
             </div>
             <div className="container-outer flex flex-col justify-center h-full py-8">
                 <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
                     e.preventDefault()
-                    setModal(<CallBack />)
+                    setModal(<CallBack subject={'обратный звонок'} />)
                 }}>Заказать звонок</a>
             </div>
             <div className="similar-products">
                 <div className="container-outer">
                     <div className="similar-products__outer pb-0">
                         <div className="similar-products__inner">
-                            {/* <div className="similar-products-title-label similar-products__similar-products-title-label fw-700-45-55">Категории товаров</div> */}
                             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                                 {categories.map((item, index) => <CategoryTizer key={index} item={item} />)}
                             </div>
@@ -118,9 +116,9 @@ export default (props) => {
                                     <ProductTizer item={item} />
                                 </div>)}
                             </Slider>
-                            <div className="similar-products__btn-wrapper">
+                            {/* <div className="similar-products__btn-wrapper">
                                 <button className="btn-primary similar-products__btn-primary fw-400-18-30">Посмотреть все</button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

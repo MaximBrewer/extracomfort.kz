@@ -41,7 +41,7 @@ class HomeController extends Controller
     {
         return Inertia::render('Shop', [
             'pagetitle' => setting('site.title'),
-            'products' => ProductTizer::collection(Product::limit(20)->get())
+            'products' => ProductTizer::collection(Product::promo()->get())
         ]);
     }
 }

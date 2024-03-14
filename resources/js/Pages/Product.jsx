@@ -141,7 +141,7 @@ export default (props) => {
             preserveScroll: true,
             onSuccess: () => {
                 reset()
-                setModal(<Info title={`Спасибо!`} message={`Ваш отзыв принят <br/>и будет добавлен после модерации.`} />)
+                setModal(null)
             }
         });
     };
@@ -244,14 +244,6 @@ export default (props) => {
                                 <div className="product-description__card">
                                     <div className="product-description__card-inner">
                                         <div className="product-description__card-leftr">
-                                            {/* <div className="product-description__card-brand-wrapper">
-                                                <div className="product-description__card-brand-label fw-700-14-17">
-                                                    <p>Бренд</p>
-                                                </div>
-                                                <div className="product-description__card-brand-title fw-400-14-17">
-                                                    <p>Название</p>
-                                                </div>
-                                            </div> */}
                                             {specifications.map((sp, sdx) => <div key={sp.id}>
                                                 <div className="product-description__card-size-wrapper">
                                                     <div className="product-description__card-size-label fw-700-14-17 flex gap-2">
@@ -272,20 +264,6 @@ export default (props) => {
                                                     </div>)}
                                                 </div>
                                             </div>)}
-                                            {/* <div className="product-description__card-purchase-label fw-700-14-17">
-                                                <p>Оплата</p>
-                                            </div>
-                                            <div className="product-description__card-purchase-flexbox">
-                                                <div className="product-description__card-purchase-item center">
-                                                    <img src={VisaLogo} alt="" />
-                                                </div>
-                                                <div className="product-description__card-purchase-item center">
-                                                    <img src={MastercardLogo} alt="" />
-                                                </div>
-                                                <div className="product-description__card-purchase-item center">
-                                                    <img src={Money} alt="" />
-                                                </div>
-                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
@@ -362,16 +340,16 @@ export default (props) => {
                                     <ul className="comment-wrapper product-review-tab-wrapper__comment-wrapper">
                                         {product.data.reviews.map((review, rdx) => <li key={rdx} className="comment-wrapper__comment comment">
                                             <div className="comment__left">
-                                                <div className="comment__photo">
+                                                {/* <div className="comment__photo">
                                                     <img src={review.avatar} alt="" />
-                                                </div>
+                                                </div> */}
                                                 <div className="comment__content ">
                                                     <div className="comment__fullname fw-500-16-22">{review.name}</div>
                                                     <div className="comment__txt fw-400-16-19">{review.text}</div>
                                                     <div className="comment__date fw-500-14-20">{moment(review.created_at).format('DD.MM.YYYY HH:mm')}</div>
                                                 </div>
                                             </div>
-                                            <div className="comment__right">
+                                            {/* <div className="comment__right">
                                                 <div className="catalogue__item-rating">
                                                     <div className="catalogue__stars">
                                                         {[null, null, null, null, null].map((st, stdx) => <div key={stdx} className="catalogue__star-wrapper center">
@@ -379,7 +357,7 @@ export default (props) => {
                                                         </div>)}
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </li>)}
                                     </ul>
 

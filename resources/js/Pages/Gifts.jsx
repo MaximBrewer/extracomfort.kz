@@ -45,7 +45,7 @@ export default (props) => {
                         <div className="flex justify-center mb-16">
                             <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mb-12 mx-auto" onClick={e => {
                                 e.preventDefault()
-                                setModal(<CallBack />)
+                                setModal(<CallBack subject={'Подарочный сертификат (Магазин)'} />)
                             }}>Заказать сертификат</a>
                         </div>
                         <h4 className="fw-700-32-40 mb-6 center">Ортопедический центр</h4>
@@ -65,7 +65,7 @@ export default (props) => {
                         <div className="flex justify-center mb-16">
                             <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-12 mx-auto" onClick={e => {
                                 e.preventDefault()
-                                setModal(<CallBack />)
+                                setModal(<CallBack subject={'Подарочный сертификат (Ортопедический центр)'} />)
                             }}>Заказать сертификат</a>
                         </div>
                     </div>

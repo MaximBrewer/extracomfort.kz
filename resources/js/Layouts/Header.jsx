@@ -23,7 +23,7 @@ import Info from "@/Modals/Info"
 
 export default (props) => {
 
-    const { cart, favorites, shoppage = false, servicepage = false, sitenote = ``, message=`` } = usePage().props
+    const { cart, favorites, shoppage = false, servicepage = false, sitenote = ``, message = `` } = usePage().props
 
     const { menus } = window.appdata
 
@@ -55,7 +55,6 @@ export default (props) => {
     useEffect(() => {
         message && setModal(<Info message={message} />)
     }, [message]);
-
 
     const { post } = useForm({});
 
@@ -201,14 +200,11 @@ export default (props) => {
                             <div className="contact-info__right">
                                 <a href={`tel:${headerphone}`} className="header-tel-wrapper">
                                     <div className="header-tel black fw-400-16-19">{headerphone}</div>
-                                    {/* <div className="header-tel-chevron-icon center">
-                                        <ChevronDown2 className="w-2.5 h-2.5 shrink-0" />
-                                    </div> */}
                                 </a>
                                 <div className="order-callback purple fw-700-14-17">
                                     <a href="#" onClick={e => {
                                         e.preventDefault()
-                                        setModal(<CallBack />)
+                                        setModal(<CallBack subject={'обратный звонок'} />)
                                     }}>Заказать обратный звонок</a>
                                 </div>
                             </div>
@@ -247,14 +243,11 @@ export default (props) => {
                             <div className="header-tel black fw-400-16-19">
                                 <p>{headerphone}</p>
                             </div>
-                            {/* <div className="header-tel-chevron-icon center">
-                                <ChevronDown2 className="w-2.5 h-2.5 shrink-0" />
-                            </div> */}
                         </div>
                         <div className="order-callback purple fw-700-14-17">
                             <a href="#" onClick={e => {
                                 e.preventDefault()
-                                setModal(<CallBack />)
+                                setModal(<CallBack subject={'обратный звонок'} />)
                             }}>Заказать обратный звонок</a>
                         </div>
                     </div>

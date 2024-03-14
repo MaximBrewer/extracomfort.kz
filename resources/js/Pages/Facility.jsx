@@ -30,7 +30,7 @@ export default (props) => {
         <div className="container-outer flex flex-col justify-center h-full py-8">
             <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 mt-7 mx-auto" onClick={e => {
                 e.preventDefault()
-                setModal(<CallBack />)
+                setModal(<CallBack subject={'обратный звонок'} />)
             }}>Заказать звонок</a>
         </div>
         {facilities.data.length ? <div className="our-services">
