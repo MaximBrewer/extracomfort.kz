@@ -44,7 +44,13 @@ export default () => {
         isSearchable={false}
         placeholder={`Сортировка`}
         value={sort && order ? options.find(el => el.value == `${sort}:${order}`) : options[0]}
-        onChange={value => router.visit(route().current())}
+        onChange={value => {
+            let url = new URL(window.location);
+            let params = new URLSearchParams(url.search);
+            params.set("order", value.value.split(":")[1]);
+            params.set("sort", value.value.split(":")[0]);
+            router.visit(url.pathname + '?' + params.toString())
+        }}
         theme={(theme) => ({
             ...theme,
             colors: {

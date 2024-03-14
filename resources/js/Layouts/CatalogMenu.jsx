@@ -6,8 +6,6 @@ export default (props) => {
     const { catalogMenuRef } = props
 
     const { categories } = window.appdata;
-    console.log(categories)
-
 
     const [category, setCategory] = useState(null)
 
@@ -19,13 +17,22 @@ export default (props) => {
                     <div className=" my-4">
                         <ul className="hidden lg:flex flex-col gap-4 border-r-2">
                             {categories.map((item, index) => <li key={index}>
-                                <button
-                                    className={`catalogue-category-name`}
-                                    aria-selected={category && item.id == category.id}
-                                    type="button"
-                                    onClick={e => setCategory(item)}
-                                    onMouseEnter={e => setCategory(item)}
-                                >{item.name}</button>
+                                {category && item.id == category.id ? <>
+                                    <Link href={item.url}>
+                                        <button
+                                            className={`catalogue-category-name`}
+                                            aria-selected={category && item.id == category.id}
+                                            type="button"
+                                        >{item.name}</button>
+                                    </Link>
+                                </> : <>
+                                    <button
+                                        className={`catalogue-category-name`}
+                                        aria-selected={category && item.id == category.id}
+                                        type="button"
+                                        onMouseUp={e => setCategory(item)}
+                                    >{item.name}</button>
+                                </>}
                             </li>)}
                         </ul>
                         <div className="lg:hidden">

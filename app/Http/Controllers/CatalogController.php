@@ -129,6 +129,12 @@ class CatalogController extends Controller
             $query->where('path', 'like', $category->path . '%');
         });
 
+        if ($request->sort && $request->order) {
+            $products = $products->orderBy($request->sort, $request->order);
+        } else {
+            $products = $products->orderBy('title');
+        }
+
         $facets = Facet::groupBy('specification_accounting_id')->pluck('specification_accounting_id');
 
         $filter = [];
@@ -153,6 +159,8 @@ class CatalogController extends Controller
 
         return Inertia::render('Category', [
             'filter' => $filter,
+            'sort' => $request->sort,
+            'order' => $request->order,
             'pagetitle' => $category->name,
             'category' => new ResourcesCategory($category),
             'categories' => ResourcesCategory::collection($category->children),
