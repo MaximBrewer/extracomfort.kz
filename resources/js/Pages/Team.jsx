@@ -47,6 +47,10 @@ export default (props) => {
                                                 e.preventDefault()
                                                 setType(1)
                                             }} className={type === 1 ? "-active" : ""}>Массажисты</a></li>
+                                            <li><a href="#" onClick={e => {
+                                                e.preventDefault()
+                                                setType(2)
+                                            }} className={type === 2 ? "-active" : ""}>Подологи</a></li>
                                         </ul>
                                     </div>
                                     <div className="team-composition-content">

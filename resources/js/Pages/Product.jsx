@@ -77,7 +77,7 @@ var settings = {
 
 export default (props) => {
 
-    const { pagetitle, product, auth, cart, favorites, message = `` } = props
+    const { pagetitle, product, auth, cart, favorites } = props
 
     const { priceFormat, moment, setModal } = useLayout()
 
@@ -269,7 +269,7 @@ export default (props) => {
                                 </div>
                                 <div className="product-description__line"></div>
                                 <div className="product-description__row-two">
-                                    <div className="catalogue__item-price fw-700-18-22 center mr-4">{price && offer && offer.quantity ? priceFormat(price) : `Нет предложения`}</div>
+                                    <div className="catalogue__item-price fw-700-18-22 center mr-4">{price && offer && offer.quantity ? priceFormat(price) : `Нет в наличии`}</div>
                                     <div className="purchase-btn-group product-description__purchase-btn-group center">
                                         {offer && offer.quantity ? <>
                                             {cart.items.findIndex(el => el.offer.id == offer.id) < 0 ? <>
@@ -283,7 +283,12 @@ export default (props) => {
                                                     <div className="btn-purchase__txt fw-700-16-20">Перейти в корзину</div>
                                                 </div>
                                             </Link>}
-                                        </> : ``}
+                                        </> : <>
+                                            <div className="btn-purchase product-description__btn-purchase" onClick={() => { }}>
+                                                <Cart className={`w-5 h-5 mr-2`} />
+                                                <div className="btn-purchase__txt fw-700-16-20">Заказать отсутствующий товар</div>
+                                            </div>
+                                        </>}
                                         <div className={`heart-icon-wrapper product-description__heart-icon-wrapper text-primary-500`} onClick={() => {
                                             favorite()
                                         }}>
