@@ -15,6 +15,8 @@ import InputError from '@/Components/InputError';
 import Star from '@/Icons/Star';
 import Sizes from '@/Modals/Sizes';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
+import CallBack from '@/Modals/CallBack';
+import Info from '@/Modals/Info';
 
 
 function PrevArrow(props) {
@@ -75,7 +77,7 @@ var settings = {
 
 export default (props) => {
 
-    const { pagetitle, product, auth, cart, favorites } = props
+    const { pagetitle, product, auth, cart, favorites, message = `` } = props
 
     const { priceFormat, moment, setModal } = useLayout()
 
@@ -136,10 +138,13 @@ export default (props) => {
     const submit = (e) => {
         e.preventDefault();
         post(route('reviews.store'), {
-            preserveScroll: true
+            preserveScroll: true,
+            onSuccess: () => {
+                reset()
+                setModal(<Info title={`Спасибо!`} message={`Ваш отзыв принят <br/>и будет добавлен после модерации.`} />)
+            }
         });
     };
-
 
     useEffect(() => {
         if (product.data.offers.length) {
@@ -238,7 +243,7 @@ export default (props) => {
                                 </div>
                                 <div className="product-description__card">
                                     <div className="product-description__card-inner">
-                                        <div className="product-description__card-left">
+                                        <div className="product-description__card-leftr">
                                             {/* <div className="product-description__card-brand-wrapper">
                                                 <div className="product-description__card-brand-label fw-700-14-17">
                                                     <p>Бренд</p>
@@ -279,24 +284,6 @@ export default (props) => {
                                                 </div>
                                                 <div className="product-description__card-purchase-item center">
                                                     <img src={Money} alt="" />
-                                                </div>
-                                            </div> */}
-                                        </div>
-                                        <div className="product-description__card-right">
-                                            {/* <div className="product-description__card-delivery-wrapper">
-                                                <div className="product-description__card-delivery-label fw-700-14-17">
-                                                    <p>Доставка</p>
-                                                </div>
-                                                <div className="product-description__card-delivery-desc fw-400-14-17">
-                                                    <p>Описание и условие доставки</p>
-                                                </div>
-                                            </div> */}
-                                            {/* <div className="btn-secondary product-description__btn-secondary">
-                                                <div className="product-description__btn-secondary-phone-icon-wrapper">
-                                                    <img src={Phone} alt="" />
-                                                </div>
-                                                <div className="product-description__btn-secondary-txt-wrapper fw-700-16-20">
-                                                    <p>Заказать звонок</p>
                                                 </div>
                                             </div> */}
                                         </div>
@@ -395,6 +382,45 @@ export default (props) => {
                                             </div>
                                         </li>)}
                                     </ul>
+
+                                    <form className="contact mb-20" onSubmit={submit}>
+                                        <div className="grid grid-cols-2 gap-8 mb-8">
+                                            <div>
+                                                <input
+                                                    id="name"
+                                                    type="text"
+                                                    name="name"
+                                                    value={data.name} className="contact__input input"
+                                                    onChange={(e) => setData('name', e.target.value)}
+                                                    placeholder={`Имя`}
+                                                />
+                                                <InputError message={errors.name} />
+                                            </div>
+                                            <div>
+                                                <input
+                                                    id="email"
+                                                    type="text"
+                                                    name="email"
+                                                    value={data.email} className="contact__input input"
+                                                    onChange={(e) => setData('email', e.target.value)}
+                                                    placeholder={`E-mail`}
+                                                />
+                                                <InputError message={errors.email} />
+                                            </div>
+                                        </div>
+                                        <div className="contact__row fw-400-16-19">
+                                            <textarea
+                                                id="text"
+                                                name="text"
+                                                value={data.text} className="feedback-textarea"
+                                                onChange={(e) => setData('text', e.target.value)}
+                                                placeholder="Отзыв" />
+                                            <InputError message={errors.text} />
+                                        </div>
+                                        <div className="contact__row fw-400-16-19">
+                                            <button className="btn-primary fw-700-16-20" disabled={processing}>Отправить</button>
+                                        </div>
+                                    </form>
                                     {/* <div className="product-feedback__btn-wrapper" onClick={e => addMoreReviews()}>
                                         <button className="btn-secondary">Показать еще</button>
                                     </div> */}
@@ -404,50 +430,6 @@ export default (props) => {
                     </div>
                 </div>
             </div >
-            <form className="contact mb-20" onSubmit={submit}>
-                <div className="container-outer">
-                    <div className="contact__outer">
-                        <div className="contact__inner">
-                            <div className="grid grid-cols-2 gap-8 mb-8">
-                                <div>
-                                    <input
-                                        id="name"
-                                        type="text"
-                                        name="name"
-                                        value={data.name} className="contact__input input"
-                                        onChange={(e) => setData('name', e.target.value)}
-                                        placeholder={`Имя`}
-                                    />
-                                    <InputError message={errors.name} />
-                                </div>
-                                <div>
-                                    <input
-                                        id="email"
-                                        type="text"
-                                        name="email"
-                                        value={data.email} className="contact__input input"
-                                        onChange={(e) => setData('email', e.target.value)}
-                                        placeholder={`E-mail`}
-                                    />
-                                    <InputError message={errors.email} />
-                                </div>
-                            </div>
-                            <div className="contact__row fw-400-16-19">
-                                <textarea
-                                    id="text"
-                                    name="text"
-                                    value={data.text} className="feedback-textarea"
-                                    onChange={(e) => setData('text', e.target.value)}
-                                    placeholder="Отзыв" />
-                                <InputError message={errors.text} />
-                            </div>
-                            <div className="contact__row fw-400-16-19">
-                                <button className="btn-primary fw-700-16-20">Отправить</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
             {product.data.similars.length ? <div className="similar-products bg_aqua">
                 <div className="container-outer">
                     <div className="similar-products__outer">

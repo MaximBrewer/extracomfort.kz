@@ -40,8 +40,6 @@ class CatalogController extends Controller
 
         if ($request->sort && $request->order) {
             $products = $products->orderBy($request->sort, $request->order);
-        } else {
-            $products = $products->orderBy('title');
         }
 
         $specifications = Specification::all();
@@ -131,8 +129,6 @@ class CatalogController extends Controller
 
         if ($request->sort && $request->order) {
             $products = $products->orderBy($request->sort, $request->order);
-        } else {
-            $products = $products->orderBy('title');
         }
 
         $facets = Facet::groupBy('specification_accounting_id')->pluck('specification_accounting_id');

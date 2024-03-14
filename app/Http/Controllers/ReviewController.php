@@ -20,7 +20,9 @@ class ReviewController extends Controller
      */
     public function store(StoreReviewRequest $request)
     {
-        Review::create($request->all());
+        $data = $request->all();
+        $data['published'] = false;
+        Review::create($data);
         return redirect()->back();
     }
 }

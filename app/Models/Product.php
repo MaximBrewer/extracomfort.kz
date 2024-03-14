@@ -29,7 +29,7 @@ class Product extends Model
             $builder->with('offers');
             $builder->with('category');
             $builder->with('images');
-            // $builder->with('relateds');
+            $builder->orderBy('viewed', 'desc');
             // $builder->with('similars');
         });
     }
@@ -61,7 +61,7 @@ class Product extends Model
 
     public function reviews(): HasMany
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class)->where('published', 1);
     }
 
     public function similars(): BelongsToMany
