@@ -8,6 +8,8 @@ export default ({ item }) => {
 
     const { numWord } = useLayout();
 
+    console.log(item)
+
     return <>
         <Link href={item.url} className="catalogue__item-photo-wrapper">
             <div className="catalogue__item-photo">
@@ -27,7 +29,7 @@ export default ({ item }) => {
                     </div> */}
                     <div className="catalogue__feedback-label fw-500-12-18">{numWord(item.reviewsCount, ['отзыв', 'отзыва', 'отзывов'])}</div>
                 </div>
-                <div className="catalogue__in-stock-label fw-400-14-17">Наличие</div>
+                {item.quantity ? <div className="in-stock-label__txt fw-400-14-17">В наличии</div> : <div className="in-stock-label__txt fw-400-14-17">Под заказ</div>}
                 <div className="catalogue__short-desc-label fw-400-16-19">{item.excerpt}</div>
                 {item.offers.length ? <div className="catalogue__item-price fw-700-18-22">
                     {item.offers[0].prices.length && item.offers[0].prices.findIndex(el => el.type_id === 1) > -1 ? <p>{item.offers[0].prices.find(el => el.type_id === 1).value} тг</p> : ``}
