@@ -1327,23 +1327,23 @@ footer {
   object-fit: cover;
 }
 
-.our-services-item:hover .our-services-bg {
+.our-services-item .our-services-bg {
   opacity: 1;
   transition: 0.3 all ease-in;
 }
 
-.our-services-item:hover .our-services-icon svg path {
+.our-services-item .our-services-icon svg path {
   stroke: var(--white);
   transition: 0.3 all ease-in;
 }
 
-.our-services-item:hover .our-services-name,
-.our-services-item:hover .our-services-btn {
+.our-services-item .our-services-name,
+.our-services-item .our-services-btn {
   color: var(--white);
   transition: 0.3 all ease-in;
 }
 
-.our-services-item:hover .our-services-btn {
+.our-services-item .our-services-btn {
   border-color: var(--white);
   transition: 0.3 all ease-in;
 }
