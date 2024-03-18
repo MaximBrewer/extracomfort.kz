@@ -29,7 +29,7 @@ const styles = {
 
 const options = [
     // { value: 'title:asc', label: 'По названию А-Я' },
-    // { value: 'title:desc', label: 'По названию Я-А' },
+    { value: 'viewed:desc', label: 'Популярные' },
     { value: 'min_price:asc', label: 'Дешевле' },
     { value: 'min_price:desc', label: 'Дороже' }
 ]

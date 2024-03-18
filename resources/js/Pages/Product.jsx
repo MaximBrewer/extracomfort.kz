@@ -17,6 +17,7 @@ import Sizes from '@/Modals/Sizes';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 import CallBack from '@/Modals/CallBack';
 import Info from '@/Modals/Info';
+import Missing from '@/Modals/Missing';
 
 
 function PrevArrow(props) {
@@ -179,16 +180,16 @@ export default (props) => {
     useEffect(() => {
         let price = null;
         if (offer) {
-            // const f = {};
-            // for (let s of specifications) {
-            //     for (let vIndex in s.values) {
-            //         let v = s.values[vIndex]
-            //         if (v.offers.indexOf(offer.id) > -1) {
-            //             f[s.id] = vIndex
-            //         }
-            //     }
-            // }
-            // setSpFilter(f)
+            const f = {};
+            for (let s of specifications) {
+                for (let vIndex in s.values) {
+                    let v = s.values[vIndex]
+                    if (v.offers.indexOf(offer.id) > -1) {
+                        f[s.id] = vIndex
+                    }
+                }
+            }
+            setSpFilter(f)
             if (offer.prices.length) {
                 var priceIndex = offer.prices.findIndex(el => el.type_id === 1);
                 if (priceIndex > -1) price = offer.prices[priceIndex].value
@@ -198,6 +199,7 @@ export default (props) => {
     }, [offer, specifications])
 
     useEffect(() => {
+        console.log(spFilter)
         let offers = [...product.data.offers];
         for (let s of specifications) {
             let offersArray = s.values[spFilter[s.id]] ? s.values[spFilter[s.id]].offers.map(el => 1 * el) : []
@@ -284,7 +286,9 @@ export default (props) => {
                                                 </div>
                                             </Link>}
                                         </> : <>
-                                            <div className="btn-purchase product-description__btn-purchase" onClick={() => { }}>
+                                            <div className="btn-purchase product-description__btn-purchase" onClick={() => {
+                                                setModal(<Missing product={product} offer={offer} />)
+                                            }}>
                                                 <Cart className={`w-5 h-5 mr-2`} />
                                                 <div className="btn-purchase__txt fw-700-16-20">Заказать отсутствующий товар</div>
                                             </div>

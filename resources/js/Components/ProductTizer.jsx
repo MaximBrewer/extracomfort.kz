@@ -8,8 +8,6 @@ export default ({ item }) => {
 
     const { numWord } = useLayout();
 
-    console.log(item)
-
     return <>
         <Link href={item.url} className="catalogue__item-photo-wrapper">
             <div className="catalogue__item-photo">
