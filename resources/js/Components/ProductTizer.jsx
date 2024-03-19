@@ -9,12 +9,16 @@ export default ({ item }) => {
     const { numWord } = useLayout();
 
     return <>
-        <Link href={item.url} className="catalogue__item-photo-wrapper">
+        <Link href={item.url} className="catalogue__item-photo-wrapper relative">
             <div className="catalogue__item-photo">
                 {item.images.length ? <div className='pt-[100%] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url('${item.images[0].url}')` }} /> : <div className="pt-[100%] relative">
                     <NoPhoto className="absolute w-full h-auto text-gray-300 top-1/2 -translate-y-1/2" />
                 </div>}
             </div>
+            <ul className="absolute flex items-center flex-wrap gap-2 top-3 left-3">
+                {item.novelty ? <li className="py-1 px-1.5 bg-blue-500 rounded text-sm font-medium text-white">Новинка</li> : <></>}
+                {item.promo ? <li className="py-1 px-1.5 bg-red-500 rounded text-sm font-medium text-white">Акция</li> : <></>}
+            </ul>
         </Link>
         <div className="catalogue__item-bottom">
             <div className="catalogue__item-bottom-inner">
