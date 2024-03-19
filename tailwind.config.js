@@ -1,5 +1,5 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
+import plugin from 'tailwindcss/plugin';
 import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
@@ -29,6 +29,11 @@ export default {
             // => @media (min-width: 1536px) { ... }
         },
         extend: {
+            textShadow: {
+                sm: '0 1px 2px var(--tw-shadow-color)',
+                DEFAULT: '0 2px 4px var(--tw-shadow-color)',
+                lg: '0 8px 16px var(--tw-shadow-color)',
+            },
             fontFamily: {
                 sans: ['Monserrat', ...defaultTheme.fontFamily.sans],
             },
@@ -59,6 +64,16 @@ export default {
     plugins: [
         forms,
         require('flowbite/plugin'),
-        require('@tailwindcss/typography')
+        require('@tailwindcss/typography'),
+        plugin(function ({ matchUtilities, theme }) {
+            matchUtilities(
+                {
+                    'text-shadow': (value) => ({
+                        textShadow: value,
+                    }),
+                },
+                { values: theme('textShadow') }
+            )
+        }),
     ],
 };

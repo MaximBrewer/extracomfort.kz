@@ -21,7 +21,7 @@ class Facility extends JsonResource
         $arr['bg'] = $arr['bg'] ? Voyager::image($arr['bg']) : "";
         $arr['image'] = $arr['image'] ? Voyager::image($arr['image']) : "";
         $arr['text6image'] = $arr['text6image'] ? Voyager::image($arr['text6image']) : "";
+        $arr['reviews'] = $this->reviews ? FacilityReview::collection($this->reviews) : [];
         return $arr;
     }
 }
-

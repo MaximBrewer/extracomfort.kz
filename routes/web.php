@@ -16,6 +16,7 @@ use App\Http\Controllers\CallBackController;
 use App\Http\Controllers\ConsultController;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\FacilitiesController;
+use App\Http\Controllers\FacilityReviewController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\GiftsController;
 use App\Http\Controllers\PageController;
@@ -67,6 +68,7 @@ Route::middleware('service')->group(function () {
     Route::get('/consult', ConsultController::class)->name('consult');
     Route::get('/services', ServicesController::class)->name('services');
     Route::get('/services/{facility}/{subfacility?}', FacilitiesController::class)->name('facility');
+    Route::post('services/reviews', [FacilityReviewController::class, 'store'])->name('facilities.reviews.store');
 });
 
 Route::middleware('shop')->group(function () {

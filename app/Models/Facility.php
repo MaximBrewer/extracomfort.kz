@@ -47,4 +47,9 @@ class Facility extends Model
     {
         return $this->hasMany(Facility::class, 'parent_id');
     }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(FacilityReview::class)->where('published', 1);
+    }
 }
