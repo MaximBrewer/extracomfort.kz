@@ -303,6 +303,13 @@ export default (props) => {
                                                                 className="catalogue__item-title ordering-product-details__catalogue-item-title fw-600-16-19 "
                                                             >{item.offer.product.title}</div>
                                                             <div className="ordering-product-details__row">
+                                                                <div className="mb-4">
+
+                                                                    {item.offer.specifications.map((s, sdx) => <div key={sdx} className="mb-2"><b>{s.title}: </b>{s.pivot.value}</div>)}
+                                                                </div>
+                                                            </div>
+                                                            <div className="ordering-product-details__row">
+
                                                                 <div className="catalogue__item-price ordering-product-details__item-price fw-700-18-22">
                                                                     <p>{item.price}</p>
                                                                 </div>
