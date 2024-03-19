@@ -322,7 +322,7 @@ export default (props) => {
                                         <div className="product-review-tab-wrapper__bottom-section-title fw-600-20-24">
                                             <p>Основное</p>
                                         </div>
-                                        <div className="product-review-tab-wrapper__bottom-section-desc fw-400-16-19">
+                                        <div className="product-review-tab-wrapper__bottom-section-desc fw-400-16-19 prose max-w-none">
                                             {parse(product.data.body ?? ``)}
                                         </div>
                                     </li>

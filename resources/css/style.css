@@ -3459,18 +3459,6 @@ footer {
   background-position-y: center;
 }
 
-.massage-info ul,
-.massage-info ol {
-  list-style: auto;
-  margin-left: 1rem;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.massage-info ul li,
-.massage-info ol li {
-  list-style: auto;
-}
-
 .warning-block {
   padding: 1rem 1rem 1rem 3rem;
   color: #000;
@@ -6455,6 +6443,22 @@ footer {
 
 .abouttext p {
   margin-bottom: 1rem;
+}
+
+.facility-text1 ul li {
+  margin: 0 !important;
+}
+
+.facility-text1 ul li span {
+  margin: 0 !important;
+}
+
+.facility-text2 ul li {
+  margin: 0 !important;
+}
+
+.facility-text2 ul li span {
+  margin: 0 !important;
 }
 
 

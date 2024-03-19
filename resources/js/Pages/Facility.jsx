@@ -44,27 +44,27 @@ export default (props) => {
         <div className="massage-info bg-white py-20">
             <div className="container-outer facility-text">
                 <div className="flex flex-col md:flex-row items-stretch gap-5 mb-5">
-                    {current.data.text1 ? <div className="white-block -gray mb-0 md:w-1/2 facility-text1">
+                    {current.data.text1 ? <div className="white-block -gray mb-0 md:w-1/2 facility-text1 prose max-w-none">
                         {parse(current.data.text1 ?? ``)}
                     </div> : ``}
                     <div className="flex flex-col gap-5 md:w-1/2">
-                        {current.data.text2 ? <div className="white-block -gray mb-0  facility-text2">
+                        {current.data.text2 ? <div className="white-block -gray mb-0  facility-text2 prose max-w-none">
                             {parse(current.data.text2 ?? ``)}
                         </div> : ``}
-                        {current.data.text3 ? <div className="white-block -gray mb-0  facility-text3">
+                        {current.data.text3 ? <div className="white-block -gray mb-0  facility-text3 prose max-w-none">
                             {parse(current.data.text3 ?? ``)}
                         </div> : ``}
                     </div>
                 </div>
-                {current.data.text4 ? <div className="white-block -gray mb-5 facility-text4">
+                {current.data.text4 ? <div className="white-block -gray mb-5 facility-text4 prose max-w-none">
                     {parse(current.data.text4 ?? ``)}
                 </div> : ``}
-                {current.data.text5 ? <div className="white-block -gray mb-5 facility-text5">
+                {current.data.text5 ? <div className="white-block -gray mb-5 facility-text5 prose max-w-none">
                     {parse(current.data.text5 ?? ``)}
                 </div> : ``}
                 <div className="massage-courses mt-10">
                     <div className="flex flex-col md:flex-row items-center md:items-start justify-between mb-10">
-                        {current.data.text6 ? <div className="grow facility-text6">
+                        {current.data.text6 ? <div className="grow facility-text6 prose max-w-none">
                             {parse(current.data.text6 ?? ``)}
                         </div> : ``}
                         <div className="max-w-[21.875rem] shrink-0">
