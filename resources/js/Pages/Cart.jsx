@@ -21,6 +21,26 @@ export default (props) => {
         })
     }
 
+    const add = (offer) => {
+        if (!offer) return;
+        router.post(route(`cart.add`), {
+            item: offer.id,
+            silent: true
+        }, {
+            preserveScroll: true
+        })
+    }
+
+    const subtract = (offer) => {
+        if (!offer) return;
+        router.post(route(`cart.subtract`), {
+            item: offer.id,
+            silent: true
+        }, {
+            preserveScroll: true
+        })
+    }
+
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         lastname: '',
@@ -269,7 +289,7 @@ export default (props) => {
                                                 <p>Товары в корзине</p>
                                             </div>
                                             <div className="ordering-cart__wrapper">
-                                                {cart.items.map((item) => <div key={item.id} className="ordering-cart__product-item">
+                                                {cart.items.map((item, idx) => <div key={idx} className="ordering-cart__product-item">
                                                     <div className="ordering-product-desc ordering-cart__ordering-product-desc">
                                                         <div className="ordering-product-photo ordering-product-desc__ordering-product-photo center" style={{ flex: 0 }}>
                                                             <div className="w-20">
@@ -287,7 +307,20 @@ export default (props) => {
                                                                     <p>{item.price}</p>
                                                                 </div>
                                                                 <div className="ordering-product-details__total-quantity fw-400-16-19 center">
-                                                                    <p>x{item.quantity}</p>
+                                                                    <div className="relative flex items-center max-w-[6rem]">
+                                                                        <button onClick={e => subtract(item.offer)} type="button" className="bg-gray-100 hover:bg-gray-200 border border-solid border-gray-300 rounded-s-lg p-2 h-9 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                                                                            <svg className="w-3 h-3 text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                                                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h16" />
+                                                                            </svg>
+                                                                        </button>
+                                                                        <input readOnly={true} type="text" value={item.quantity} className="bg-gray-50 border-solid border-x-0 border-gray-300 h-9 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-1.5" />
+                                                                        <button onClick={e => add(item.offer)} type="button" className="bg-gray-100 hover:bg-gray-200 border border-solid border-gray-300 rounded-e-lg p-2 h-9 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                                                                            <svg className="w-3 h-3 text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                                                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 1v16M1 9h16" />
+                                                                            </svg>
+                                                                        </button>
+                                                                    </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>

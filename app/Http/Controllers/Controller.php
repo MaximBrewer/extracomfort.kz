@@ -125,6 +125,7 @@ class Controller extends BaseController
             Session::put('favorites', $favorites);
         }
         Inertia::share('message', session('message'));
+        Inertia::share('added', session('added'));
         Inertia::share('favorites', $favorites);
         Inertia::share('sitenote', setting('site.note'));
         return $this->{$method}(...array_values($parameters));

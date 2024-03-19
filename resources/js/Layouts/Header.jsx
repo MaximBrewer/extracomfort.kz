@@ -23,7 +23,7 @@ import Info from "@/Modals/Info"
 
 export default (props) => {
 
-    const { cart, favorites, shoppage = false, servicepage = false, sitenote = ``, message = `` } = usePage().props
+    const { cart, favorites, shoppage = false, servicepage = false, sitenote = ``, message = ``, added = `` } = usePage().props
 
     const { menus } = window.appdata
 
@@ -40,7 +40,6 @@ export default (props) => {
         router.visit('/search?q=' + query)
     }
 
-
     const [catalogMenu, setCatalogMenu] = useState(false)
     const [facilitiesMenu, setFacilitiesMenu] = useState(false)
 
@@ -51,6 +50,13 @@ export default (props) => {
     const facilitiesMenuRef = useRef(null)
     const facilitiesButtonRef = useRef(null)
 
+    const [showAdded, setShowAdded] = useState(!1)
+
+    useEffect(() => {
+        added && setShowAdded(true)
+
+        console.log(added)
+    }, [added]);
 
     useEffect(() => {
         message && setModal(<Info message={message} />)
@@ -102,12 +108,57 @@ export default (props) => {
                                     </Link>
                                     {favorites.length ? <div className="basket-count">{favorites.length}</div> : ``}
                                 </li>
-                                {cart ? <li className="navbar-list__item center">
+                                {cart ? <li className="navbar-list__item center relative">
                                     <Link href={route('cart.index')} className="inline-flex items-center">
                                         <Cart className="w-5 h-5 shrink-0 mr-2.5" />
                                         <span className="hidden md:block">Корзина</span>
                                     </Link>
                                     {cart.items.length ? <div className="basket-count">{cart.items.length}</div> : ``}
+                                    {showAdded && added && added.data.product ? <div className="absolute top-full left-0 p-4 rounded bg-white shadow z-50 text-black w-72">
+
+                                        <div className="flex items-center justify-between gap-4 mb-4">
+                                            <p className="text-lg font-medium">Добавленный товар</p>
+                                            <a href="#" onClick={e => {
+                                                e.preventDefault()
+                                                setShowAdded(!1)
+                                            }}>
+                                                <XIcon className={`w-4 h-4`} />
+                                            </a>
+                                        </div>
+
+                                        <div className="mb-4 text-sm leading-tight">
+                                            <div className="flex">
+                                                {added.data.product.images.length ? <div className="pr-4 shrink-0">
+                                                    <img src={added.data.product.images[0].url} className="w-20 h-auto" alt="" />
+                                                </div> : <></>}
+                                                <div className="good-block-info">
+                                                    <div className=" mb-4">
+                                                        <div className="font-medium mb-2">{added.data.product.title}</div>
+                                                        <div className="text-gray-400">{added.data.product.article}</div>
+                                                    </div>
+                                                    <div className=" mb-4">
+                                                        {added.data.specifications.map((s, sdx) => <div key={sdx} className="mb-2">{s.pivot.value}</div>)}
+                                                    </div>
+                                                    <div className="price font-medium">
+                                                        <span>{added.data.prices.find(el => el.type_id === 1).value} тг</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="space-y-4">
+                                            <a href="#" onClick={e => {
+                                                e.preventDefault()
+                                                setShowAdded(!1)
+                                            }}>
+                                                <button className="w-full btn-secondary fw-400-18-30 py-2 px-4">Продолжить покупки</button>
+                                            </a>
+                                            <Link href="/cart">
+                                                <button className="w-full btn-primary fw-400-18-30 py-2 px-4">Оформить заказ</button>
+                                            </Link>
+                                        </div>
+
+                                    </div> : <></>}
                                 </li> : <></>}
                             </ul>
                         </div> : ``}

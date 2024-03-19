@@ -16,6 +16,7 @@ class TerminController extends Controller
     public function store(StoreTerminRequest $request)
     {
         Termin::create($request->all());
-        return redirect()->back()->with(['message' => 'Спасибо! Ваше сообщение отправлено.']);
+        $message = ['title' => 'Спасибо!', 'text' => 'Спасибо! Ваше сообщение отправлено.'];
+        return redirect()->back()->with(['message' => $message]);
     }
 }
