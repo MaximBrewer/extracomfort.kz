@@ -11,7 +11,7 @@ class CallBack
     public function created(ModelsCallBack $model)
     {
         $user = new User();
-        $user->email = 'extracomfort@mail.ru';
+        $user->email = 'pimax1978@icloud.com';
         $user->notify(new CallBackCreated($model));
     }
 }

@@ -13,6 +13,7 @@ class Termin extends Model
     protected $fillable = [
         'name',
         'phone',
+        'email',
         'facility_id',
         'message',
     ];

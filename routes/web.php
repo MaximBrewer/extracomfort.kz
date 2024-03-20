@@ -19,6 +19,7 @@ use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\FacilityReviewController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\GiftsController;
+use App\Http\Controllers\MissingController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\RentController;
@@ -61,6 +62,7 @@ Route::post('/contacts', [ContactsController::class, 'store'])->name('contacts.s
 Route::post('/termins', [TerminController::class, 'store'])->name('termins.store');
 
 Route::post('/callback', CallBackController::class)->name('callback');
+Route::post('/missing', MissingController::class)->name('missing');
 Route::post('/writeus', WriteUsController::class)->name('writeus');
 
 Route::middleware('service')->group(function () {

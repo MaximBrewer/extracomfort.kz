@@ -5,21 +5,24 @@ import { useForm } from "@inertiajs/react";
 
 export default (props) => {
 
-    const { product, offer } = props
+    const { product = null, offer = null } = props
+
+    console.log(product, offer)
 
     const { setModal } = useLayout();
 
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone: '',
+        email: '',
         message: '',
-        offer: offer ? offer.id : null,
-        product: product ? product.id : null
+        offer: offer ? offer.data.id : null,
+        product: product ? product.data.id : null
     });
 
     const submit = (e) => {
         e.preventDefault();
-        post(route('callback'), {
+        post(route('missing'), {
             preserveScroll: true,
             onSuccess: () => {
                 setModal(null)
@@ -55,6 +58,17 @@ export default (props) => {
                 <InputError message={errors.phone} />
             </div>
             <div className=" w-full">
+                <input
+                    id="email"
+                    type="text"
+                    name="email"
+                    value={data.email} className="ordering__input"
+                    onChange={(e) => setData('email', e.target.value)}
+                    placeholder={`E-mail`}
+                />
+                <InputError message={errors.email} />
+            </div>
+            <div className=" w-full">
                 <textarea
                     id="message"
                     type="text"
@@ -68,6 +82,20 @@ export default (props) => {
             <div className="ordering-btn-wrapper fw-700-16-20">
                 <button className="btn-primary px-5 py-3">Отправить</button>
             </div>
+
+            {product.data ? <div className="mb-4 text-sm leading-tight max-w-[20rem]">
+                <div className="flex">
+                    {product.data.images.length ? <div className="pr-4 shrink-0">
+                        <img src={product.data.images[0].url} className="w-20 h-auto" alt="" />
+                    </div> : <></>}
+                    <div className="good-block-info">
+                        <div className=" mb-4">
+                            <div className="font-medium mb-2">{product.data.title}</div>
+                            <div className="text-gray-400">{product.data.article}</div>
+                        </div>
+                    </div>
+                </div>
+            </div> : <></>}
         </form>
     </div>
 }

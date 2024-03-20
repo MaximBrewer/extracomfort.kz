@@ -12,6 +12,7 @@ export default (props) => {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone: '',
+        email: '',
         message: '',
         subject: subject
     });
@@ -52,6 +53,17 @@ export default (props) => {
                     placeholder={`Телефон`}
                 />
                 <InputError message={errors.phone} />
+            </div>
+            <div className=" w-full">
+                <input
+                    id="email"
+                    type="text"
+                    name="email"
+                    value={data.email} className="ordering__input"
+                    onChange={(e) => setData('email', e.target.value)}
+                    placeholder={`E-mail`}
+                />
+                <InputError message={errors.email} />
             </div>
             <div className=" w-full">
                 <textarea

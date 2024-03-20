@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CallBack extends Model
+class Missing extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,6 @@ class CallBack extends Model
         'name',
         'phone',
         'email',
-        'subject',
         'message'
     ];
 }
