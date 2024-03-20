@@ -77,7 +77,7 @@ export default (props) => {
                 <InputError message={errors.message} />
             </div>
             <div className="ordering-btn-wrapper fw-700-16-20">
-                <button className="btn-primary px-5 py-3">Отправить</button>
+                <button className="btn-primary px-5 py-3" disabled={processing}>Отправить</button>
             </div>
         </form>
     </div>
