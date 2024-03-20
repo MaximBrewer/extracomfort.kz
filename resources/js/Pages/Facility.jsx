@@ -43,7 +43,7 @@ export default (props) => {
             </div>
             <div className="container-outer">
                 <div className="main-content flex flex-col justify-center text-center ">
-                    <div className="prose-xl mx-auto text-shadow shadow-gray-700 text-white">{parse(current.data.subtitle ?? ``)}</div>
+                    <div className="prose-xl mx-auto">{parse(current.data.subtitle ?? ``)}</div>
                     {/* <div className="prose text-white mx-auto">{parse(current.data.subtitle ?? ``)}</div> */}
                 </div>
             </div>
