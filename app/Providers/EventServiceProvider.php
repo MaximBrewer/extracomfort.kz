@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use App\Models\CallBack;
+use App\Models\Missing;
 use App\Models\Offer;
 use App\Models\Product;
 use App\Models\Termin;
 use App\Observers\CallBack as ObserversCallBack;
+use App\Observers\Missing as ObserversMissing;
 use App\Observers\Offer as ObserversOffer;
 use App\Observers\Product as ObserversProduct;
 use App\Observers\Termin as ObserversTermin;
@@ -37,6 +39,7 @@ class EventServiceProvider extends ServiceProvider
         Offer::observe(ObserversOffer::class);
         Termin::observe(ObserversTermin::class);
         CallBack::observe(ObserversCallBack::class);
+        Missing::observe(ObserversMissing::class);
     }
 
     /**
