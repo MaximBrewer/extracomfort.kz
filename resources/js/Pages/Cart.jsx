@@ -310,7 +310,7 @@ export default (props) => {
                                                             </div>
                                                             <div className="ordering-product-details__row">
 
-                                                                <div className="catalogue__item-price ordering-product-details__item-price fw-700-18-22">
+                                                                <div className="catalogue__item-price ordering-product-details__item-price fw-700-18-22 whitespace-nowrap">
                                                                     <p>{priceFormat(item.price)}</p>
                                                                 </div>
                                                                 <div className="ordering-product-details__total-quantity fw-400-16-19 center">
