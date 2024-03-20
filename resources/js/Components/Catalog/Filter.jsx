@@ -1,7 +1,7 @@
 import { router, usePage } from "@inertiajs/react"
 import { Fragment, useEffect, useRef, useState } from "react"
 
-const Item = ({ item, filter, setFilter }) => {
+const Item = ({ item, filter, setFilter, nna = `specification` }) => {
 
     const [opened, setOpened] = useState(filter[item.accounting_id] && filter[item.accounting_id].length)
 
@@ -9,12 +9,12 @@ const Item = ({ item, filter, setFilter }) => {
         <div className="filter-sidebar__item-title fw-600-16-19 cursor-pointer py-[9px] -mt-[9px] mb-0 px-[21px] -mx-[21px]" onClick={e => setOpened(prev => !prev)}>{item.title}</div>
         {opened ? <ul className="checkbox-grid max-h-[24rem] overflow-y-auto p-2">
             {item.values.map((value, vdx) => <li key={`${item.id}-${vdx}`}>
-                <label htmlFor={`specification-${item.id}-${vdx}`} className="checkbox-grid__item">
+                <label htmlFor={`${nna}-${item.id}-${vdx}`} className="checkbox-grid__item">
                     <div className="checkbox-wrapper center">
                         <input
                             type="checkbox"
-                            name={`specification-${item.id}`}
-                            id={`specification-${item.id}-${vdx}`}
+                            name={`${nna}-${item.id}`}
+                            id={`${nna}-${item.id}-${vdx}`}
                             defaultChecked={filter[item.accounting_id] && filter[item.accounting_id].indexOf(value) > -1}
                             onChange={e => {
                                 setFilter(prev => {
@@ -91,7 +91,7 @@ export default (props) => {
                 {item.values.length ? <Item item={item} filter={filter} setFilter={setFilter} /> : ``}
             </Fragment>)}
             {options.data.map((item) => <Fragment key={item.id}>
-                {item.values.length ? <Item item={item} filter={filter} setFilter={setFilter} /> : ``}
+                {item.values.length ? <Item item={item} filter={filter} setFilter={setFilter} nna={`options`} /> : ``}
             </Fragment>)}
         </ul>
     </ul> : <></>

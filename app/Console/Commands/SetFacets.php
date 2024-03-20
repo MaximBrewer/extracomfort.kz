@@ -34,6 +34,15 @@ class SetFacets extends Command
                 'path' => $model->path,
                 'product_id' => $model->id
             ]);
+            foreach ($model->optionValues as $value) {
+                Facet::firstOrCreate([
+                    'path' => $model->path,
+                    'product_id' => $model->id,
+                    'option_id' => $value->option_id,
+                    'option_value_id' => $value->id,
+                    'option_value' => $value->title,
+                ]);
+            }
             foreach ($model->offers as $offer) {
                 foreach ($offer->specifications as $specification) {
                     Facet::firstOrCreate([

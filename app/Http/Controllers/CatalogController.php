@@ -147,10 +147,12 @@ class CatalogController extends Controller
 
         if ($fv = $request->get('func')) {
             $filter['func'] = explode(":::", $fv);
-            $products = $products->whereHas('optionValues',  function (Builder $query) use ($fv) {
-                $query->where('option_id', 1);
-                $query->whereIn('title', explode(":::", $fv));
-            });
+            foreach ($filter['func'] as $fnc) {
+                $products = $products->whereHas('facets',  function (Builder $query) use ($fnc) {
+                    $query->where('option_id', 1);
+                    $query->where('option_value', $fnc);
+                });
+            }
         }
 
         return Inertia::render('Category', [
