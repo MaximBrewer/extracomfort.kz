@@ -8,6 +8,16 @@ export default ({ item }) => {
 
     const { numWord } = useLayout();
 
+    const offerPrice = () => {
+        let prices = [];
+        item.offers.map((offer) => {
+            if (offer.prices.findIndex(el => el.type_id === 1) > -1) prices.push(offer.prices.find(el => el.type_id === 1).value)
+        })
+        if (!prices.length) return ``;
+        const minValue = Math.min.apply(null, prices);
+        return <p>{minValue} тг</p>
+    }
+
     return <>
         <Link href={item.url} className="catalogue__item-photo-wrapper relative">
             <div className="catalogue__item-photo">
@@ -21,6 +31,7 @@ export default ({ item }) => {
             </ul>
         </Link>
         <div className="catalogue__item-bottom">
+            {item.min_price}
             <div className="catalogue__item-bottom-inner">
                 <Link href={item.url} className="catalogue__item-title fw-600-16-19 h-[2.5rem] line-clamp-2">{item.title}</Link>
                 <div className="catalogue__item-rating">
@@ -34,7 +45,7 @@ export default ({ item }) => {
                 {item.quantity ? <div className="in-stock-label__txt fw-400-14-17">В наличии</div> : <div className="in-stock-label__txt fw-400-14-17">Под заказ</div>}
                 <div className="catalogue__short-desc-label fw-400-16-19">{item.excerpt}</div>
                 {item.offers.length ? <div className="catalogue__item-price fw-700-18-22">
-                    {item.offers[0].prices.length && item.offers[0].prices.findIndex(el => el.type_id === 1) > -1 ? <p>{item.offers[0].prices.find(el => el.type_id === 1).value} тг</p> : ``}
+                    {offerPrice()}
                 </div> : ``}
                 <Link href={item.url} className="cart-icon-wrapper catalogue__cart-icon-wrapper">
                     <Cart2 className="w-4 h-4 shrink-0" />

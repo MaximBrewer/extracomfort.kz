@@ -30,6 +30,7 @@ class SetMinPrice extends Command
             $minPrice = 1000000000;
             foreach ($model->offers as $offer) {
                 foreach ($offer->prices as $price) {
+                    if ($price->type_id != 1) continue;
                     $minPrice = $minPrice > $price->value ? $price->value : $minPrice;
                 }
             }
