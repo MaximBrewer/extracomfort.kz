@@ -31,7 +31,6 @@ export default ({ item }) => {
             </ul>
         </Link>
         <div className="catalogue__item-bottom">
-            {item.min_price}
             <div className="catalogue__item-bottom-inner">
                 <Link href={item.url} className="catalogue__item-title fw-600-16-19 h-[2.5rem] line-clamp-2">{item.title}</Link>
                 <div className="catalogue__item-rating">
