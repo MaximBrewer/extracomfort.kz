@@ -126,7 +126,7 @@ export default (props) => {
             </div>
             <div className="container-outer">
                 <div className="main-content flex flex-col justify-center text-center ">
-                    <div className="prose-xl text-white mx-auto">{parse(banners.data[0].title ?? ``)}</div>
+                    <div className="prose-xl text-white mx-auto text-xl">{parse(banners.data[0].title ?? ``)}</div>
                     {/* <div className="prose text-white mx-auto">{parse(current.data.subtitle ?? ``)}</div> */}
                 </div>
             </div>
