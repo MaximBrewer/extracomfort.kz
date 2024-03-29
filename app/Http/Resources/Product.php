@@ -16,32 +16,6 @@ class Product extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        // $sizes = [];
-        // $arrSizeNames = ['sizes_men', 'sizes_women', 'sizes_boyteen', 'sizes_girlteen', 'sizes_boy', 'sizes_girl', 'sizes_boybaby', 'sizes_girlbaby'];
-        // $arrSizeTitles = ['Мужчины', 'Женщины', 'Юноши', 'Девушки', 'Мальчики', 'Девочки', 'Малыши', 'Малышки'];
-        // foreach ($arrSizeNames as $tdx => $t) {
-        //     if ($this->category->{$t}) {
-        //         $sizes[] = [
-        //             'code' => $t,
-        //             'image' => Storage::url($this->category->{$t}),
-        //             'title' => $arrSizeTitles[$tdx]
-        //         ];
-        //     } elseif ($this->category->parent && $this->category->parent->{$t}) {
-        //         $sizes[] = [
-        //             'code' => $t,
-        //             'image' => Storage::url($this->category->parent->{$t}),
-        //             'title' => $arrSizeTitles[$tdx]
-        //         ];
-        //     } elseif ($this->category->parent && $this->category->parent->parent && $this->category->parent->parent->{$t}) {
-        //         $sizes[] = [
-        //             'code' => $t,
-        //             'image' => Storage::url($this->category->parent->parent->{$t}),
-        //             'title' => $arrSizeTitles[$tdx]
-        //         ];
-        //     }
-        // }
-
-
         $arr = parent::toArray($request);
 
         $arr['stock'] = 'Наличие';

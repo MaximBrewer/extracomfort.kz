@@ -27,7 +27,7 @@ class Product extends Model
         parent::boot();
         static::addGlobalScope('offers', function (Builder $builder) {
             $builder->with('offers');
-            $builder->with('category');
+            $builder->with('categories');
             $builder->with('images');
             $builder->orderBy('viewed', 'desc');
             // $builder->with('similars');
@@ -55,9 +55,9 @@ class Product extends Model
         return 'id';
     }
 
-    public function category(): BelongsTo
+    public function categories(): BelongsToMany
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class, 'product_category');
     }
 
     public function offers(): HasMany
@@ -99,7 +99,20 @@ class Product extends Model
     protected function path(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->category ? str_replace('/tovary', '', "/catalog/" . implode("/", $this->category->ancestors->map(fn ($c) => $c->slug)->toArray())) . '/' . $this->category->slug . '/' . $this->slug : '/'
+            get: fn () => !$this->categories->count() ? '' : ($this->categories[0] ? str_replace('/tovary', '', "/catalog/" . implode("/", $this->categories[0]->ancestors->map(fn ($c) => $c->slug)->toArray())) . '/' . $this->categories[0]->slug . '/' . $this->slug : '/')
+        );
+    }
+
+    protected function pathes(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                $pathes = [];
+                foreach ($this->categories as $category) {
+                    $pathes[] = $category ? str_replace('/tovary', '', "/catalog/" . implode("/", $category->ancestors->map(fn ($c) => $c->slug)->toArray())) . '/' . $category->slug . '/' . $this->slug : '/';
+                }
+                return $pathes;
+            }
         );
     }
 }

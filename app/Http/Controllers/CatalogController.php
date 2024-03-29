@@ -186,8 +186,8 @@ class CatalogController extends Controller
                 'text' => 'Главная'
             ]
         ];
-        if ($product->category) {
-            $product->category->ancestors->map(function ($c) use (&$breadcrumbs, &$path) {
+        if ($product->categories->count()) {
+            $product->categories[0]->ancestors->map(function ($c) use (&$breadcrumbs, &$path) {
                 if ($c->parent) {
                     $breadcrumbs[] =   [
                         'href' => $c->path,
@@ -202,8 +202,8 @@ class CatalogController extends Controller
             });
 
             $breadcrumbs[] =   [
-                'href' => $product->category->path,
-                'text' => $product->category->name
+                'href' => $product->categories[0]->path,
+                'text' => $product->categories[0]->name
             ];
         }
 

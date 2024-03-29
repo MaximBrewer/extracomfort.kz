@@ -30,31 +30,33 @@ class SetFacets extends Command
     {
         DB::table('facets')->truncate();
         foreach (Product::all() as $model) {
-            Facet::firstOrCreate([
-                'path' => $model->path,
-                'product_id' => $model->id
-            ]);
-            foreach ($model->optionValues as $value) {
+            foreach ($model->pathes as $path) {
                 Facet::firstOrCreate([
-                    'path' => $model->path,
-                    'product_id' => $model->id,
-                    'option_id' => $value->option_id,
-                    'option_value_id' => $value->id,
-                    'option_value' => $value->title,
+                    'path' => $path,
+                    'product_id' => $model->id
                 ]);
-            }
-            foreach ($model->offers as $offer) {
-                foreach ($offer->specifications as $specification) {
+                foreach ($model->optionValues as $value) {
                     Facet::firstOrCreate([
-                        'path' => $model->path,
+                        'path' => $path,
                         'product_id' => $model->id,
-                        'offer_id' => $offer->id,
-                        'specification_id' => $specification->id,
-                        'specification_accounting_id' => $specification->accounting_id,
-                        'specification_value' => $specification->pivot->value,
-                    ], [
-                        'specification_value_num' => (float)$specification->pivot->value * 10000,
+                        'option_id' => $value->option_id,
+                        'option_value_id' => $value->id,
+                        'option_value' => $value->title,
                     ]);
+                }
+                foreach ($model->offers as $offer) {
+                    foreach ($offer->specifications as $specification) {
+                        Facet::firstOrCreate([
+                            'path' => $path,
+                            'product_id' => $model->id,
+                            'offer_id' => $offer->id,
+                            'specification_id' => $specification->id,
+                            'specification_accounting_id' => $specification->accounting_id,
+                            'specification_value' => $specification->pivot->value,
+                        ], [
+                            'specification_value_num' => (float)$specification->pivot->value * 10000,
+                        ]);
+                    }
                 }
             }
         }
