@@ -38,7 +38,7 @@ class VoyagerFromProductsController extends BaseVoyagerBaseController
                 'products' => null
             ];
         }
-        $products = Product::whereHas('category', function (Builder $query) use ($categoryId) {
+        $products = Product::whereHas('categories', function (Builder $query) use ($categoryId) {
             $query->where('id', $categoryId);
             $query->orWhereHas('ancestors', function (Builder $query) use ($categoryId) {
                 $query->where('id', $categoryId);
