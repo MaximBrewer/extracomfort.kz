@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Status;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -38,6 +39,17 @@ class Order extends Model
         'payment_id'
     ];
 
+    protected static $paymentMethods = [
+        1 => 'Наличными',
+        2 => 'Оплата картой',
+        3 => 'Оплата картой онлайн'
+    ];
+
+    protected static $deliveryMethods = [
+        1 => 'Доставка',
+        2 => 'Самовывоз',
+    ];
+
     /**
      * Scope a query to only include popular users.
      *
@@ -68,5 +80,19 @@ class Order extends Model
     public function histories(): HasMany
     {
         return $this->hasMany(OrderHistory::class, 'order_id');
+    }
+
+    protected function paymentMethod(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::$paymentMethods[$this->payment_id],
+        );
+    }
+
+    protected function deliveryMethod(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => self::$deliveryMethods[$this->delivery_id],
+        );
     }
 }

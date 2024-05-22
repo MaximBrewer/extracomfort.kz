@@ -127,9 +127,11 @@ Route::group(['prefix' => 'admin'], function () {
 
             Route::get('fromproducts/categories', $namespacePrefix . 'VoyagerFromProductsController' . '@categories')->name('fromproducts.categories');
             Route::get('fromproducts/products', $namespacePrefix . 'VoyagerFromProductsController' . '@products')->name('fromproducts.products');
+            Route::get('users/{id}/auth', $namespacePrefix . 'VoyagerUserController' . '@auth')->name('users.auth');
 
             event(new RoutingAdminAfter());
         });
+
 
         //Asset Routes
         Route::get('voyager-assets', ['uses' => $namespacePrefix . 'VoyagerController@assets', 'as' => 'voyager_assets']);
@@ -149,3 +151,36 @@ Route::get('/migrate', function () {
     Artisan::call('migrate');
     return redirect('/');
 });
+
+
+
+
+// Route::group(['prefix' => 'admin'], function () {
+
+//     Route::group(['as' => 'voyager.'], function () {
+//         event(new Routing());
+
+//         $namespacePrefix = '\\' . config('voyager.controllers.namespace') . '\\';
+
+//         Route::group(['middleware' => 'admin.user'], function () use ($namespacePrefix) {
+//             event(new RoutingAdmin());
+
+//             Route::get('orders/{id}/reject', $namespacePrefix . 'VoyagerOrderController' . '@reject')->name('orders.reject');
+//             Route::get('orders/{id}/new', $namespacePrefix . 'VoyagerOrderController' . '@new')->name('orders.new');
+//             Route::get('orders/{id}/payed', $namespacePrefix . 'VoyagerOrderController' . '@payed')->name('orders.payed');
+
+//             Route::get('agent-orders/{id}/setstatus/{index}', $namespacePrefix . 'VoyagerAgentOrderController' . '@setStatus')->name('agent-orders.setstatus');
+
+//             Route::get('users/{id}/auth', $namespacePrefix . 'VoyagerUserController' . '@auth')->name('users.auth');
+
+//             event(new RoutingAdminAfter());
+//         });
+
+//         event(new RoutingAfter());
+//     });
+
+//     Voyager::routes();
+//     Route::get('migrate', function () {
+//         Artisan::call('migrate');
+//     })->name('migrate');
+// });
