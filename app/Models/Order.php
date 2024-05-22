@@ -85,14 +85,14 @@ class Order extends Model
     protected function paymentMethod(): Attribute
     {
         return Attribute::make(
-            get: fn () => self::$paymentMethods[$this->payment_id],
+            get: fn () => isset(self::$paymentMethods[$this->payment_id]) ? self::$paymentMethods[$this->payment_id] : 'Уточнить',
         );
     }
 
     protected function deliveryMethod(): Attribute
     {
         return Attribute::make(
-            get: fn () => self::$deliveryMethods[$this->delivery_id],
+            get: fn () => isset(self::$deliveryMethods[$this->delivery_id]) ? self::$deliveryMethods[$this->delivery_id] : 'Уточнить',
         );
     }
 }
