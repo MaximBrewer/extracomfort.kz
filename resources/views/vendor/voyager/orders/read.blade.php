@@ -213,10 +213,10 @@
                             Итого: {{ $dataTypeContent->cart->sum }}₸
                         </h5>
                         <h6 class="">
-                            Доставка: {{ $dataTypeContent->payment_method }}
+                            Оплата: {{ $dataTypeContent->payment_method }}
                         </h6>
                         <h6 class="">
-                            Оплата: {{ $dataTypeContent->delivery_method }}
+                            Доставка: {{ $dataTypeContent->delivery_method }}
                         </h6>
                     </div>
 
