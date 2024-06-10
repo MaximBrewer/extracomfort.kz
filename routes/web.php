@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
 use App\Http\Controllers\Cabinet;
+use App\Http\Controllers\Cabinet\OrderController;
 use App\Http\Controllers\CallBackController;
 use App\Http\Controllers\ConsultController;
 use App\Http\Controllers\DeliveryController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\FacilityReviewController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\GiftsController;
 use App\Http\Controllers\MissingController;
+use App\Http\Controllers\NoveltyController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\RentController;
@@ -32,7 +34,7 @@ use TCG\Voyager\Events\Routing;
 use TCG\Voyager\Events\RoutingAdmin;
 use TCG\Voyager\Events\RoutingAdminAfter;
 use TCG\Voyager\Events\RoutingAfter;
-
+use hb\epay\HBepay;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +54,7 @@ Route::get('/about', AboutController::class)->name('about');
 Route::get('/team', TeamController::class)->name('team');
 Route::get('/partners', PartnerController::class)->name('partners');
 Route::get('/gifts', GiftsController::class)->name('gifts');
+Route::get('/novelties', NoveltyController::class)->name('novelties');
 
 Route::get('/articles', [PostsController::class, 'index'])->name('articles');
 Route::get('/articles/{post}', [PostsController::class, 'show'])->name('post');
@@ -86,13 +89,13 @@ Route::middleware('shop')->group(function () {
 
     Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
 
-    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
     Route::post('/cart/subtract', [CartController::class, 'subtract'])->name('cart.subtract');
     Route::post('/cart/delete', [CartController::class, 'destroy'])->name('cart.delete');
 
 
     Route::middleware('auth')->group(function () {
+        Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
         Route::resource('/reviews', ReviewController::class)->only(['store', 'index']);
         Route::group(['prefix' => 'cabinet', 'as' => 'cabinet.'], function () {
             Route::get('/', Cabinet\Controller::class)->name('index');
@@ -152,8 +155,7 @@ Route::get('/migrate', function () {
     return redirect('/');
 });
 
-
-
+Route::get('/pay/{order}', [OrderController::class, 'pay'])->name('pay');
 
 // Route::group(['prefix' => 'admin'], function () {
 

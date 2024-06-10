@@ -6,10 +6,11 @@ import XIcon from '@/Icons/XIcon';
 import Breadcrumbs from '@/Components/Breadcrumbs';
 import InputError from '@/Components/InputError';
 import NoPhoto from '@/Icons/NoPhoto';
+import { useEffect } from 'react';
 
 export default (props) => {
 
-    const { cart, pagetitle } = props
+    const { cart, pagetitle, auth, lastorder } = props
     const { priceFormat, numWord } = useLayout();
 
     const deleteItem = (offer) => {
@@ -42,19 +43,25 @@ export default (props) => {
     }
 
     const { data, setData, post, processing, errors, reset } = useForm({
-        name: '',
-        lastname: '',
-        phone: '',
-        email: '',
+        name: auth.user && auth.user.name ? auth.user.name : (lastorder ? lastorder.name : ``),
+        lastname: auth.user && auth.user.lastname ? auth.user.lastname : (lastorder ? lastorder.lastname : ``),
+        phone: auth.user && auth.user.phone ? auth.user.phone : (lastorder ? lastorder.phone : ``),
+        email: auth.user && auth.user.email ? auth.user.email : (lastorder ? lastorder.email : ``),
         comment: '',
         delivery_id: 1,
-        region: '',
-        city: '',
-        street: '',
-        house: '',
-        appartement: '',
-        payment_id: 1
+        region: lastorder ? lastorder.region : ``,
+        city: lastorder ? lastorder.city : ``,
+        street: lastorder ? lastorder.street : ``,
+        house: lastorder ? lastorder.house : ``,
+        appartement: lastorder ? lastorder.appartement : ``,
+        payment_id: 2
     });
+
+    useEffect(() => {
+        if (data.delivery_id == 1) {
+            setData(prev => ({ ...prev, payment_id: 2 }))
+        }
+    }, [data.delivery_id])
 
     const submit = (e) => {
         e.preventDefault();
@@ -75,7 +82,7 @@ export default (props) => {
                     </div>
                 </div>
             </div>
-            <form className="ordering" onSubmit={submit}>
+            {cart.items.length ? <form className="ordering" onSubmit={submit}>
                 <div className="container-outer">
                     <div className="ordering__outer">
                         <div className="ordering__inner">
@@ -89,13 +96,13 @@ export default (props) => {
                                             <p>Ваши контакты</p>
                                         </div>
                                         <div className="ordering-contacts-form ordering-details__ordering-contacts-form fw-400-16-19">
-                                            <div className="grid grid-cols-2 gap-8 pb-8">
+                                            <div className="grid grid-cols-2 gap-4 pb-4">
                                                 <div>
                                                     <input
                                                         id="name"
                                                         type="text"
                                                         name="name"
-                                                        value={data.name} className="ordering__input"
+                                                        value={data.name ?? ``} className="ordering__input"
                                                         onChange={(e) => setData('name', e.target.value)}
                                                         placeholder={`Имя`}
                                                     />
@@ -106,29 +113,29 @@ export default (props) => {
                                                         id="lastname"
                                                         type="text"
                                                         name="lastname"
-                                                        value={data.lastname} className="ordering__input"
+                                                        value={data.lastname ?? ``} className="ordering__input"
                                                         onChange={(e) => setData('lastname', e.target.value)}
                                                         placeholder={`Фамилия`}
                                                     />
                                                     <InputError message={errors.lastname} />
                                                 </div>
-                                                <div>
+                                                <div className="col-span-2">
                                                     <input
                                                         id="phone"
                                                         type="text"
                                                         name="phone"
-                                                        value={data.phone} className="ordering__input"
+                                                        value={data.phone ?? ``} className="ordering__input"
                                                         onChange={(e) => setData('phone', e.target.value)}
                                                         placeholder={`Телефон`}
                                                     />
                                                     <InputError message={errors.phone} />
                                                 </div>
-                                                <div>
+                                                <div className="col-span-2">
                                                     <input
                                                         id="email"
                                                         type="text"
                                                         name="email"
-                                                        value={data.email} className="ordering__input"
+                                                        value={data.email ?? ``} className="ordering__input"
                                                         onChange={(e) => setData('email', e.target.value)}
                                                         placeholder={`E-mail`}
                                                     />
@@ -138,7 +145,7 @@ export default (props) => {
                                                     <textarea
                                                         id="comment"
                                                         name="comment"
-                                                        value={data.comment}
+                                                        value={data.comment ?? ``}
                                                         className="ordering-contacts-form__textarea fw-400-16-19"
                                                         onChange={(e) => setData('comment', e.target.value)}
                                                         placeholder="Комментарии"
@@ -178,67 +185,61 @@ export default (props) => {
                                                 <p>Доставка</p>
                                             </div>
                                             <div className="ordering-contacts-form ordering-details__ordering-contacts-form fw-400-16-19">
-                                                <div className="ordering-contacts-form__row">
-                                                    <div className="ordering-contacts-form__selectbox">
+                                                <div className="grid grid-cols-2 gap-4 pb-4">
+                                                    <div className="">
                                                         <input
                                                             id="region"
                                                             type="text"
                                                             name="region"
-                                                            value={data.region} className="ordering__input"
+                                                            value={data.region ?? ``} className="ordering__input"
                                                             onChange={(e) => setData('region', e.target.value)}
                                                             placeholder={`Область`}
                                                         />
                                                         <InputError message={errors.region} />
                                                     </div>
-                                                    <div className="ordering-contacts-form__selectbox">
+                                                    <div className="">
                                                         <input
                                                             id="city"
                                                             type="text"
                                                             name="city"
-                                                            value={data.city} className="ordering__input"
+                                                            value={data.city ?? ``} className="ordering__input"
                                                             onChange={(e) => setData('city', e.target.value)}
                                                             placeholder={`Город`}
                                                         />
                                                         <InputError message={errors.city} />
                                                     </div>
-                                                </div>
-                                                <div className="ordering-contacts-form__row">
-                                                    <div className="ordering-contacts-form__selectbox w-full">
+                                                    <div className="col-span-2">
                                                         <input
                                                             id="street"
                                                             type="text"
                                                             name="street"
-                                                            value={data.street} className="ordering__input w-full"
+                                                            value={data.street ?? ``} className="ordering__input w-full"
                                                             onChange={(e) => setData('street', e.target.value)}
                                                             placeholder={`Улица`}
                                                         />
                                                         <InputError message={errors.street} />
                                                     </div>
-                                                </div>
-                                                <div className="ordering-contacts-form__row">
-                                                    <div className="ordering-contacts-form__row-inner">
-                                                        <div className="ordering-contacts-form__selectbox">
-                                                            <input
-                                                                id="house"
-                                                                type="text"
-                                                                name="house"
-                                                                value={data.house} className="ordering__input"
-                                                                onChange={(e) => setData('house', e.target.value)}
-                                                                placeholder={`№ Дома`}
-                                                            />
-                                                            <InputError message={errors.house} />
-                                                        </div>
-                                                        <div className="ordering-contacts-form__selectbox">
-                                                            <input
-                                                                id="appartement"
-                                                                type="text"
-                                                                name="appartement"
-                                                                value={data.appartement} className="ordering__input"
-                                                                onChange={(e) => setData('appartement', e.target.value)}
-                                                                placeholder={`№ Квартиры`}
-                                                            />
-                                                            <InputError message={errors.appartement} />
-                                                        </div>
+                                                    <div className="">
+                                                        <input
+                                                            id="house"
+                                                            type="text"
+                                                            name="house"
+                                                            value={data.house ?? ``} className="ordering__input"
+                                                            onChange={(e) => setData('house', e.target.value)}
+                                                            placeholder={`№ Дома`}
+                                                        />
+                                                        <InputError message={errors.house} />
+                                                    </div>
+                                                    <div className="">
+                                                        <input
+                                                            id="appartement"
+                                                            type="text"
+                                                            name="appartement"
+                                                            value={data.appartement ?? ``} className="ordering__input"
+                                                            onChange={(e) => setData('appartement', e.target.value)}
+                                                            placeholder={`№ Квартиры`}
+                                                        />
+                                                        <InputError message={errors.appartement} />
                                                     </div>
                                                 </div>
                                                 <div className="ordering-contacts-form__line"></div>
@@ -246,23 +247,23 @@ export default (props) => {
                                             <div className="ordering-contacts__title-label fw-600-20-24">
                                                 <p>Оплата</p>
                                             </div>
-                                            <div action="" className="ordering-contacts-form ordering-details__ordering-contacts-form fw-400-16-19">
-                                                <label className="checkbox-grid__item" htmlFor="payment_id-1">
+                                            {data.delivery_id ? <div action="" className="ordering-contacts-form ordering-details__ordering-contacts-form fw-400-16-19">
+                                                {data.delivery_id !== 1 ? <label className="checkbox-grid__item" htmlFor="payment_id-1">
                                                     <div className="checkbox-wrapper center">
-                                                        <input type="radio" defaultChecked={true} name="payment_id" id="payment_id-1" value="1" onChange={e => setData(prev => ({
+                                                        <input type="radio" checked={data.payment_id == 1} name="payment_id" id="payment_id-1" value="1" onChange={e => setData(prev => ({
                                                             ...prev,
-                                                            delivery_id: e.target.checked ? 1 : prev.delivery_id
+                                                            payment_id: e.target.checked ? 1 : prev.payment_id
                                                         }))} />
                                                     </div>
                                                     <div className="checkbox-label-wrapper center">
                                                         <div className="radio-label">Наличными</div>
                                                     </div>
-                                                </label>
+                                                </label> : ``}
                                                 <label className="checkbox-grid__item" htmlFor="payment_id-2">
                                                     <div className="checkbox-wrapper center">
-                                                        <input type="radio" name="payment_id" id="payment_id-2" value="2" onChange={e => setData(prev => ({
+                                                        <input type="radio" checked={data.payment_id == 2} name="payment_id" id="payment_id-2" value="2" onChange={e => setData(prev => ({
                                                             ...prev,
-                                                            delivery_id: e.target.checked ? 2 : prev.delivery_id
+                                                            payment_id: e.target.checked ? 2 : prev.payment_id
                                                         }))} />
                                                     </div>
                                                     <div className="checkbox-label-wrapper center">
@@ -271,16 +272,16 @@ export default (props) => {
                                                 </label>
                                                 <label className="checkbox-grid__item" htmlFor="payment_id-3">
                                                     <div className="checkbox-wrapper center">
-                                                        <input type="radio" name="payment_id" id="payment_id-3" value="3" onChange={e => setData(prev => ({
+                                                        <input type="radio" checked={data.payment_id == 3} name="payment_id" id="payment_id-3" value="3" onChange={e => setData(prev => ({
                                                             ...prev,
-                                                            delivery_id: e.target.checked ? 3 : prev.delivery_id
+                                                            payment_id: e.target.checked ? 3 : prev.payment_id
                                                         }))} />
                                                     </div>
                                                     <div className="checkbox-label-wrapper center">
                                                         <div className="radio-label">Оплата картой онлайн</div>
                                                     </div>
                                                 </label>
-                                            </div>
+                                            </div> : ``}
                                         </div>
                                     </div>
                                     <div className="ordering-cart ordering-details__ordering-cart">
@@ -355,7 +356,10 @@ export default (props) => {
                         </div>
                     </div>
                 </div>
-            </form>
+            </form> : <div className='text-center py-24 font-medium text-2xl'>
+                Товаров в корзине пока нет
+            </div>}
+
         </Layout >
     )
 }

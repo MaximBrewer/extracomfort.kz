@@ -29,7 +29,8 @@ class Product extends Model
             $builder->with('offers');
             $builder->with('categories');
             $builder->with('images');
-            $builder->orderBy('viewed', 'desc');
+            $builder->orderByDesc('quantity');
+            $builder->orderByDesc('viewed');
             // $builder->with('similars');
         });
     }
@@ -45,6 +46,20 @@ class Product extends Model
     {
         return $query->where('promo', 1);
     }
+
+    /**
+     * Scope a query to only published scopes.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNovelty(Builder $query)
+    {
+        return $query->where('novelty', 1);
+    }
+
+
 
     protected $casts = [
         'images' => MultipleImages::class,

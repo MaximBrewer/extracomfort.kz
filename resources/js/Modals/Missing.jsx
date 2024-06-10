@@ -7,8 +7,6 @@ export default (props) => {
 
     const { product = null, offer = null } = props
 
-    console.log(product, offer)
-
     const { setModal } = useLayout();
 
     const { data, setData, post, processing, errors, reset } = useForm({

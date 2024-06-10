@@ -151,7 +151,7 @@ export default (props) => {
                             <p>Введите ваши контактные данные и текст сообщения, если у вас возникли вопросы, и мы в ближайшее время свяжемся с вами.</p>
                         </div>
                         <form className="ordering-contacts-form ordering-details__ordering-contacts-form reg-form fw-400-16-19" onSubmit={submit}>
-                            <div className="grid grid-cols-2 gap-8 pb-8">
+                            <div className="grid grid-cols-2 gap-4 pb-4">
                                 <div>
                                     <input
                                         id="name"

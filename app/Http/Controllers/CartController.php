@@ -8,6 +8,7 @@ use App\Http\Resources\Product;
 use App\Http\Resources\ProductTizer;
 use App\Models\Offer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class CartController extends Controller
@@ -21,6 +22,7 @@ class CartController extends Controller
     {
         return Inertia::render('Cart', [
             'pagetitle' => 'Корзина',
+            'lastorder' => Auth::user()->orders()->orderByDesc('id')->first(),
             'meta' => [
                 'title' => 'Корзина',
                 'description' => 'Корзина'

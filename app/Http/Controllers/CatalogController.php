@@ -37,6 +37,7 @@ class CatalogController extends Controller
     public function catalog(Request $request)
     {
         $products = new Product();
+        $products = $products->orderByDesc('quantity');
 
         if ($request->sort && $request->order) {
             $products = $products->orderBy($request->sort, $request->order);

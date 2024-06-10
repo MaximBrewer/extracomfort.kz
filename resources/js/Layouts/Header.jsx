@@ -54,8 +54,6 @@ export default (props) => {
 
     useEffect(() => {
         added && setShowAdded(true)
-
-        console.log(added)
     }, [added]);
 
     useEffect(() => {
@@ -102,6 +100,14 @@ export default (props) => {
                     <div className="flex items-center">
                         {shoppage ? <div className="header__navbar basket-navbar py-3">
                             <ul className="navbar-list">
+                                <li className="navbar-list__item center" onClick={e => {
+                                    e.preventDefault();
+                                    setMmenu(true)
+                                }} style={{ marginRight: `.75rem` }}>
+                                    <a href="#">
+                                        <Lens className="w-5 h-5 shrink-0" />
+                                    </a>
+                                </li>
                                 <li className="navbar-list__item center" style={{ marginRight: `.75rem` }}>
                                     <Link href={route('cabinet.favorites.index')} className="inline-flex items-center">
                                         <Heart className="w-5 h-5 shrink-0 mr-2.5" />
@@ -114,7 +120,7 @@ export default (props) => {
                                         <span className="hidden md:block">Корзина</span>
                                     </Link>
                                     {cart.items.length ? <div className="basket-count">{cart.items.length}</div> : ``}
-                                    {showAdded && added && added.data.product ? <div className="absolute top-full left-0 p-4 rounded bg-white shadow z-50 text-black w-72">
+                                    {showAdded && added && added.data.product ? <div className="fixed xl:absolute top-3 right-3 xl:top-full xl:right-auto xl:left-0 p-4 rounded bg-white shadow z-50 text-black w-72">
 
                                         <div className="flex items-center justify-between gap-4 mb-4">
                                             <p className="text-lg font-medium">Добавленный товар</p>
@@ -146,12 +152,12 @@ export default (props) => {
                                             </div>
                                         </div>
 
-                                        <div className="space-y-4">
+                                        <div className="">
                                             <a href="#" onClick={e => {
                                                 e.preventDefault()
                                                 setShowAdded(!1)
                                             }}>
-                                                <button className="w-full btn-secondary fw-400-18-30 py-2 px-4">Продолжить покупки</button>
+                                                <button className="w-full btn-secondary fw-400-18-30 py-2 px-4 mb-3">Продолжить покупки</button>
                                             </a>
                                             <Link href="/cart">
                                                 <button className="w-full btn-primary fw-400-18-30 py-2 px-4">Оформить заказ</button>
@@ -210,7 +216,7 @@ export default (props) => {
                         </ul>
                     </nav>
                     <div className="flex items-center">
-                        <Link href={`/gifts`} className="py-1.5 bg-amber-500 rounded-full px-6 text-stone-900 text-sm font-bold">Подарочные сертификаты</Link>
+                        <Link href={`/gifts`} className="text-center my-0.5 py-1.5 bg-amber-500 rounded-full px-6 text-stone-900 text-sm font-bold">Подарочные сертификаты</Link>
                     </div>
                 </div>
             </div>
@@ -274,9 +280,14 @@ export default (props) => {
                 <div className="menu-close" onClick={e => setMmenu(false)}>
                     <XIcon className="w-6 h-6 shrink-0" />
                 </div>
+
                 <ul className="navbar-list">
-                    {menus.find(menu => menu.name === (shoppage ? `shop` : `service`)).items.map((item, index) => <MenuItem key={index} item={item} mobile={true} />)}
+                    {menus.find(menu => menu.name === `common`).items.map((item, index) => <MenuItem key={index} item={item} mobile={true} />)}
                 </ul>
+                <hr className="my-2" />
+                {shoppage || servicepage ? <ul className="navbar-list">
+                    {menus.find(menu => menu.name === (shoppage ? `shop` : `service`)).items.map((item, index) => <MenuItem key={index} item={item} mobile={true} />)}
+                </ul> : ``}
                 <form onSubmit={submit} className="search-wrapper header-bottom__search-wrapper fw-400-16-19">
                     <input className="search-input" type="text" name="search" placeholder="Поиск" value={query} onChange={e => setQuery(e.target.value)} />
                     <button className="search-icon-wrapper center">
@@ -284,11 +295,11 @@ export default (props) => {
                     </button>
                 </form>
                 <div className="contact-info-wrapper header-bottom__contact-info-wrapper">
-                    <div className="contact-info__left">
+                    <a href={`tel:${headerphone}`} className="contact-info__left">
                         <div className="header-phone-icon-wrapper center">
                             <Phone className="w-3 h-4 shrink-0" />
                         </div>
-                    </div>
+                    </a>
                     <div className="contact-info__right">
                         <div className="header-tel-wrapper">
                             <div className="header-tel black fw-400-16-19">

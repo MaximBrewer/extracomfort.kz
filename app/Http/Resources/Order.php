@@ -14,6 +14,9 @@ class Order extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $arr = parent::toArray($request);
+        $arr['status'] = new Status($this->status);
+        $arr['cart'] = new Cart($this->cart);
         return parent::toArray($request);
     }
 }

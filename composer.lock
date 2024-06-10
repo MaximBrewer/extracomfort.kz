@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "abeda322febdc9e5d0fd71f6f57964ea",
+    "content-hash": "0603ea5e8f914c0d72cc7dccdce244dd",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -1378,6 +1378,44 @@
                 }
             ],
             "time": "2021-10-07T12:57:01+00:00"
+        },
+        {
+            "name": "hb/epay",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akhmettolegen/payment-gateway-laravel.git",
+                "reference": "2ac0219dbea8c4143e461001d73cc564490003d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akhmettolegen/payment-gateway-laravel/zipball/2ac0219dbea8c4143e461001d73cc564490003d3",
+                "reference": "2ac0219dbea8c4143e461001d73cc564490003d3",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "hb\\epay\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "SprintSquads",
+                    "email": "sprintsquads@gmail.com"
+                }
+            ],
+            "description": "HB payment gateway",
+            "support": {
+                "issues": "https://github.com/akhmettolegen/payment-gateway-laravel/issues",
+                "source": "https://github.com/akhmettolegen/payment-gateway-laravel/tree/master"
+            },
+            "time": "2020-06-18T09:33:57+00:00"
         },
         {
             "name": "inertiajs/inertia-laravel",

@@ -51,7 +51,7 @@ export default (props) => {
                                     </div>
                                     <div className="text-zinc-800">
                                         <div className="mb-3">Адрес:</div>
-                                        <div className="font-bold">г. Караганда, ул. Комиссарова, 22</div>
+                                        <div className="font-bold">г. Караганда, ул. Комиссарова,&nbsp;22</div>
                                     </div>
                                 </div>
                                 <div className="gap-5 flex mb-5">

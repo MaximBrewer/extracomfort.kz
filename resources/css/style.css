@@ -112,14 +112,6 @@ ul {
   list-style: none;
 }
 
-a,
-img,
-span,
-input,
-button,
-ion-icon {
-  display: block;
-}
 
 a {
   text-decoration: none;
@@ -159,7 +151,7 @@ html {
 body {
   background: var(--main-theme);
   position: relative;
-  font-family: var(--mont-ff);
+  
 }
 
 /**
@@ -264,7 +256,7 @@ input[type="checkbox"]:checked:after {
   border: none;
   background: #56326E;
   border-radius: 90px;
-  font-family: var(--mont-ff);
+  
   color: #fff;
 }
 
@@ -275,7 +267,7 @@ input[type="checkbox"]:checked:after {
 .btn-secondary {
   border: 1px solid #56326E;
   border-radius: 90px;
-  font-family: var(--mont-ff);
+  
   background: transparent;
   color: #56326E;
   cursor: pointer;
@@ -543,7 +535,7 @@ input[type="checkbox"]:checked:after {
 * HEADER
 */
 header {
-  font-family: var(--mont-ff);
+  
   position: relative;
 }
 
@@ -996,13 +988,13 @@ header .header__bottom .header-bottom-inner .header-media-icons-wrapper .header-
 
 
 .promotion-title {
-  font-family: var(--poppins-ff);
+  
   color: #272727;
   margin-bottom: 30px;
 }
 
 .promotion-goods__title {
-  font-family: var(--poppins-ff);
+  
   color: #272727;
   margin-bottom: 30px;
 }
@@ -1010,7 +1002,7 @@ header .header__bottom .header-bottom-inner .header-media-icons-wrapper .header-
 
 
 .promotion-goods__desc {
-  font-family: var(--poppins-ff);
+  
   color: #272727;
   margin-bottom: 30px;
 }
@@ -1026,7 +1018,7 @@ header .header__bottom .header-bottom-inner .header-media-icons-wrapper .header-
 }
 
 .promotion-price-main {
-  font-family: var(--poppins-ff);
+  
   color: #3A9EAA;
   margin-right: 4px;
 }
@@ -1034,7 +1026,7 @@ header .header__bottom .header-bottom-inner .header-media-icons-wrapper .header-
 
 
 .promotion-price-discount {
-  font-family: var(--poppins-ff);
+  
   color: #56326E;
 }
 
@@ -1143,13 +1135,13 @@ header .header__bottom .header-bottom-inner .header-media-icons-wrapper .header-
 }
 
 .bottom-banner__title {
-  font-family: var(--poppins-ff);
+  
   color: #fff;
   margin-bottom: 20px;
 }
 
 .bottom-banner__subtitle {
-  font-family: var(--poppins-ff);
+  
   color: #fff;
 }
 
@@ -1165,7 +1157,7 @@ footer {
 }
 
 .footer-navbar-item__title {
-  font-family: var(--mont-ff);
+  
   color: #000;
   margin-bottom: 30px;
 }
@@ -1214,7 +1206,7 @@ footer {
 
 .footer-copy-wrapper {
   width: 100%;
-  font-family: var(--mont-ff);
+  
   color: #000;
   opacity: 0.5;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
@@ -1354,7 +1346,7 @@ footer {
 }
 
 .appointment-doctor {
-  font-family: Roboto;
+  
   position: relative;
 }
 
@@ -1380,6 +1372,11 @@ footer {
 .catalogue-categories {
   margin: 5rem 0 2.5rem 0;
 }
+@media only screen and (max-width: 992px) {
+  .catalogue-categories {
+  margin: 1.5rem 0;
+  }
+}
 
 .catalogue-categories-title-section {
   display: flex;
@@ -1396,7 +1393,7 @@ footer {
   padding: 12px 40px;
   text-transform: uppercase;
   border-radius: 20px;
-  font-family: var(--mont-ff);
+  
   color: #000;
   text-align: center;
 }
@@ -1422,7 +1419,7 @@ footer {
 
 
 .catalogue-breadcrumb-item {
-  font-family: var(--mont-ff);
+  
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -1438,7 +1435,7 @@ footer {
 }
 
 .catalogue-section__title {
-  font-family: var(--mont-ff);
+  
   color: #000;
   margin-bottom: 37px;
 }
@@ -1458,7 +1455,7 @@ footer {
 }
 
 .catalogue-sidebar__title {
-  font-family: var(--mont-ff);
+  
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -1526,7 +1523,7 @@ footer {
 }
 
 .catalogue-sidebar-dropdown-label {
-  font-family: var(--mont-ff);
+  
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
@@ -1556,7 +1553,7 @@ footer {
   width: 100%;
   padding: 18px 0;
   background: #B8E6EC;
-  font-family: var(--mont-ff);
+  
   color: #000;
   position: absolute;
   bottom: 0;
@@ -1613,7 +1610,7 @@ footer {
 }
 
 .catalogue-title {
-  font-family: var(--poppins-ff);
+  
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
@@ -1622,7 +1619,7 @@ footer {
 }
 
 .catalogue-subtitle {
-  font-family: var(--poppins-ff);
+  
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
@@ -1655,7 +1652,7 @@ footer {
 Запишитесь к Врачу 
 */
 .form-app-doctor {
-  font-family: 'Roboto', sans-serif;
+  
   border-radius: 1.25rem;
   background: #F8F9FC;
   padding: 2.62rem 1.8rem;
@@ -1744,7 +1741,7 @@ footer {
 */
 .catalogue-filter-row {
   width: 100%;
-  font-family: var(--mont-ff);
+  
   display: flex;
   justify-content: space-between;
 }
@@ -1797,7 +1794,7 @@ footer {
 
 .total-found-sidebar {
   width: 255px;
-  font-family: var(--mont-ff);
+  
   color: rgba(0, 0, 0, 0.5);
   background: #F1F5F8;
   border-radius: 20px;
@@ -1834,7 +1831,7 @@ footer {
 
 .filter-sidebar {
   width: 255px;
-  font-family: var(--mont-ff);
+  
   background: #F1F5F8;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
@@ -1957,7 +1954,7 @@ footer {
 }
 
 .catalogue__item-title {
-  font-family: var(--mont-ff);
+  
   color: #000;
   margin-bottom: 5px;
 }
@@ -1993,18 +1990,18 @@ footer {
 }
 
 .catalogue__in-stock-label {
-  font-family: var(--mont-ff);
+  
   color: #3A9EAA;
 }
 
 .catalogue__short-desc-label {
-  font-family: var(--mont-ff);
+  
   color: #000;
   margin-bottom: 18px;
 }
 
 .catalogue__item-price {
-  font-family: var(--mont-ff);
+  
   color: #56326E;
 }
 
@@ -2023,7 +2020,7 @@ footer {
 * PAGINATION
 */
 .pagination {
-  font-family: var(--mont-ff);
+  
   display: flex;
   justify-content: center;
 }
@@ -2149,7 +2146,7 @@ footer {
 }
 
 .product-description__purchase-details {
-  font-family: var(--mont-ff);
+  
 }
 
 .product-title {
@@ -2339,7 +2336,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: var(--mont-ff);
+  
   color: #F1F5F8;
   cursor: pointer;
 }
@@ -2385,7 +2382,7 @@ footer {
 }
 
 .product-review-tab-wrapper {
-  font-family: var(--mont-ff);
+  
   padding-block-end: 221px;
 }
 
@@ -2433,7 +2430,7 @@ footer {
 }
 
 .similar-products {
-  font-family: var(--mont-ff);
+  
 }
 
 
@@ -2585,7 +2582,7 @@ footer {
 /* Таблица размеров */
 .sizes-table {
   width: max-content;
-  font-family: var(--mont-ff);
+  
   background: var(--white-f8);
   border-radius: 30px;
   padding: 20px 12px;
@@ -2685,7 +2682,7 @@ footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  font-family: var(--mont-ff);
+  
   margin-bottom: 24px;
 }
 
@@ -2738,7 +2735,7 @@ footer {
 
 /* Форма обратной связи */
 .contact {
-  font-family: var(--mont-ff);
+  
 }
 
 .contact__outer {
@@ -2779,7 +2776,7 @@ footer {
 .feedback-textarea {
   width: 100%;
   height: 150px;
-  font-family: var(--mont-ff);
+  
   outline: none;
   background: transparent;
   appearance: none;
@@ -2807,7 +2804,7 @@ footer {
 
 /* Корзина */
 .trash {
-  font-family: var(--mont-ff);
+  
   width: 1110px;
   padding: 48px 94px 60px 94px;
   background: #fff;
@@ -3140,7 +3137,7 @@ footer {
 
 /* ОФОРМЛЕНИЕ ЗАКАЗА */
 .ordering {
-  font-family: var(--mont-ff);
+  
 }
 
 .ordering__title {
@@ -3169,7 +3166,7 @@ footer {
 }
 
 .ordering-contacts-form__textarea {
-  font-family: var(--mont-ff);
+  
   width: 100%;
   height: 100px;
   -webkit-appearance: none;
@@ -3417,18 +3414,10 @@ footer {
 
 /* Массаж */
 .massage-info {
-  font-family: 'Roboto', sans-serif;
   position: relative;
 }
 
 .massage-info p {
-  color: var(--black);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.5625rem;
-  /* 156.25% */
   margin-bottom: 1rem;
 }
 
@@ -3462,7 +3451,6 @@ footer {
 .warning-block {
   padding: 1rem 1rem 1rem 3rem;
   color: #000;
-  font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3507,11 +3495,6 @@ footer {
   align-items: center;
   gap: 0.5rem;
   padding: 0.63rem 0.5rem 0.63rem 2.5rem;
-  color: var(--black);
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.5625rem;
 }
 
 .massage-course-cover {
@@ -4462,7 +4445,6 @@ footer {
 .thank-you {
   width: 100%;
   height: 100%;
-  font-family: var(--mont-ff);
   display: flex;
 
 }
@@ -4506,7 +4488,6 @@ footer {
 }
 
 .info {
-  font-family: var(--mont-ff);
 }
 
 .payment-info {
@@ -4673,7 +4654,7 @@ footer {
 }
 
 .refund {
-  font-family: var(--mont-ff);
+  
 }
 
 .refund__title {
@@ -4703,7 +4684,7 @@ footer {
 .about-hero {
   width: 100%;
   position: relative;
-  font-family: var(--mont-ff);
+  
 }
 
 .about-hero__img {
@@ -4755,13 +4736,13 @@ footer {
 .reg-form {
   width: 536px;
   margin: 0 auto;
-  font-family: var(--mont-ff);
+  
   color: #484848;
 }
 
 .reg-subtitle {
   width: 1002px;
-  font-family: var(--mont-ff);
+  
   text-align: center;
   margin: 0 auto;
   margin-bottom: 50px;
@@ -4795,7 +4776,7 @@ footer {
 
 .reg-form__terms {
   position: relative;
-  font-family: var(--mont-ff);
+  
   color: #484848;
   padding-left: 34px;
   cursor: pointer;
@@ -5589,10 +5570,7 @@ footer {
   }
 
   .checkbox-grid {
-    display: none;
-    height: 0;
-    overflow: hidden;
-    transition: 0.18s ease;
+
   }
 
   .filter-sidebar__inner {
@@ -6244,13 +6222,6 @@ footer {
 
   .contacts-address+.contacts-address {
     padding-top: 1rem;
-  }
-
-  .massage-info p,
-  .massage-list li,
-  .massage-course-list li a {
-    font-size: 0.8rem;
-    line-height: 120%;
   }
 
   .fw-400-36-46 {

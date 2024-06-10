@@ -86,7 +86,7 @@ export default (props) => {
                                         <img src={PinSvg} alt="" />
                                     </div>
                                     <div className="samovyvoz__label">
-                                        <p>г. Караганда, ул. Комиссарова, 22.</p>
+                                        <p>г. Караганда, ул. Комиссарова,&nbsp;22.</p>
                                     </div>
                                 </div>
                                 <div className="samovyvoz__working-hours">

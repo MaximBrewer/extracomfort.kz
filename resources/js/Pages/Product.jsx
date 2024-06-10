@@ -199,7 +199,6 @@ export default (props) => {
     }, [offer, specifications])
 
     useEffect(() => {
-        console.log(spFilter)
         let offers = [...product.data.offers];
         for (let s of specifications) {
             let offersArray = s.values[spFilter[s.id]] ? s.values[spFilter[s.id]].offers.map(el => 1 * el) : []

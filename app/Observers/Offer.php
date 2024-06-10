@@ -34,8 +34,9 @@ class Offer
         }
         if ($minPrice < 1000000000) {
             $model->product->min_price = $minPrice;
-            $model->product->saveQuietly();
         }
+        $model->product->quantity = $model->product->offers()->where('quantity', '>', 0)->exists();
+        $model->product->saveQuietly();
     }
 
     private function setFacets(ModelsOffer $model)

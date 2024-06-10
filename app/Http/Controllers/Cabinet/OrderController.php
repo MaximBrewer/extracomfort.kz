@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use hb\epay\HBepay;
 
 class OrderController extends Controller
 {
@@ -35,7 +35,7 @@ class OrderController extends Controller
         $orders = $user->orders()->whereHas('cart')->with('cart');
 
         return Inertia::render("Cabinet/Orders/Index", [
-            'orders' => ResourcesOrder::collection($orders->get()),
+            'orders' => ResourcesOrder::collection($orders->current()->get()),
             'pagetitle' => 'Мои заказы',
             'meta' => [
                 'title' => 'Мои заказы',
@@ -63,7 +63,7 @@ class OrderController extends Controller
         $orders = $user->orders()->whereHas('cart')->with('cart');
 
         return Inertia::render("Cabinet/Orders/History", [
-            'orders' => ResourcesOrder::collection($orders->get()),
+            'orders' => ResourcesOrder::collection($orders->archive()->paginate(50)),
             'pagetitle' => 'Мои заказы',
             'meta' => [
                 'title' => 'Мои заказы',
@@ -159,11 +159,19 @@ class OrderController extends Controller
     public function store(StoreOrderRequest $request)
     {
         $order = User::find(Auth::id())->orders()->create($request->all());
-        $this->cart->update([
+
+        $this->cart && $this->cart->update([
             'order_id' => $order->id,
             'user_id' => null,
             'session_id' => null
         ]);
+
+        if ($order->payment_id == 3) {
+            return redirect()->intended(route('pay', [
+                'order' => $order->id
+            ]));
+        }
+
         return redirect()->route('cabinet.orders.thanks');
     }
 
@@ -307,5 +315,32 @@ class OrderController extends Controller
         //     'orders' => $orders,
         //     'title' => 'Архив заказов'
         // ]);
+    }
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function pay(Order $order)
+    {
+        $pay_order = new HBepay();
+
+        return $pay_order->gateway(
+            "",
+            "EXTRACOMFORT.KZ",
+            "x2MCo7LbtxNvFlqa",
+            "d3363a74-ce0c-46bf-8f87-42248d793090",
+            $order->id,
+            $order->cart->sum,
+            "KZT",
+            // route('cabinet.orders.thanks'),
+            // route('cabinet.orders.thanks'),
+            url("https://extracomfort.kz/"),
+            url("https://extracomfort.kz/"),
+            url("https://extracomfort.kz/"),
+            url("https://extracomfort.kz/")
+        );
     }
 }

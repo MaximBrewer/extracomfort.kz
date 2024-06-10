@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\Status;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,17 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Order extends Model
 {
-    use HasFactory, Status;
-
-    public static $statuses = [
-        0 => 'NEW',
-        10 => 'PROCESSING',
-        // 25 => 'ASSIGNED',
-        50 => 'PAYED',
-        75 => 'DELIVERING',
-        100 => 'DELIVERED',
-        500 => 'CANCELED',
-    ];
+    use HasFactory;
 
     protected $fillable = [
         'name',
@@ -50,6 +40,19 @@ class Order extends Model
         2 => 'Самовывоз',
     ];
 
+
+    /**
+     * Default sort by created_at desc.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderByDesc('id');
+        });
+    }
     /**
      * Scope a query to only include popular users.
      *
@@ -58,7 +61,9 @@ class Order extends Model
      */
     public function scopeArchive($query)
     {
-        return $query->where('status_id', '>=', 100);
+        return $query->whereHas('status', function (Builder $query) {
+            $query->where('order', 1000);
+        });
     }
 
     /**
@@ -69,12 +74,19 @@ class Order extends Model
      */
     public function scopeCurrent($query)
     {
-        return $query->where('status_id', '<', 100);
+        return $query->whereHas('status', function (Builder $query) {
+            $query->where('order', '<', 1000);
+        });
     }
 
     public function cart(): HasOne
     {
         return $this->hasOne(Cart::class);
+    }
+
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(Status::class);
     }
 
     public function histories(): HasMany
