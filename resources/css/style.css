@@ -1629,7 +1629,6 @@ footer {
 
 .catalogue-category-name {
   color: #1C1C1C;
-  font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -5067,12 +5066,11 @@ footer {
   }
 
   .fw-400-16-19 {
-    font-size: var(--fs-13);
-    line-height: var(--lh-17);
+    
   }
 
   .fw-300-16-19 {
-    font-size: var(--fs-12);
+    
   }
 
   .container-outer {
@@ -5110,12 +5108,11 @@ footer {
   }
 
   .fw-400-16-19 {
-    font-size: var(--fs-12);
-    line-height: var(--lh-15);
+    
   }
 
   .fw-300-16-19 {
-    font-size: var(--fs-11);
+    
   }
 
   .container-outer {
@@ -5406,8 +5403,7 @@ footer {
   }
 
   .fw-400-16-19 {
-    font-size: var(--fs-13);
-    line-height: var(--lh-15);
+    
   }
 
   .fw-300-16-19 {
