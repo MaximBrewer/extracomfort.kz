@@ -17,6 +17,6 @@ class Order extends JsonResource
         $arr = parent::toArray($request);
         $arr['status'] = new Status($this->status);
         $arr['cart'] = new Cart($this->cart);
-        return parent::toArray($request);
+        return $arr;
     }
 }
