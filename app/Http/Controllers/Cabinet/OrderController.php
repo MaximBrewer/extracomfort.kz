@@ -2,25 +2,17 @@
 
 namespace App\Http\Controllers\Cabinet;
 
-use NumberToWords\NumberToWords;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AssignOrderRequest;
 use App\Http\Requests\StoreOrderRequest;
-use App\Http\Resources\CourierOrder;
 use App\Http\Resources\Order as ResourcesOrder;
-use App\Http\Resources\SellerOrder;
-use App\Http\Resources\Store as ResourcesStore;
 use App\Models\Order;
-use App\Models\Store;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
-use Barryvdh\DomPDF\Facade\Pdf;
 use hb\epay\HBepay;
+use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
 {
@@ -32,10 +24,10 @@ class OrderController extends Controller
     public function index()
     {
         $user = User::find(Auth::id());
-        $orders = $user->orders()->whereHas('cart')->with('cart');
+        $orders = $user->orders()->with('cart');
 
         return Inertia::render("Cabinet/Orders/Index", [
-            'orders' => ResourcesOrder::collection($orders->current()->get()),
+            'orders' => ResourcesOrder::collection($orders->get()),
             'pagetitle' => 'Мои заказы',
             'meta' => [
                 'title' => 'Мои заказы',
@@ -159,6 +151,8 @@ class OrderController extends Controller
     public function store(StoreOrderRequest $request)
     {
         $order = User::find(Auth::id())->orders()->create($request->all());
+        // dump($order->id);
+        // dump($this->cart);
 
         $this->cart && $this->cart->update([
             'order_id' => $order->id,
@@ -166,8 +160,10 @@ class OrderController extends Controller
             'session_id' => null
         ]);
 
+        // dd($this->cart);
+
         if ($order->payment_id == 3) {
-            return redirect()->intended(route('pay', [
+            return Inertia::location(route('pay', [
                 'order' => $order->id
             ]));
         }
@@ -325,22 +321,56 @@ class OrderController extends Controller
      */
     public function pay(Order $order)
     {
+        // dd($this->cart);
         $pay_order = new HBepay();
-
         return $pay_order->gateway(
             "",
             "EXTRACOMFORT.KZ",
             "x2MCo7LbtxNvFlqa",
             "d3363a74-ce0c-46bf-8f87-42248d793090",
-            $order->id,
+            str_pad($order->id, 9, '0', STR_PAD_LEFT),
             $order->cart->sum,
             "KZT",
             // route('cabinet.orders.thanks'),
             // route('cabinet.orders.thanks'),
-            url("https://extracomfort.kz/"),
-            url("https://extracomfort.kz/"),
-            url("https://extracomfort.kz/"),
-            url("https://extracomfort.kz/")
+            url("https://extracomfort.kz/cabinet/orders"),
+            url("https://extracomfort.kz/cabinet/orders"),
+            url("https://extracomfort.kz/payed"),
+            url("https://extracomfort.kz/payed")
         );
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function payed(Request $request)
+    {
+        Log::info($request);
+        return 'ok';
+    }
 }
+// Добрый день
+ 
+// Данные по виртуальному терминалу EPAY 2.0
+ 
+ 
+// https://epay.homebank.kz 
+// email    :   ortokar2@mail.ru
+
+// Номер процесса: 176340339
+// password   :     wn73CbyY
+// TerminalID : 61e58a47-f86a-4b5f-a9c4-86a132a141a4
+// ClientID : EXTRACOMFORT.KZ2
+// ClientSecret :  P2HTuj(MEvIdawQB
+// Терминал: 92092922
+
+// Номер процесса: 176340305
+// password   :  TYlK6Uvk   
+// TerminalID : d3363a74-ce0c-46bf-8f87-42248d793090
+// ClientID : EXTRACOMFORT.KZ
+// ClientSecret :  x2MCo7LbtxNvFlqa
+// Терминал: 92092921
+ 
+// Ссылка на документацию: https://epayment.kz/ru/docs/platezhnaya-stranica

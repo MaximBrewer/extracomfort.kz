@@ -156,6 +156,7 @@ Route::get('/migrate', function () {
 });
 
 Route::get('/pay/{order}', [OrderController::class, 'pay'])->name('pay');
+Route::post('/payed', [OrderController::class, 'payed'])->name('payed');
 
 // Route::group(['prefix' => 'admin'], function () {
 
