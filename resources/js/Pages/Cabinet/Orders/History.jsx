@@ -65,7 +65,7 @@ export default (props) => {
                                                 <div className="current-order-status" style={{ backgroundColor: order.status.color }}>
                                                     {order.status.title}
                                                 </div>
-                                                <div className="current-order-price">{priceFormat(order.cart.sum)}</div>
+                                                {order.cart ? <div className="current-order-price">{priceFormat(order.cart.sum)}</div> : <></>}
                                             </div> : <></>}
                                         </div>
                                     </div>
