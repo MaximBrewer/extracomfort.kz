@@ -44,7 +44,7 @@ export default (props) => {
                                 {orders.data.map((order) => <div key={order.id} className="current-orders-items">
                                     <div className="flex justify-between gap-6 items-start">
                                         <div className="flex flex-col items-start gap-x-6 gap-y-3">
-                                            {order.cart.items.map((item) => <div key={item.id} className="flex flex-col md:flex-row items-start gap-x-6 gap-y-3">
+                                            {order.cart ? order.cart.items.map((item) => <div key={item.id} className="flex flex-col md:flex-row items-start gap-x-6 gap-y-3">
                                                 <div className="current-order-img shrink-0">
                                                     {item.offer.product.images.length ? <div className='pt-[100%] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url('${item.offer.product.images[0].url}')` }} /> : <div className="pt-[100%] relative">
                                                         <NoPhoto className="absolute w-full h-auto text-gray-300 top-1/2 -translate-y-1/2" />
@@ -58,7 +58,7 @@ export default (props) => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>)}
+                                            </div>) : <></>}
                                             <div className="current-order-date">{moment(order.created_at).format('DD.MM.YYYY')}</div>
                                             {order.status ? <div className="flex flex-col md:flex-row md:items-center items-start gap-x-6 gap-y-3">
                                                 <div className="current-order-status" style={{ backgroundColor: order.status.color }}>
