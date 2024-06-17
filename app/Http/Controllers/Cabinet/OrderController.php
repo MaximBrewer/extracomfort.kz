@@ -24,7 +24,7 @@ class OrderController extends Controller
     public function index()
     {
         $user = User::find(Auth::id());
-        $orders = $user->orders()->with('cart');
+        $orders = $user->orders()->current();
 
         return Inertia::render("Cabinet/Orders/Index", [
             'orders' => ResourcesOrder::collection($orders->get()),
@@ -52,7 +52,7 @@ class OrderController extends Controller
     public function history()
     {
         $user = User::find(Auth::id());
-        $orders = $user->orders()->whereHas('cart')->with('cart');
+        $orders = $user->orders()->archive();
 
         return Inertia::render("Cabinet/Orders/History", [
             'orders' => ResourcesOrder::collection($orders->archive()->paginate(50)),

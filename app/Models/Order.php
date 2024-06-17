@@ -63,7 +63,7 @@ class Order extends Model
     {
         return $query->whereHas('status', function (Builder $query) {
             $query->where('order', 1000);
-        });
+        })->whereHas('cart')->with('cart');
     }
 
     /**
@@ -76,7 +76,7 @@ class Order extends Model
     {
         return $query->whereHas('status', function (Builder $query) {
             $query->where('order', '<', 1000);
-        });
+        })->whereHas('cart')->with('cart');
     }
 
     public function cart(): HasOne
