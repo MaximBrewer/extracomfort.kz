@@ -61,12 +61,12 @@ export default (props) => {
                                                 </div>
                                             </div>)}
                                             <div className="current-order-date">{moment(order.created_at).format('DD.MM.YYYY')}</div>
-                                            <div className="flex flex-col md:flex-row items-start gap-x-6 gap-y-3">
+                                            {order.status ? <div className="flex flex-col md:flex-row items-start gap-x-6 gap-y-3">
                                                 <div className="current-order-status" style={{ backgroundColor: order.status.color }}>
                                                     {order.status.title}
                                                 </div>
                                                 <div className="current-order-price">{priceFormat(order.cart.sum)}</div>
-                                            </div>
+                                            </div> : <></>}
                                         </div>
                                     </div>
                                 </div>)}
