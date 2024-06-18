@@ -45,8 +45,10 @@ export default () => {
                             <div className="footer-contacts-wrapper">
                                 <div className="mb-5">
                                     <div className="font-semibold">Главный офис на&nbsp;Комиссарова&nbsp;22:</div>
+                                    <div className="lg:whitespace-nowrap"><a href="tel:++77008369665" target="_blank" className="inline underline">+7 (700) 836-96-65
+                                    </a> (<a href="tel:++77470954069" target="_blank" className="inline underline">телефон регистратура</a>)</div>
                                     <div className="lg:whitespace-nowrap"><a href="tel:++77470954069" target="_blank" className="inline underline">+7 (747) 095-40-69
-                                    </a> (<a href="tel:++77470954069" target="_blank" className="inline underline">телефон</a>)</div>
+                                    </a> (<a href="tel:++77470954069" target="_blank" className="inline underline">телефон магазин</a>)</div>
                                     <div className="lg:whitespace-nowrap"><a href="https://wa.me/+77782762343" target="_blank" className="inline underline">+7 (778) 276-23-43</a> (<a href="https://wa.me/+77782762343" target="_blank" className="inline underline">WhatsApp</a>)</div>
                                 </div>
                                 <div className="mb-5">
