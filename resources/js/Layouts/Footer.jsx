@@ -45,15 +45,15 @@ export default () => {
                             <div className="footer-contacts-wrapper">
                                 <div className="mb-5">
                                     <div className="font-semibold">Главный офис на&nbsp;Комиссарова&nbsp;22:</div>
-                                    <div className="lg:whitespace-nowrap"><a href="https://wa.me/+77782762343" target="_blank" className="inline underline">+7 (778) 276 23 43</a> (<a href="https://wa.me/+77782762343" target="_blank" className="inline underline">WhatsApp</a>)</div>
                                     <div className="lg:whitespace-nowrap"><a href="tel:++77470954069" target="_blank" className="inline underline">+7 (747) 095-40-69
                                     </a> (<a href="tel:++77470954069" target="_blank" className="inline underline">телефон</a>)</div>
+                                    <div className="lg:whitespace-nowrap"><a href="https://wa.me/+77782762343" target="_blank" className="inline underline">+7 (778) 276-23-43</a> (<a href="https://wa.me/+77782762343" target="_blank" className="inline underline">WhatsApp</a>)</div>
                                 </div>
                                 <div className="mb-5">
                                     <div className="font-semibold">Филиал на Бухар Жырау 79:</div>
-                                    <div className="lg:whitespace-nowrap">+7 (778) 276 23 44 (<a href="https://wa.me/+77782762344" target="_blank" className="inline underline">WhatsApp</a>)</div>
                                     <div className="lg:whitespace-nowrap"><a href="tel:++77470959429" target="_blank" className="inline underline">+7 (747) 095-94-29
                                     </a> (<a href="tel:++77470954069" target="_blank" className="inline underline">телефон</a>)</div>
+                                    <div className="lg:whitespace-nowrap"><a href="https://wa.me/+77782762344" target="_blank" className="inline underline">+7 (778) 276-23-44</a> (<a href="https://wa.me/+77782762344" target="_blank" className="inline underline">WhatsApp</a>)</div>
                                 </div>
                                 <div className="mb-5 flex gap-2">
                                     <span className="font-semibold">E-mail:</span>
