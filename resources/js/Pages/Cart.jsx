@@ -186,7 +186,7 @@ export default (props) => {
                                             </div>
                                             <div className="ordering-contacts-form ordering-details__ordering-contacts-form fw-400-16-19">
                                                 <div className="grid grid-cols-2 gap-4 pb-4">
-                                                    <div className="">
+                                                    <div className="col-span-2">
                                                         <input
                                                             id="region"
                                                             type="text"
@@ -197,7 +197,7 @@ export default (props) => {
                                                         />
                                                         <InputError message={errors.region} />
                                                     </div>
-                                                    <div className="">
+                                                    <div className="col-span-2">
                                                         <input
                                                             id="city"
                                                             type="text"
