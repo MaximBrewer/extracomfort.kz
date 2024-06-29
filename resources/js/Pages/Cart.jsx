@@ -191,7 +191,7 @@ export default (props) => {
                                                             id="region"
                                                             type="text"
                                                             name="region"
-                                                            value={data.region ?? ``} className="ordering__input"
+                                                            value={data.region ?? ``} className="ordering__input w-full"
                                                             onChange={(e) => setData('region', e.target.value)}
                                                             placeholder={`Область`}
                                                         />
@@ -202,7 +202,7 @@ export default (props) => {
                                                             id="city"
                                                             type="text"
                                                             name="city"
-                                                            value={data.city ?? ``} className="ordering__input"
+                                                            value={data.city ?? ``} className="ordering__input w-full"
                                                             onChange={(e) => setData('city', e.target.value)}
                                                             placeholder={`Нас. пункт (горд, поселок, ...)`}
                                                         />
