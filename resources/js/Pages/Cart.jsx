@@ -204,7 +204,7 @@ export default (props) => {
                                                             name="city"
                                                             value={data.city ?? ``} className="ordering__input"
                                                             onChange={(e) => setData('city', e.target.value)}
-                                                            placeholder={`Город`}
+                                                            placeholder={`Нас. пункт (горд, поселок, ...)`}
                                                         />
                                                         <InputError message={errors.city} />
                                                     </div>
