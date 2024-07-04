@@ -25,13 +25,13 @@
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '762987852392102');
+        fbq('init', '1510731249855194');
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=762987852392102&ev=PageView&noscript=1" /></noscript>
+            src="https://www.facebook.com/tr?id=1510731249855194&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
-    <meta name="facebook-domain-verification" content="1cmz7djh174zicsn7oi8ht5h3bkvs3" />
+    <meta name="facebook-domain-verification" content="8jiprjt5ogzez1c0jmx8r2m6qxsb8v" />
     <title inertia>{{ setting('site.title') }}</title>
 
     <!-- Fonts -->
