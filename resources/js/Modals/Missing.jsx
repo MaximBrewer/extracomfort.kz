@@ -15,7 +15,7 @@ export default (props) => {
         email: '',
         message: '',
         offer: offer ? offer.id : null,
-        product: product && product.data ? product.data.id : null
+        product_id: product && product.data ? product.data.id : null
     });
 
     const submit = (e) => {

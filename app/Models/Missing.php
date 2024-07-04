@@ -13,6 +13,7 @@ class Missing extends Model
         'name',
         'phone',
         'email',
-        'message'
+        'message',
+        'product_id'
     ];
 }
