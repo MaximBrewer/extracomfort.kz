@@ -70,7 +70,7 @@ export default () => {
                     </ul>
                 </div>
                 <div className="footer-copy-wrapper center fw-400-14-17">{copyright}</div>
-                <div className="go-top-wrapper js-back-to-top" onClick={e => goToTop(e)}>
+                <div className="go-top-wrapper js-back-to-top fixed md:absolute right-6 bottom-6 md:right-12 md:bottom-0" onClick={e => goToTop(e)}>
                     <div className="go-top-arrow-wrapper">
                         <img src={ArrowTop} alt="" />
                     </div>
