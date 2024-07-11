@@ -336,7 +336,9 @@ class OrderController extends Controller
             url("https://extracomfort.kz/cabinet/orders"),
             url("https://extracomfort.kz/cabinet/orders"),
             url("https://extracomfort.kz/payed"),
-            url("https://extracomfort.kz/payed")
+            url("https://extracomfort.kz/payed"),
+            "RU",
+            "Oplata tovara"
         );
     }
 
