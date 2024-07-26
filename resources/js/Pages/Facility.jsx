@@ -39,7 +39,8 @@ export default (props) => {
         <Head title={pagetitle} />
         <div className="main-block">
             <div className="main-bg">
-                <img src={current.data.image} alt={current.data.title} />
+                <img src={current.data.image} alt={current.data.title} className="hidden lg:block" />
+                <img src={current.data.mimage} alt={current.data.title} className="lg:hidden" />
             </div>
             <div className="container-outer">
                 <div className="main-content flex flex-col justify-center text-center ">
