@@ -51,7 +51,7 @@ export default (props) => {
         </div>
 
         <div className="container-outer flex flex-col justify-center h-full py-4 lg:py-8">
-            <a href="#" className="btn-primary fw-700-16-20 pb-4 lg:py-4 px-6 lg:mt-7 mx-auto" onClick={e => {
+            <a href="#" className="btn-primary fw-700-16-20 py-4 px-6 lg:mt-7 mx-auto" onClick={e => {
                 e.preventDefault()
                 setModal(<CallBack subject={'обратный звонок'} />)
             }}>Заказать звонок</a>
