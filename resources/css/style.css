@@ -5883,6 +5883,7 @@ footer {
   }
 
   .main-block {
+    display: block;
   }
 
   .main-title {
