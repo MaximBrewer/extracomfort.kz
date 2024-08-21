@@ -5884,6 +5884,7 @@ footer {
 
   .main-block {
     display: block;
+    position: relative;
   }
 
   .main-title {
