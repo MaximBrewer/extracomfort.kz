@@ -151,7 +151,7 @@ html {
 body {
   background: var(--main-theme);
   position: relative;
-  
+
 }
 
 /**
@@ -256,7 +256,7 @@ input[type="checkbox"]:checked:after {
   border: none;
   background: #56326E;
   border-radius: 90px;
-  
+
   color: #fff;
 }
 
@@ -267,7 +267,7 @@ input[type="checkbox"]:checked:after {
 .btn-secondary {
   border: 1px solid #56326E;
   border-radius: 90px;
-  
+
   background: transparent;
   color: #56326E;
   cursor: pointer;
@@ -535,7 +535,7 @@ input[type="checkbox"]:checked:after {
 * HEADER
 */
 header {
-  
+
   position: relative;
 }
 
@@ -988,13 +988,13 @@ header .header__bottom .header-bottom-inner .header-media-icons-wrapper .header-
 
 
 .promotion-title {
-  
+
   color: #272727;
   margin-bottom: 30px;
 }
 
 .promotion-goods__title {
-  
+
   color: #272727;
   margin-bottom: 30px;
 }
@@ -1002,7 +1002,7 @@ header .header__bottom .header-bottom-inner .header-media-icons-wrapper .header-
 
 
 .promotion-goods__desc {
-  
+
   color: #272727;
   margin-bottom: 30px;
 }
@@ -1018,7 +1018,7 @@ header .header__bottom .header-bottom-inner .header-media-icons-wrapper .header-
 }
 
 .promotion-price-main {
-  
+
   color: #3A9EAA;
   margin-right: 4px;
 }
@@ -1026,7 +1026,7 @@ header .header__bottom .header-bottom-inner .header-media-icons-wrapper .header-
 
 
 .promotion-price-discount {
-  
+
   color: #56326E;
 }
 
@@ -1135,13 +1135,13 @@ header .header__bottom .header-bottom-inner .header-media-icons-wrapper .header-
 }
 
 .bottom-banner__title {
-  
+
   color: #fff;
   margin-bottom: 20px;
 }
 
 .bottom-banner__subtitle {
-  
+
   color: #fff;
 }
 
@@ -1157,7 +1157,7 @@ footer {
 }
 
 .footer-navbar-item__title {
-  
+
   color: #000;
   margin-bottom: 30px;
 }
@@ -1206,7 +1206,7 @@ footer {
 
 .footer-copy-wrapper {
   width: 100%;
-  
+
   color: #000;
   opacity: 0.5;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
@@ -1343,7 +1343,7 @@ footer {
 }
 
 .appointment-doctor {
-  
+
   position: relative;
 }
 
@@ -1369,9 +1369,10 @@ footer {
 .catalogue-categories {
   margin: 5rem 0 2.5rem 0;
 }
+
 @media only screen and (max-width: 992px) {
   .catalogue-categories {
-  margin: 1.5rem 0;
+    margin: 1.5rem 0;
   }
 }
 
@@ -1390,7 +1391,7 @@ footer {
   padding: 12px 40px;
   text-transform: uppercase;
   border-radius: 20px;
-  
+
   color: #000;
   text-align: center;
 }
@@ -1416,7 +1417,7 @@ footer {
 
 
 .catalogue-breadcrumb-item {
-  
+
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -1432,7 +1433,7 @@ footer {
 }
 
 .catalogue-section__title {
-  
+
   color: #000;
   margin-bottom: 37px;
 }
@@ -1452,7 +1453,7 @@ footer {
 }
 
 .catalogue-sidebar__title {
-  
+
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -1520,7 +1521,7 @@ footer {
 }
 
 .catalogue-sidebar-dropdown-label {
-  
+
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
@@ -1550,7 +1551,7 @@ footer {
   width: 100%;
   padding: 18px 0;
   background: #B8E6EC;
-  
+
   color: #000;
   position: absolute;
   bottom: 0;
@@ -1607,7 +1608,7 @@ footer {
 }
 
 .catalogue-title {
-  
+
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
@@ -1616,7 +1617,7 @@ footer {
 }
 
 .catalogue-subtitle {
-  
+
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
@@ -1648,7 +1649,7 @@ footer {
 Запишитесь к Врачу 
 */
 .form-app-doctor {
-  
+
   border-radius: 1.25rem;
   background: #F8F9FC;
   padding: 2.62rem 1.8rem;
@@ -1737,7 +1738,7 @@ footer {
 */
 .catalogue-filter-row {
   width: 100%;
-  
+
   display: flex;
   justify-content: space-between;
 }
@@ -1790,7 +1791,7 @@ footer {
 
 .total-found-sidebar {
   width: 255px;
-  
+
   color: rgba(0, 0, 0, 0.5);
   background: #F1F5F8;
   border-radius: 20px;
@@ -1827,7 +1828,7 @@ footer {
 
 .filter-sidebar {
   width: 255px;
-  
+
   background: #F1F5F8;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
@@ -1950,7 +1951,7 @@ footer {
 }
 
 .catalogue__item-title {
-  
+
   color: #000;
   margin-bottom: 5px;
 }
@@ -1986,18 +1987,18 @@ footer {
 }
 
 .catalogue__in-stock-label {
-  
+
   color: #3A9EAA;
 }
 
 .catalogue__short-desc-label {
-  
+
   color: #000;
   margin-bottom: 18px;
 }
 
 .catalogue__item-price {
-  
+
   color: #56326E;
 }
 
@@ -2016,7 +2017,7 @@ footer {
 * PAGINATION
 */
 .pagination {
-  
+
   display: flex;
   justify-content: center;
 }
@@ -2141,9 +2142,7 @@ footer {
   height: 100%;
 }
 
-.product-description__purchase-details {
-  
-}
+.product-description__purchase-details {}
 
 .product-title {
   color: #000;
@@ -2332,7 +2331,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   color: #F1F5F8;
   cursor: pointer;
 }
@@ -2378,7 +2377,7 @@ footer {
 }
 
 .product-review-tab-wrapper {
-  
+
   padding-block-end: 221px;
 }
 
@@ -2425,9 +2424,7 @@ footer {
   margin-bottom: 0;
 }
 
-.similar-products {
-  
-}
+.similar-products {}
 
 
 .similar-products__outer {
@@ -2578,7 +2575,7 @@ footer {
 /* Таблица размеров */
 .sizes-table {
   width: max-content;
-  
+
   background: var(--white-f8);
   border-radius: 30px;
   padding: 20px 12px;
@@ -2678,7 +2675,7 @@ footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  
+
   margin-bottom: 24px;
 }
 
@@ -2730,9 +2727,7 @@ footer {
 }
 
 /* Форма обратной связи */
-.contact {
-  
-}
+.contact {}
 
 .contact__outer {
   background: #F1F5F8;
@@ -2772,7 +2767,7 @@ footer {
 .feedback-textarea {
   width: 100%;
   height: 150px;
-  
+
   outline: none;
   background: transparent;
   appearance: none;
@@ -2800,7 +2795,7 @@ footer {
 
 /* Корзина */
 .trash {
-  
+
   width: 1110px;
   padding: 48px 94px 60px 94px;
   background: #fff;
@@ -3132,9 +3127,7 @@ footer {
 }
 
 /* ОФОРМЛЕНИЕ ЗАКАЗА */
-.ordering {
-  
-}
+.ordering {}
 
 .ordering__title {
   margin-bottom: 27px;
@@ -3162,7 +3155,7 @@ footer {
 }
 
 .ordering-contacts-form__textarea {
-  
+
   width: 100%;
   height: 100px;
   -webkit-appearance: none;
@@ -4483,8 +4476,7 @@ footer {
   justify-content: center;
 }
 
-.info {
-}
+.info {}
 
 .payment-info {
   margin-bottom: 40px;
@@ -4649,9 +4641,7 @@ footer {
   gap: 10px;
 }
 
-.refund {
-  
-}
+.refund {}
 
 .refund__title {
   margin-bottom: 26px;
@@ -4680,7 +4670,7 @@ footer {
 .about-hero {
   width: 100%;
   position: relative;
-  
+
 }
 
 .about-hero__img {
@@ -4732,13 +4722,13 @@ footer {
 .reg-form {
   width: 536px;
   margin: 0 auto;
-  
+
   color: #484848;
 }
 
 .reg-subtitle {
   width: 1002px;
-  
+
   text-align: center;
   margin: 0 auto;
   margin-bottom: 50px;
@@ -4772,7 +4762,7 @@ footer {
 
 .reg-form__terms {
   position: relative;
-  
+
   color: #484848;
   padding-left: 34px;
   cursor: pointer;
@@ -5062,13 +5052,9 @@ footer {
     line-height: var(--lh-18);
   }
 
-  .fw-400-16-19 {
-    
-  }
+  .fw-400-16-19 {}
 
-  .fw-300-16-19 {
-    
-  }
+  .fw-300-16-19 {}
 
   .container-outer {
     width: 1013px;
@@ -5104,13 +5090,9 @@ footer {
     line-height: var(--lh-15);
   }
 
-  .fw-400-16-19 {
-    
-  }
+  .fw-400-16-19 {}
 
-  .fw-300-16-19 {
-    
-  }
+  .fw-300-16-19 {}
 
   .container-outer {
     width: 900px;
@@ -5399,9 +5381,7 @@ footer {
     line-height: var(--lh-18);
   }
 
-  .fw-400-16-19 {
-    
-  }
+  .fw-400-16-19 {}
 
   .fw-300-16-19 {
     font-size: var(--fs-14);
@@ -5562,9 +5542,7 @@ footer {
     margin-right: 18px;
   }
 
-  .checkbox-grid {
-
-  }
+  .checkbox-grid {}
 
   .filter-sidebar__inner {
     padding: 0;
@@ -5884,7 +5862,11 @@ footer {
 
   .main-block {
     display: block;
-    position: relative;
+    min-height: 0;
+  }
+
+  .main-bg {
+    position: static;
   }
 
   .main-title {
