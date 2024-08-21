@@ -20,6 +20,7 @@ class FacilityTizer extends JsonResource
         $arr['icondark'] = $arr['icondark'] ? Voyager::image($arr['icondark']) : "";
         $arr['bg'] = $arr['bg'] ? Voyager::image($arr['bg']) : "";
         $arr['image'] = $arr['image'] ? Voyager::image($arr['image']) : "";
+        $arr['mimage'] = $arr['mimage'] ? Voyager::image($arr['mimage']) : "";
         return $arr;
     }
 }
