@@ -176,6 +176,29 @@ class CatalogController extends Controller
         ]);
     }
 
+
+    public function stock(Request $request)
+    {
+        $products = Product::where('promo', true);
+
+        return Inertia::render('Stock', [
+            'pagetitle' => __('Акции'),
+            'products' => ProductTizer::collection($products->paginate(36)->appends(request()->only(['sort', 'order', 'q']))),
+            'sort' => $request->sort,
+            'order' => $request->order,
+            'query' => $request->q,
+            'breadcrumbs' => [
+                [
+                    'route' => 'home',
+                    'text' => 'Главная'
+                ],
+                [
+                    'text' => 'Акции'
+                ]
+            ]
+        ]);
+    }
+
     /**
      * Handle the incoming request.
      */

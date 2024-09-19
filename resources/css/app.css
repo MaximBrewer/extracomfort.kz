@@ -103,3 +103,25 @@
 .prose.text-white * {
     color: white;
 }
+
+.rents ul {
+    @apply grid grid-cols-1 gap-6 mb-8 pl-4;
+}
+
+.rents ul li {
+    @apply pl-8 relative;
+}
+
+.rents ul li:before {
+    content: "";
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left:0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url('/img/li.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}

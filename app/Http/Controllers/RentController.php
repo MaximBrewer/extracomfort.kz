@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rent;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -14,6 +15,7 @@ class RentController extends Controller
     {
         return Inertia::render('Rent', [
             'pagetitle' => __('Информация по аренде'),
+            'rents' => Rent::all(),
             'breadcrumbs' => [
                 [
                     'route' => 'home',
