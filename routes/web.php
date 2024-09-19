@@ -86,7 +86,7 @@ Route::middleware('shop')->group(function () {
     Route::get('/catalog/{path?}', CatalogController::class)
         ->where('path', '[a-zA-Z0-9/_-]+')->name('catalog');
     Route::get('/search', [CatalogController::class, 'search'])->name('search');
-    Route::get('/stock', [CatalogController::class, 'stock'])->name('stock');
+    Route::get('/promo', [CatalogController::class, 'promo'])->name('promo');
 
     Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
 
