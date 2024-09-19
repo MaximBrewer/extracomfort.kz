@@ -349,6 +349,44 @@ class OrderController extends Controller
      */
     public function payed(Request $request)
     {
+        if ($request->code == 'ok') {
+            $order = Order::findOrFail((int)$request->invoiceId);
+            if ($request->amount == $order->cart->sum) {
+                $order->status = 5;
+                $order->save();
+            }
+        }
+        // [2024-07-11 15:16:00] local.INFO: array (
+        //     'accountId' => NULL,
+        //     'amount' => 1000,
+        //     'approvalCode' => NULL,
+        //     'cardId' => '1cf6a64d-2e3e-dcb2-e063-1b01010ada19',
+        //     'cardMask' => NULL,
+        //     'cardType' => NULL,
+        //     'code' => 'error',
+        //     'currency' => 'KZT',
+        //     'dateTime' => '2024-07-11T14:56:45.91809+05:00',
+        //     'description' => 'Oplata tovara',
+        //     'email' => NULL,
+        //     'id' => 'b793bb75-7eeb-4351-b122-dbfbfd7af01a',
+        //     'invoiceId' => '000000047',
+        //     'ip' => '79.140.228.7',
+        //     'ipCity' => 'Karaganda',
+        //     'ipCountry' => 'Kazakhstan',
+        //     'ipDistrict' => NULL,
+        //     'ipLatitude' => 49.8119,
+        //     'ipLongitude' => 73.0969,
+        //     'ipRegion' => NULL,
+        //     'issuer' => 'JSC KASPI BANK',
+        //     'language' => 'RUS',
+        //     'name' => NULL,
+        //     'phone' => NULL,
+        //     'reason' => 'Authentication failed (3DSecure/Securecode)',
+        //     'reasonCode' => 473,
+        //     'reference' => NULL,
+        //     'secure' => 'yes',
+        //     'terminal' => 'd3363a74-ce0c-46bf-8f87-42248d793090',
+        //   )
         Log::info($request);
         return 'ok';
     }
