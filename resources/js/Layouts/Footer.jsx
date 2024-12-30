@@ -8,6 +8,7 @@ import { Link, usePage } from "@inertiajs/react"
 import CallBack from "@/Modals/CallBack"
 import { useLayout } from "@/Contexts/LayoutContext"
 import parse from "html-react-parser"
+import {Helmet} from "react-helmet";
 
 export default () => {
 
