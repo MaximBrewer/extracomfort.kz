@@ -157,6 +157,7 @@ class CatalogController extends Controller
         }
 
         return Inertia::render('Category', [
+            'pixel' => $category->script,
             'filter' => $filter,
             'sort' => $request->sort,
             'order' => $request->order,

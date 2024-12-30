@@ -4,17 +4,22 @@ import ArrowTop from "@/../images/arrow-top.svg"
 import LogoVertical from "@/../images/logo_vertical.svg"
 import Email from "@/../images/email.svg"
 import Phone from "@/../images/phone.svg"
-import { Link } from "@inertiajs/react"
+import { Link, usePage } from "@inertiajs/react"
 import CallBack from "@/Modals/CallBack"
 import { useLayout } from "@/Contexts/LayoutContext"
+import parse from "html-react-parser"
 
 export default () => {
 
     const { menus, footeremail, footerphone, copyright } = window.appdata
 
-    const { setModal, goToTop } = useLayout()
+    const { setModal, goToTop } = useLayout();
+    const { pixel } = usePage().props;
 
     return <footer>
+        <Helmet>
+            {parse(pixel ?? ``)}
+        </Helmet>
         <div className="container-outer h-full">
             <div className="footer__outer">
                 <div className="flex flex-col xl:flex-row pb-12">

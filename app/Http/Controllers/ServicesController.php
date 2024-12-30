@@ -23,6 +23,7 @@ class ServicesController extends Controller
     public function __invoke(Request $request)
     {
         return Inertia::render('Services', [
+            'pixel' => '<script src="//web.webformscr.com/apps/fc3/build/loader.js" async sp-form-id="b00b150b3fabf57791ef5b45912007bc50fbb450f7c67e00e6f64c3baf1ef8fa"></script>',
             'pagetitle' => __('Услуги'),
             'banners' => ResourcesServiceBanner::collection(ServiceBanner::all()),
             'statistics' => ResourcesStatistic::collection(Statistic::all()),

@@ -18,7 +18,8 @@ class FacilitiesController extends Controller
 
         $facility = Facility::where('slug', $facility)->firstOrFail();
 
-        if ($subfacility) $subfacility = $facility->children()->where('slug', $subfacility)->firstOrFail();
+        if ($subfacility)
+            $subfacility = $facility->children()->where('slug', $subfacility)->firstOrFail();
 
         if ($subfacility) {
             $facilityId = $subfacility->id;
@@ -57,6 +58,7 @@ class FacilitiesController extends Controller
         }
 
         return Inertia::render('Facility', [
+            'pixel' => $facility->script,
             'pagetitle' => $facility->name,
             'current' => new ResourcesFacility($subfacility ? $subfacility : $facility),
             'facility' => new ResourcesFacility($facility),

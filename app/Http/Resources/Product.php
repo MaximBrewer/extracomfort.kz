@@ -18,6 +18,13 @@ class Product extends JsonResource
     {
         $arr = parent::toArray($request);
 
+        foreach ($this->categories as $category) {
+            if ($category->script) {
+                $arr['script'] = $category->script;
+                break;
+            }
+        }
+
         $arr['stock'] = 'Наличие';
         $arr['offers'] = Offer::collection($this->offers);
         $arr['reviewsCount'] = 12 . ' ' . Lang::choice('отзыв|отзыва|отзывов', 12, [], 'ru');
