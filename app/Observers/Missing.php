@@ -11,7 +11,7 @@ class Missing
     public function created(ModelsMissing $model)
     {
         $user = new User();
-        $user->email = 'pimax1978@icloud.com';
+        $user->email = setting('site.order_email');
         $user->notify(new MissingCreated($model));
     }
 }

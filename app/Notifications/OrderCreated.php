@@ -11,12 +11,14 @@ class OrderCreated extends Notification
 {
     use Queueable;
 
+    private $model;
+
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($model)
     {
-        //
+        $this->model = $model;
     }
 
     /**
@@ -35,9 +37,10 @@ class OrderCreated extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject('Заявка на отсутствующий товар')
+            ->line('Имя: ' . $this->model->name)
+            ->line('Телефон: ' . $this->model->phone)
+            ->line($this->model->message);
     }
 
     /**

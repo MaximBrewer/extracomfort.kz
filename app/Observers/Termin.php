@@ -11,7 +11,7 @@ class Termin
     public function created(ModelsTermin $model)
     {
         $user = new User();
-        $user->email = 'extracomfort@mail.ru';
+        $user->email = setting('site.manager_email');
         $user->notify(new TerminCreated($model));
     }
 }

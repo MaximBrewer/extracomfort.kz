@@ -11,7 +11,7 @@ class CallBack
     public function created(ModelsCallBack $model)
     {
         $user = new User();
-        $user->email = 'pimax1978@icloud.com';
+        $user->email = setting('site.manager_email');
         $user->notify(new CallBackCreated($model));
     }
 }
